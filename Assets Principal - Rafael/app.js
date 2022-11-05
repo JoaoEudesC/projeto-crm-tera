@@ -1,4 +1,4 @@
-// Scroll suave
+// Scroll suave rolagem pagina
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
