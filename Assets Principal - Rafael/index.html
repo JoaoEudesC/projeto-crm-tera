@@ -20,7 +20,7 @@
             <div class="topnav-centered">
                 <a href="#home" class="active">Home</a>
                 <a href="#search">Preços</a>
-                <a href="#about">Contate-nos</a>
+                <a href="#formularios">Contate-nos</a>
             </div>
         <!-- Right-aligned links -->
             <div class="topnav-right">
@@ -38,7 +38,6 @@
             <button type="button" id="button_test_gratis">Comece seu teste com 07 dias gratis</button>
             <p> Comece hoje mesmo seu teste grátis e faça suas vendas decolarem.</p>
         </div>
-
     </div>
     <div id="all_cards">
         <div class="flip-card">
@@ -81,7 +80,28 @@
             </div>
         </div>
     </div>
-    <h1></h1>
+    <div id="formularios">
+        <form>
+            <div id="label_1">
+                <label class="label" for="name"> Nome </label>
+                <input type="text" id="name" placeholder="Nome">
+            </div>
+            <div id="label_2">
+                <label class="label"for="email"> E-mail </label>
+                <input type="email" id="email" placeholder="E-mail">
+            </div>
+            <div id="label_3">
+                <label class="label" for="telefone"> Telefone </label>
+                <input type="tel" id="telefone" placeholder="Telefone">
+            </div>
+            <div id="text_area">
+                <label class="label" for="texto"> Descreva sua necessidade </label>
+                <textarea id="texto_contato" name="textocontato" rows="4" cols="50" placeholder="Digite seu texto">
+            </div>
+            <button class="submit" type="button">Enviar</button>  
+        </form>
+
+    </div>
     <script src="app.js"></script>
 </body>
 </html>

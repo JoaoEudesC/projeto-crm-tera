@@ -81,6 +81,12 @@ body{
     float: right; 
 }
 
+
+.submit{
+    background-color: #07a252;
+
+}
+
 #text_head{
     background-color: #07a252;
     min-width:0%;
@@ -117,6 +123,27 @@ body{
     cursor:pointer;
     border: 2px solid green;
     border-radius: 25px;
+}
+
+#formularios{
+    text-align: center;
+    margin-top: 300px;
+    margin-bottom: 150px;
+}
+
+.label{
+    color: white;
+    margin-top: 50px ;
+}
+
+#label_1{
+    margin-bottom: 10px;
+}
+#label_2{
+    margin-bottom: 10px;
+}
+#label_3{
+    margin-bottom: 10px;
 }
 
 
