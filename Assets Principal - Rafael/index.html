@@ -8,19 +8,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap" rel="stylesheet">
+    <link rel="icon" href="/Imagens/Logo-ohne.png" type="image/icon type">
     <title>Lobster CRM</title>
 </head>
 <body>
     <header>
         <img src="/Imagens/image-removebg-preview.png" id="Logo_principal" alt="logo"/>
-        <a id="button_login" href=""><button class="button" type="button">Login</button></a>
+        <a id="button_login" href=""><button class="button_login" type="button">Login</button></a>
         <!-- Top navigation -->
     <div class="topnav">
         <!-- Centered link -->
             <div class="topnav-centered">
                 <a href="#home" class="active">Home</a>
                 <a href="#search">Preços</a>
-                <a href="#formularios">Contate-nos</a>
+                <a class="contato" href="#formularios">Contate-nos</a>
             </div>
         <!-- Right-aligned links -->
             <div class="topnav-right">
@@ -60,47 +61,50 @@
                     <img src="./Icones/icons8-lobster-48.png" alt="Avatar" class="img_card">
                 </div>
             <div class="flip-card-back">
-                <h1>Cadastre Novos Clientes</h1>
-                <p>Adicione novos clientes e mantenha sua base de clientes atualizada e completa</p>
-                <p>Com isso você terá maior controle sobre os novos leads.</p>
+                <h1>Gestão de Clientes</h1>
+                <p>Software de CRM de vendas que apresenta informações mais profundas sobre seus prospects, automatiza as tarefas que você detesta e fecha mais negócios com mais rapidez.</p>
             </div>
             </div>
         </div>
         <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <h1>Gestão de Produtos</h1>
+                    <h1>Gestão de Serviços</h1>
                     <img src="./Icones/icons8-lobster-48.png" alt="Avatar" class="img_card">
                 </div>
             <div class="flip-card-back">
-                <h1>Cadastre Novos Clientes</h1>
-                <p>Adicione novos clientes e mantenha sua base de clientes atualizada e completa</p>
-                <p>Com isso você terá maior controle sobre os novos leads.</p>
+                <h1>Gestão de Serviços</h1>
+                <p>Software de atendimento ao cliente para ajudar você a se conectar com clientes, superar suas expectativas e convertê-los em verdadeiros promotores da marca.</p>
             </div>
             </div>
         </div>
     </div>
     <div id="formularios">
-        <form>
+        <form action="formHandler.php" method="post">
             <div id="label_1">
                 <label class="label" for="name"> Nome </label>
-                <input type="text" id="name" placeholder="Nome">
+                <h1></h1>
+                <input class="input" type="text" id="name" placeholder="Nome">
             </div>
             <div id="label_2">
                 <label class="label"for="email"> E-mail </label>
-                <input type="email" id="email" placeholder="E-mail">
+                <h1></h1>
+                <input class="input" type="email" id="email" placeholder="E-mail">
             </div>
             <div id="label_3">
                 <label class="label" for="telefone"> Telefone </label>
-                <input type="tel" id="telefone" placeholder="Telefone">
+                <h1></h1>
+                <input class="input" type="tel" id="telefone" placeholder="Telefone">
             </div>
             <div id="text_area">
                 <label class="label" for="texto"> Descreva sua necessidade </label>
-                <textarea id="texto_contato" name="textocontato" rows="4" cols="50" placeholder="Digite seu texto">
+                <h1></h1>
+                <textarea class="input" id="texto_contato" name="textocontato" rows="4" cols="30" placeholder="Digite seu texto">
+                </textarea>
             </div>
-            <button class="submit" type="button">Enviar</button>  
+            <button class="button_send" type="button">Enviar!</button>
+            
         </form>
-
     </div>
     <script src="app.js"></script>
 </body>

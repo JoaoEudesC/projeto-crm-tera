@@ -1,5 +1,6 @@
 body{
-    background-color: #002814;
+    background-image: linear-gradient(to top, #07a252, #008B8B);
+    /* background-color: #004953; */
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -42,7 +43,7 @@ body{
 }
 
 .flip-card-front {
-    background-color:#cbe8ba;
+    background-color:#008B8B;
     color: black;
 }
 
@@ -68,7 +69,7 @@ body{
 }
 
 
-.button{
+.button_login{
     background-color: #07a252;
     border: none;
     color: white;
@@ -81,6 +82,30 @@ body{
     float: right; 
 }
 
+.button_login:hover{
+    background-color: #333;
+
+}
+
+.button_send{
+    background-color: #008B8B;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    float: center; 
+}
+.button_send:hover{
+    background-color: #333;
+}
+
+.contato{
+    scroll-behavior: smooth;
+}
 
 .submit{
     background-color: #07a252;
@@ -88,7 +113,7 @@ body{
 }
 
 #text_head{
-    background-color: #07a252;
+    background-image: linear-gradient(to left, #07a252, #008B8B);
     min-width:0%;
     min-height: 100%;
     margin:0;
@@ -108,6 +133,13 @@ body{
     margin-top: 50px;
     text-align: left;
     margin-left:100px ;
+    font-size: 21px;
+    font-weight: bold ;
+    
+}
+
+#text_head_text{
+    font-size: 25px;
 }
 
 #hero_image{
@@ -125,6 +157,12 @@ body{
     border-radius: 25px;
 }
 
+#button_test_gratis:hover{
+    background-color: #07a252;
+    
+
+}
+
 #formularios{
     text-align: center;
     margin-top: 300px;
@@ -132,8 +170,9 @@ body{
 }
 
 .label{
-    color: white;
+    color: black;
     margin-top: 50px ;
+    margin-right: 10px;
 }
 
 #label_1{
@@ -146,6 +185,10 @@ body{
     margin-bottom: 10px;
 }
 
+.input{
+    border-radius: 5px;
+    size:50px;
+}
 
 /* MENUS */
 
