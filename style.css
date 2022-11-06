@@ -2,6 +2,7 @@ body{
     background:linear-gradient(to left, rgb(0, 26, 37), rgb(43, 0, 9));
     /* background-color: #004953; */
     font-family: 'Josefin Sans', sans-serif;
+    color:white
 }
 
 
@@ -44,7 +45,7 @@ body{
 
 .flip-card-front {
     background-color:rgb(2, 70, 99);
-    color: black;
+    color: white;
 }
 
 .flip-card-back {
