@@ -1,0 +1,57 @@
+
+body{
+background:linear-gradient(to left, rgb(0, 26, 37), rgb(43, 0, 9));
+color: white;
+}
+
+
+h1{
+text-align: center;
+
+
+}
+
+
+h2{
+text-align: center;
+margin-top: 20px;
+}
+
+button{
+background-color:#03532b ;
+border-radius: 5px 5px 5px 5px;
+color: white;
+padding: 15px;
+width: 300px;
+text-align: center;
+margin-right: 25px;
+box-shadow: 3px 3px 3px 3px black;
+}
+
+
+#mover{
+display: flex;
+justify-content: center;
+margin-top: 80px;
+}
+
+#flex{
+margin-top: 50px;
+}
+
+
+#cadastrar{
+width: 200px;
+margin-top: 20px;
+margin-left: 2px;
+}
+
+span :hover{
+background-color: #4ec286;
+transition-duration: 0.5s;
+text-decoration: none;
+}
+
+
+
+

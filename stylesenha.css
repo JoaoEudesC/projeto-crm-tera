@@ -1,0 +1,70 @@
+body{
+background:linear-gradient(to left, rgb(0, 26, 37), rgb(43, 0, 9));
+color: white;
+}
+
+
+h1{
+text-align: center;
+}
+
+
+h2{
+text-align: center;
+}
+
+
+#flex{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 200px;
+}
+
+#redefinir{
+margin-top: 15px;
+text-align: center;
+width: 300px;
+background-color:#03532b ;
+color:white;
+padding: 10px;
+border-radius: 6px 6px 6px 6px;
+box-shadow: 4px 4px 4px 4px black;
+}
+
+
+p{
+text-align: center;
+margin-top: 20px;
+}
+
+
+#efeito :hover{
+background-color: #4ec286;
+transition-duration: 0.5s;
+text-decoration: none;
+}
+
+#inlineFormInputGroupUsername{
+box-shadow: 3px 3px 3px 3px black;
+}
+
+
+a{
+text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

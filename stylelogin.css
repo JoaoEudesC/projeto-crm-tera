@@ -1,0 +1,82 @@
+body{
+    background:linear-gradient(to left, rgb(0, 26, 37), rgb(43, 0, 9));
+    color: white;
+}
+
+#flex{
+display: flex;
+justify-content: center;
+margin-top: 200px;
+}
+
+
+h1{
+text-align: center;
+
+}
+
+header{
+color: white;
+text-align: center;
+margin-top: 10px;
+}
+
+
+#exampleCheck1{
+margin-top: 15px;
+}
+
+.form-check-label{
+margin-top: 11px;
+}
+
+
+#img{
+margin-top: 10px;
+box-shadow: 6px 6px 6px black;
+}
+
+#senha{
+margin-top: 10px;
+}
+
+#senha :hover{
+text-decoration: underline;
+}
+
+a{text-decoration: none;}
+
+span :hover{
+text-decoration: underline;
+}
+
+
+
+
+
+#entrar{
+background-color:#03532b ;
+border-radius: 5px 5px 5px 5px;
+color: white;
+padding: 15px;
+width: 300px;
+box-shadow: 3px 3px 3px 3px black;
+
+}
+
+
+#efeito :hover{
+background-color: #4ec286;
+transition-duration: 0.5s;
+text-decoration: none;
+}
+
+#labor{
+color:white;
+}
+
+label{
+color: black;
+}
+
+
