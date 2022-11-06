@@ -1,5 +1,5 @@
 body{
-    background-image: linear-gradient(to top, #07a252, #008B8B);
+    background:linear-gradient(to left, rgb(0, 26, 37), rgb(43, 0, 9));
     /* background-color: #004953; */
     font-family: 'Josefin Sans', sans-serif;
 }
@@ -43,12 +43,12 @@ body{
 }
 
 .flip-card-front {
-    background-color:#008B8B;
+    background-color:rgb(2, 70, 99);
     color: black;
 }
 
 .flip-card-back {
-    background-color: #07a252;
+    background-color: #03532b;
     color: white;
     transform: rotateY(180deg);
 }
@@ -70,7 +70,7 @@ body{
 
 
 .button_login{
-    background-color: #07a252;
+    background-color: #03532b;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -83,12 +83,13 @@ body{
 }
 
 .button_login:hover{
-    background-color: #333;
-
+    background-color: #4ec286;
+    transition-duration: 0.5s;
+    text-decoration: none;
 }
 
 .button_send{
-    background-color: #008B8B;
+    background-color: #03532b;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -100,7 +101,9 @@ body{
     float: center; 
 }
 .button_send:hover{
-    background-color: #333;
+    background-color: #4ec286;
+    transition-duration: 0.5s;
+    text-decoration: none;
 }
 
 .contato{
@@ -113,7 +116,7 @@ body{
 }
 
 #text_head{
-    background-image: linear-gradient(to left, #07a252, #008B8B);
+    background-image: linear-gradient(to right, #03532b, rgb(2, 70, 99));
     min-width:0%;
     min-height: 100%;
     margin:0;
@@ -170,7 +173,7 @@ body{
 }
 
 .label{
-    color: black;
+    color: white;
     margin-top: 50px ;
     margin-right: 10px;
 }
@@ -216,8 +219,10 @@ body{
 
   /* Add a color to the active/current link */
 .topnav a:hover {
-    background-color: #07a252;
+    background-color: #03532b;
     color: white;
+    transition-duration: 0.5s;
+    text-decoration: none;
 }
 
   /* Centered section inside the top navigation */
