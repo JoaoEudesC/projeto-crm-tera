@@ -2,6 +2,8 @@
 body{
 background:linear-gradient(to left, rgb(0, 26, 37), rgb(43, 0, 9));
 color: white;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
 }
 
 
@@ -44,6 +46,7 @@ margin-top: 50px;
 width: 200px;
 margin-top: 20px;
 margin-left: 2px;
+margin-bottom: 15px;
 }
 
 span :hover{
@@ -51,6 +54,11 @@ background-color: #4ec286;
 transition-duration: 0.5s;
 text-decoration: none;
 }
+
+.container{
+margin-top: 50px;
+}
+
 
 
 

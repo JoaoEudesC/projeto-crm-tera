@@ -6,6 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <link rel="shortcut icon" href="Imagens/Logo-ohne.ico" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="stylecadastro.css">
         <title>Cadastro</title>
     </head>
@@ -29,6 +32,7 @@
         
         <div id="flex">
             <form class="row g-3 needs-validation" novalidate>
+                
                 <div class="col-md-4 position-relative">
                     <label for="validationTooltip01" class="form-label"></label>
                     <input type="text" class="form-control" id="validationTooltip01" placeholder="Nome Completo" required>
@@ -69,7 +73,7 @@
                 
                 <div class="col-md-4 position-relative">
                     <label for="validationTooltip02" class="form-label"></label>
-                    <input type="text" class="form-control" id="validationTooltip02"  placeholder="Cidade" required>
+                    <input type="text" class="form-control" id="validationTooltip02"  placeholder="País ( Exterior/fora do brasil)" required>
                     <div class="valid-tooltip">
                         Parece Correto
                     </div>
@@ -77,18 +81,40 @@
                 
                 <div class="col-md-4 position-relative">
                     <label for="validationTooltip02" class="form-label"></label>
-                    <input type="text" class="form-control" id="validationTooltip02" placeholder="Estado" required>
+                    <input type="text" class="form-control" id="validationTooltip02" placeholder="Cidade ( Exterior/fora do brasil)" required>
                     <div class="valid-tooltip">
                         Parece Correto
                     </div>
                 </div>
-            </form>
+                
+                <div class="container"></div>
+                    <div class="form-group">
+                            <label for="cep"></label>
+                            <input type="text" class="form-control" id="cep" placeholder="CEP">
+                        </div>
+                        <div class="form-group">
+                            <label for="logradouro"></label>
+                            <input type="text" class="form-control" id="logradouro" placeholder="Logradouro">
+                        </div>
+                        <div class="form-group">
+                            <label for="bairro"></label>
+                            <input type="text" class="form-control" id="bairro" placeholder="Bairro">
+                        </div>
+                        <div class="form-group">
+                            <label for="localidade"></label>
+                            <input type="text" class="form-control" id="localidade" placeholder="Localidade">
+                        </div>
+                        <div class="form-group">
+                            <label for="uf"></label>
+                            <input type="text" class="form-control" id="uf" placeholder="UF">
+                        </div>
+                    </form>
+                </div>
             <a href="indexlogin.html">
                 <span>
                     <button id="cadastrar">Cadastrar</button>
                 </span>
             </a> 
-        </div>
         <script src="appcadastro.js"></script>
     </body>
 </html>
