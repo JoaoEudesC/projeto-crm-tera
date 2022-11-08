@@ -1,12 +1,36 @@
 body{
-    background:linear-gradient(to left, rgb(0, 26, 37), rgb(43, 0, 9));
-    color: white;
+background:linear-gradient(to left, rgb(0, 26, 37), rgb(43, 0, 9));
+color: white;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
 }
 
 #flex{
 display: flex;
 justify-content: center;
 margin-top: 200px;
+}
+
+#home{
+margin-left: 5px;
+box-shadow: 3px 3px 3px 3px black;
+background-color:#03532b ;
+margin-top: -8px;
+margin-left: 4px;
+
+}
+
+#casa{
+display: flex;
+justify-content: flex-start;
+}
+
+
+
+#botao_home :hover{
+background-color: #4ec286;
+transition-duration:0.5s;
+text-decoration: none;
 }
 
 
@@ -33,7 +57,7 @@ margin-top: 11px;
 
 #img{
 margin-top: 10px;
-box-shadow: 6px 6px 6px black;
+
 }
 
 #senha{
@@ -61,6 +85,7 @@ color: white;
 padding: 15px;
 width: 300px;
 box-shadow: 3px 3px 3px 3px black;
+margin-bottom: 10px;
 
 }
 
@@ -78,5 +103,8 @@ color:white;
 label{
 color: black;
 }
+
+
+
 
 
