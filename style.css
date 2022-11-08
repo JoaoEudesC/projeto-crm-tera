@@ -1,10 +1,11 @@
-body{
-    background:linear-gradient(to left, rgb(0, 26, 37), rgb(43, 0, 9));
-    /* background-color: #004953; */
-    font-family: 'Josefin Sans', sans-serif;
-    color:white
+@media screen{
+    body{
+        background:linear-gradient(to left, rgb(0, 26, 37), rgb(43, 0, 9));
+        /* background-color: #004953; */
+        font-family: 'Josefin Sans', sans-serif;
+        color:white
+    }
 }
-
 
 .flip-card {
     background-color: transparent;
@@ -79,8 +80,10 @@ body{
     text-decoration: none;
     font-size: 12px;
     margin: 4px 2px;
+    margin-left: 10px;
     cursor: pointer;
     float: right; 
+    box-shadow: 3px 3px 3px 3px black
 }
 
 .button_login:hover{
@@ -100,6 +103,7 @@ body{
     margin: 4px 2px;
     cursor: pointer;
     float: center; 
+    box-shadow: 1px 1px 1px 1px rgb(103, 99, 99)
 }
 .button_send:hover{
     background-color: #4ec286;
@@ -133,25 +137,31 @@ body{
 }
 
 #texto_head{
-    width: 510px;
+    width: 500px;
     margin-top: 50px;
     text-align: left;
-    margin-left:100px ;
+    margin-left:50px ;
     font-size: 21px;
     font-weight: bold ;
-    
+    display:grid;
 }
+
+/* #texto_head p{
+    display: inline;
+} */
 
 #text_head_text{
     font-size: 25px;
 }
 
 #hero_image{
-    float:right;
     width: 500px;
-    margin-right: 500px;
+    margin: auto;
+    margin-bottom: -300px;
     display: flex;
-
+    justify-content: center;
+    text-align: center;
+    align-items: flex-end;
 }
 
 #button_test_gratis{
