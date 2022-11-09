@@ -87,28 +87,29 @@
             <div id="label_1">
                 <label class="label" for="name"> Nome </label>
                 <h1></h1>
-                <input class="input" type="text" id="name" placeholder="Nome">
+                <input class="input" type="text" id="name" placeholder="Nome" required>
             </div>
             <div id="label_2">
                 <label class="label"for="email"> E-mail </label>
                 <h1></h1>
-                <input class="input" type="email" id="email" placeholder="E-mail">
+                <input class="input" type="email" id="email" placeholder="E-mail" required>
             </div>
             <div id="label_3">
                 <label class="label" for="telefone"> Telefone </label>
                 <h1></h1>
-                <input class="input" type="tel" id="telefone" placeholder="Telefone">
+                <input class="input telefone" type="text" name= "telefone" id="telefone" placeholder="Telefone" required>
             </div>
             <div id="text_area">
                 <label class="label" for="texto"> Descreva sua necessidade </label>
                 <h1></h1>
-                <textarea class="input" id="texto_contato" name="textocontato" rows="4" cols="30" placeholder="Digite seu texto">
-                </textarea>
+                <textarea class="input" id="texto_contato" name="textocontato" rows="4" cols="30" placeholder="Digite seu texto" required></textarea>
             </div>
             <div id="infos"></div>
-            <button class="button_send" type="button" onclick="btn()">Enviar!</button>
+            <button class="button_send" type="submit">Enviar!</button>
         </form>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/igorescobar/jQuery-Mask-Plugin/master/src/jquery.mask.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
