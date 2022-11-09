@@ -27,11 +27,7 @@ justify-content: flex-start;
 
 
 
-#botao_home :hover{
-background-color: #4ec286;
-transition-duration:0.5s;
-text-decoration: none;
-}
+
 
 
 h1{
@@ -90,11 +86,18 @@ margin-bottom: 10px;
 }
 
 
-#efeito :hover{
+#entrar:hover{
 background-color: #4ec286;
 transition-duration: 0.5s;
 text-decoration: none;
 }
+
+#home:hover{
+background-color: #4ec286;
+transition-duration: 0.5s;
+text-decoration: none;
+}
+
 
 #labor{
 color:white;

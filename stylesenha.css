@@ -34,6 +34,13 @@ border-radius: 6px 6px 6px 6px;
 box-shadow: 4px 4px 4px 4px black;
 }
 
+#redefinir:hover{
+background-color: #4ec286;
+transition-duration: 0.5s;
+text-decoration: none;
+
+}
+
 
 p{
 text-align: center;
@@ -41,11 +48,6 @@ margin-top: 20px;
 }
 
 
-#efeito :hover{
-background-color: #4ec286;
-transition-duration: 0.5s;
-text-decoration: none;
-}
 
 #inlineFormInputGroupUsername{
 box-shadow: 3px 3px 3px 3px black;

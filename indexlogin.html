@@ -13,42 +13,39 @@
         <title>Login</title>
     </head>
     <body>
-        
         <header>
             <div id="casa">
                 <a href="index.html">  
-                    <span id="botao_home">
-                        <button type="button" class="btn btn-secondary btn-sm" id="home">Home</button>
-                    </span>
+                    <button type="button" class="btn btn-secondary btn-sm" id="home">Home</button>
                 </a>
             </div>
             <h1> <img src="Imagens/image-removebg-preview.png" alt="logo do nosso crm"></h1>
             <p>Nao possui uma conta?<span><a href="indexcadastro.html"> Inscreva-se</a></span></p>
         </header>
-        <div id="flex">
-            <form>
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" minlength="11">
-                    <label for="floatingInput">Email address</label>
-                </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" minlength="6">
-                    <label for="floatingPassword">Password</label>
-                </div>
-                <div class="mb-3 form-check">
-                    <p id="senha">
-                        <a href="indexsenha.html">Esqueci Minha Senha</a>
-                    </p>
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1" id="labor">Lembre-me</label>
-                </div>
-                <span id="efeito">
+        <main>
+            <div id="flex">
+                <form>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" minlength="11">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" minlength="6">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <p id="senha">
+                            <a href="indexsenha.html">Esqueci Minha Senha</a>
+                        </p>
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1" id="labor">Lembre-me</label>
+                    </div>
                     <a href="#">
                         <button id="entrar">Entrar</button>
                     </a> 
-                </span>
-            </form>
-        </div>
+                </form>
+            </div>
+        </main>
         <script src="applogin.js"></script>
     </body>
 </html>
