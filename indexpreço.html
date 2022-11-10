@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap" rel="stylesheet">
+    <link rel="icon" href="./Imagens/Logo-ohne.png" type="image/icon type">
+    <title>Lobster CRM</title>
+</head>
+<body>
+    <header>
+        <img src="./Imagens/image-removebg-preview.png" id="Logo_principal" alt="logo"/>
+        <a id="button_login" href="indexlogin.html"><button class="button_login" type="button">Login</button></a>
+        <a id="button_cadastro" href="indexcadastro.html"><button class="button_login" type="button">Cadastro</button></a>
+        <!-- Top navigation -->
+        <div class="topnav">
+            <!-- Centered link -->
+                <div class="topnav-centered">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="indexpreço.html">Preços</a>
+                    <a class="contato" href="#formularios">Contate-nos</a>
+                </div>
+            <!-- Right-aligned links -->
+                <div class="topnav-right">
+                    <a href="#search"></a>
+                    <a href="#about"></a>
+                </div>
+        </div>
+    </header>
+    <div id="text_head">
+            <h2>Lobster Marketing</h2>
+            Tudo que você precisa para obter as leds e transformá-los em clientes.</p>
+    </div>
+    <div id="all_cards">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h1>Mensal</h1>
+                    <img src="./Icones/icons8-lobster-48.png" alt="Avatar" class="img_card">
+                    <h2>Aproveite!</h2>
+                </div>
+            <div class="flip-card-back">
+                <h1>Plano mensal para novos cliente</h1>
+                <p>Assinando o plano MENSAL você tera acesso a todos os recurso avançados de nosso CRM por 30 dias</p>
+                <p>Por apartir de </p>
+                <h2>R$49,90</h2>
+                <div id="mover">
+                    <a href="indexlogin.html">
+                        <span>
+                            <button>Assinar</button>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h1>Semestral</h1>
+                    <img src="./Icones/icons8-lobster-48.png" alt="Avatar" class="img_card">
+                    <h2>5% OFF</h2>
+                </div>
+            <div class="flip-card-back">
+                <h1>Plano Semestral para novos cliente</h1>
+                <p>Assinando o plano SEMESTRAL você tera acesso a todos os recurso avançados de nosso CRM por 180 dias</p>
+                <p>Por apartir de </p>
+                <h2>R$284,43</h2>
+                <div id="mover">
+                    <a href="indexlogin.html">
+                        <span>
+                            <button>Assinar</button>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h1>Anual</h1>
+                    <img src="./Icones/icons8-lobster-48.png" alt="Avatar" class="img_card">
+                    <h2>10% OFF</h2>
+                </div>
+            <div class="flip-card-back">
+                <h1>Plano anual para novos cliente</h1>
+                <p>Assinando o plano ANUAL você tera acesso a todos os recurso avançados de nosso CRM por 365 dias</p>
+                <p>Por apartir de </p>
+                <H2>R$538,92</H2>
+                <div id="mover">
+                    <a href="indexlogin.html">
+                        <span>
+                            <button>Assinar</button>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            </div>    
+        </div>
+    </div>
+    <div id="formularios">
+        <form action="formHandler.php" method="post">
+            <div id="label_1">
+                <label class="label" for="name"> Nome </label>
+                <h1></h1>
+                <input class="input" type="text" id="name" placeholder="Nome">
+            </div>
+            <div id="label_2">
+                <label class="label"for="email"> E-mail </label>
+                <h1></h1>
+                <input class="input" type="email" id="email" placeholder="E-mail">
+            </div>
+            <div id="label_3">
+                <label class="label" for="telefone"> Telefone </label>
+                <h1></h1>
+                <input class="input" type="tel" id="telefone" placeholder="Telefone">
+            </div>
+            <div id="text_area">
+                <label class="label" for="texto"> Descreva sua necessidade </label>
+                <h1></h1>
+                <textarea class="input" id="texto_contato" name="textocontato" rows="4" cols="30" placeholder="Digite seu texto">
+                </textarea>
+            </div>
+            <button class="button_send" type="button">Enviar!</button>
+            
+        </form>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
