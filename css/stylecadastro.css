@@ -1,63 +1,61 @@
 
 body{
-background:linear-gradient(to left  ,#00195A ,#4e7aac);
-color: white;
-font-family: 'Poppins', sans-serif;
-font-family: 'Roboto', sans-serif;
+  background:linear-gradient(to left  ,#00195A ,#4e7aac);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 
 h1{
-text-align: center;
-
-
+  text-align: center;
 }
 
 
 h2{
-text-align: center;
-margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 button{
-background-color:#03532b ;
-border-radius: 5px 5px 5px 5px;
-color: white;
-padding: 15px;
-width: 300px;
-text-align: center;
-margin-right: 25px;
-box-shadow: 3px 3px 3px 3px black;
+  background-color:#03532b ;
+  border-radius: 5px 5px 5px 5px;
+  color: white;
+  padding: 15px;
+  width: 300px;
+  text-align: center;
+  margin-right: 25px;
+  box-shadow: 3px 3px 3px 3px black;
 }
 
 
 #mover{
-display: flex;
-justify-content: center;
-margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
 }
 
 #flex{
-margin-top: 50px;
+  margin-top: 50px;
 }
 
 
 #cadastrar{
-width: 200px;
-margin-top: 20px;
-margin-left: 2px;
-margin-bottom: 15px;
+  width: 200px;
+  margin-top: 20px;
+  margin-left: 2px;
+  margin-bottom: 15px;
 }
 
 .container{
-margin-top: 50px;
+  margin-top: 50px;
 }
 
 
 button:hover{
-background-color: #4ec286;
-transition-duration: 0.5s;
-text-decoration: none;
+  background-color: #4ec286;
+  transition-duration: 0.5s;
+  text-decoration: none;
 }
 
 
