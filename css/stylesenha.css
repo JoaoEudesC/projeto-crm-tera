@@ -1,71 +1,71 @@
 body{
-background:linear-gradient(to left  ,#00195A ,#4e7aac);
-color: white;
-font-family: 'Poppins', sans-serif;
-font-family: 'Roboto', sans-serif;
+  background:linear-gradient(to left  ,#00195A ,#4e7aac);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 
 h1{
-text-align: center;
+  text-align: center;
 }
 
 
 h2{
-text-align: center;
+  text-align: center;
 }
 
 
 #flex{
-display: flex;
-justify-content: center;
-align-items: center;
-margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
 }
 
 #redefinir{
-margin-top: 15px;
-text-align: center;
-width: 300px;
-background-color:#03532b ;
-color:white;
-padding: 10px;
-border-radius: 6px 6px 6px 6px;
-box-shadow: 4px 4px 4px 4px black;
+  margin-top: 15px;
+  text-align: center;
+  width: 300px;
+  background-color:#03532b ;
+  color:white;
+  padding: 10px;
+  border-radius: 6px 6px 6px 6px;
+  box-shadow: 4px 4px 4px 4px black;
 }
 
 #redefinir:hover{
-background-color: #4ec286;
-transition-duration: 0.5s;
-text-decoration: none;
+  background-color: #4ec286;
+  transition-duration: 0.5s;
+  text-decoration: none;
 
 }
 
 #senha{
-color: black;
-font-weight: bolder;
+  color: black;
+  font-weight: bolder;
 }
 
 #senha:hover{
-text-decoration: underline;
-color: #1e589b;
+  text-decoration: underline;
+  color: #1e589b;
 }
 
 
 p{
-text-align: center;
-margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 
 
 #inlineFormInputGroupUsername{
-box-shadow: 3px 3px 3px 3px black;
+  box-shadow: 3px 3px 3px 3px black;
 }
 
 
 a{
-text-decoration: none;
+  text-decoration: none;
 }
 
 
