@@ -33,6 +33,9 @@ button{
   display: flex;
   justify-content: center;
   margin-top: 80px;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 15px;
 }
 
 #flex{
@@ -58,6 +61,56 @@ button:hover{
   text-decoration: none;
 }
 
+input{
+  width: 50px;
+}
 
 
+.form-group{
+  width: 20%;
+}
 
+#cadastrar{
+    margin-left: 85px;
+    
+  }
+
+  .col-md-4 {
+    width: 60%;
+    margin-left: 60px;
+  }
+
+
+#help{
+  color: rgb(22, 22, 22) ;
+  font-weight: 800;
+
+
+}
+
+
+@media(max-width:550px){
+  .form-group{
+    width: 40%;
+    margin: auto;
+  }
+  #cadastro{
+    margin-right: 65px;
+  }
+
+}
+
+@media(min-width:490px),(max-width:548px){
+  .col-md-4 {
+    margin: auto;
+  }
+    #mover{
+    
+    
+  }
+}
+
+
+#cadastro{
+  text-align: center;
+}
