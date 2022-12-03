@@ -1,115 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap" rel="stylesheet">
-    <link rel="icon" href="Imagens/Logo-ohne.ico" type="image/icon type">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Lobster CRM</title>
 </head>
-<body>
-    <header>
-        <img src="Imagens/image-removebg-preview.png" id="Logo_principal" alt="logo"/>
-        <a id="button_login" href="html/indexlogin.html"><button class="button_login" type="button">Login</button></a>
-        <a id="button_cadastro" href="html/indexcadastro.html"><button class="button_login" type="button">Cadastro</button></a>
-        <!-- Top navigation -->
-        <div class="topnav">
-            <!-- Centered link -->
-                <div class="topnav-centered">
-                    <a href="#home" class="active">Home</a>
-                    <a href="html/indexpreço.html">Preços</a>
-                    <a class="contato" href="#formularios">Contate-nos</a>
+    <body class="body">
+        <header class="header">
+            <img src="./Imagens/image-removebg-preview.png" class="img-fluid" id="Logo_principal" alt="Logo_lobster_CRM">
+            <a id="button_login" href="html/indexlogin.html"><button class="button_login" type="button">Login</button></a>
+            <a id="button_cadastro" href="html/indexcadastro.html"><button class="button_login button_cadastro" type="button">Cadastro</button></a>
+        </header>
+        <div class="info">
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #333;">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                </button>
+                <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="html/indexpreço.html">Preços</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link contato" href="#formularios">Contate-nos</a>
+                        </li>
+                    </ul>
                 </div>
-            <!-- Right-aligned links -->
-                <div>
-                    <b></b>
-                    <a></b>
+            </nav>
+        </div>
+        <section>
+            <div id="text_head" class="text_head">
+                <p class="parag">Plataforma de CRM Lobster
+                <br>
+                Até que enfim uma plataforma de CRM que é poderosa e fácil de usar.
+                Crie experiências agradáveis para os clientes e tenha você também uma experiência agradável enquanto trabalha.
+                Comece hoje mesmo seu teste grátis e faça suas vendas decolarem.
+                <br>
+                <br>
+                <a href="html/indexcadastro.html"><button type="button" class="button_test_gratis" id="button_test_gratis">Comece seu teste com 07 dias gratis</button></a>
+                </p>
+                <img src="./Other Images/Homepage Hero image - PT .png" class="img-fluid" class= "hero_img" alt="Responsive image" width="100%" height="auto">
+            </div>
+        </section>
+        <div id="all_cards">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h1>Cadastro de Clientes</h1>
+                        <img src="Icones/icons8-lobster-48.png" alt="Avatar" class="img_card">
+                    </div>
+                <div class="flip-card-back">
+                    <h2>Cadastre Novos Clientes</h2>
+                    <p>Adicione novos clientes e mantenha sua base de clientes atualizada e completa</p>
+                    <p>Com isso você terá maior controle sobre os novos leads.</p>
                 </div>
-        </div>
-    </header>
-    <div id="text_head">
-        <div id="hero_image">
-            <img src="Other Images/Homepage Hero image - PT .png" alt="Hero Image" width="500px" style="object-fit:contain" />
-        </div>    
-        <div id="texto_head">
-            <p>Plataforma de CRM Lobster</p>
-            <p>Até que enfim uma plataforma de CRM que é poderosa e fácil de usar.
-            Crie experiências agradáveis para os clientes e tenha você também uma experiência agradável enquanto trabalha.</p>
-            <a href="html/indexcadastro.html"><button type="button" id="button_test_gratis">Comece seu teste com 07 dias gratis</button></a>
-            <p> Comece hoje mesmo seu teste grátis e faça suas vendas decolarem.</p>
-        </div>
-    </div>
-    <div id="all_cards">
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <h1>Cadastro de Clientes</h1>
-                    <img src="Icones/icons8-lobster-48.png" alt="Avatar" class="img_card">
                 </div>
-            <div class="flip-card-back">
-                <h1>Cadastre Novos Clientes</h1>
-                <p>Adicione novos clientes e mantenha sua base de clientes atualizada e completa</p>
-                <p>Com isso você terá maior controle sobre os novos leads.</p>
             </div>
-            </div>
-        </div>
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <h1>Gestão de Clientes</h1>
-                    <img src="Icones/icons8-lobster-48.png" alt="Avatar" class="img_card">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h1>Gestão de Clientes</h1>
+                        <img src="Icones/icons8-lobster-48.png" alt="Avatar" class="img_card">
+                    </div>
+                <div class="flip-card-back">
+                    <h2>Gestão de Clientes</h2>
+                    <p>Software de CRM de vendas que apresenta informações mais profundas sobre seus prospects, automatiza as tarefas que você detesta e fecha mais negócios com mais rapidez.</p>
                 </div>
-            <div class="flip-card-back">
-                <h1>Gestão de Clientes</h1>
-                <p>Software de CRM de vendas que apresenta informações mais profundas sobre seus prospects, automatiza as tarefas que você detesta e fecha mais negócios com mais rapidez.</p>
-            </div>
-            </div>
-        </div>
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <h1>Gestão de Serviços</h1>
-                    <img src="Icones/icons8-lobster-48.png" alt="Avatar" class="img_card">
                 </div>
-            <div class="flip-card-back">
-                <h1>Gestão de Serviços</h1>
-                <p>Software de atendimento ao cliente para ajudar você a se conectar com clientes, superar suas expectativas e convertê-los em verdadeiros promotores da marca.</p>
             </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h1>Gestão de Serviços</h1>
+                        <img src="Icones/icons8-lobster-48.png" alt="Avatar" class="img_card">
+                    </div>
+                <div class="flip-card-back">
+                    <h2>Gestão de Serviços</h2>
+                    <p>Software de atendimento ao cliente para ajudar você a se conectar com clientes, superar suas expectativas e convertê-los em verdadeiros promotores da marca.</p>
+                </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="formularios">
-        <form>
-            <div id="label_1">
-                <label class="label" for="name"> Nome </label>
-                <h1></h1>
-                <input class="input" type="text" id="name" placeholder="Nome" required>
-            </div>
-            <div id="label_2">
-                <label class="label"for="email"> E-mail </label>
-                <h1></h1>
-                <input class="input" type="email" id="email" placeholder="E-mail" required>
-            </div>
-            <div id="label_3">
-                <label class="label" for="telefone"> Telefone </label>
-                <h1></h1>
-                <input class="input telefone" type="text" name= "telefone" id="telefone" placeholder="Telefone" required>
-            </div>
-            <div id="text_area">
-                <label class="label" for="texto"> Descreva suas necessidades </label>
-                <h1></h1>
-                <textarea class="input" id="texto_contato" name="textocontato" rows="4" cols="30" placeholder="Digite seu texto" required></textarea>
-            </div>
-            <div id="infos"></div>
-            <button class="button_send" type="submit" onclick="btn()">Enviar!</button>
-        </form>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://cdn.rawgit.com/igorescobar/jQuery-Mask-Plugin/master/src/jquery.mask.js"></script>
-    <script src="javascript/app.js"></script>
-</body>
+        <div id="formularios">
+            <form>
+                <div id="label_1">
+                    <label class="label" for="name"> Nome </label>
+                    <h1></h1>
+                    <input class="input" type="text" id="name" placeholder="Nome" required>
+                </div>
+                <div id="label_2">
+                    <label class="label"for="email"> E-mail </label>
+                    <h1></h1>
+                    <input class="input" type="email" id="email" placeholder="E-mail" required>
+                </div>
+                <div id="label_3">
+                    <label class="label" for="telefone"> Telefone </label>
+                    <h1></h1>
+                    <input class="input telefone" type="text" name= "telefone" id="telefone" placeholder="Telefone" required>
+                </div>
+                <div id="text_area">
+                    <label class="label" for="texto"> Descreva suas necessidades </label>
+                    <h1></h1>
+                    <textarea class="input" id="texto_contato" name="textocontato" rows="4" cols="30" placeholder="Digite seu texto" required></textarea>
+                </div>
+                <div id="infos"></div>
+                <button class="button_send" type="submit" onclick="btn()">Enviar!</button>
+            </form>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://cdn.rawgit.com/igorescobar/jQuery-Mask-Plugin/master/src/jquery.mask.js"></script>
+        <script src="./javascript/app.js"></script>
+    </body>
 </html>

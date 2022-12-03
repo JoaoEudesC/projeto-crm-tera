@@ -1,10 +1,105 @@
-@media screen{
-    body{
-        background:linear-gradient(to left  ,#00195A ,#4e7aac);
-        /* background-color: #004953; */
-        font-family: 'Josefin Sans', sans-serif;
-        color:white
-    }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background:linear-gradient(to left  ,#00195A ,#4e7aac);
+    font-family: 'Josefin Sans', sans-serif;
+    color:white
+}
+
+
+#Logo_principal{
+    width: 350px;
+    height: 100px;
+}
+.button_login{
+    background-color: #03532b;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    margin: 4px 2px;
+    margin-left: 10px;
+    cursor: pointer;
+    float: right; 
+    box-shadow: 3px 3px 3px 3px black
+}
+
+.button_login:hover{
+    background-color: #4ec286;
+    transition-duration: 0.5s;
+    text-decoration: none;
+}
+
+#navbarNav a{
+    color: white;
+}
+
+.nav-link:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+  /* Add a color to the active/current link */
+.nav-link:hover {
+    background-color: #03532b;
+    color: white;
+    transition-duration: 0.5s;
+    text-decoration: none;
+}
+
+#text_head{
+    background-image: linear-gradient(to right, #03532b, rgb(2, 70, 99));
+    min-width:0%;
+    min-height: 100%;
+    margin:0;
+    padding: 50px;
+    margin-top:50px;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+
+#text_head p{
+    margin-right: 150px;
+}
+
+#texto_head{
+    width: 500px;
+    margin-top: 50px;
+    text-align: left;
+    margin-left:50px ;
+    font-size: 21px;
+    font-weight: bold ;
+    display:grid;
+}
+
+#text_head_text{
+    font-size: 25px;
+}
+
+.hero_img{
+    display: flex;
+
+}
+
+
+#button_test_gratis{
+    padding: 8px;
+    cursor:pointer;
+    border: 2px solid green;
+    border-radius: 25px;
+    background-color: rgb(2, 70, 99);
+    color: white;
+}
+
+#button_test_gratis:hover{
+    background-color: #07a252;
 }
 
 .flip-card {
@@ -70,122 +165,9 @@
     justify-content: center;
 }
 
-
-.button_login{
-    background-color: #03532b;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 12px;
-    margin: 4px 2px;
-    margin-left: 10px;
-    cursor: pointer;
-    float: right; 
-    box-shadow: 3px 3px 3px 3px black
-}
-
-.button_login:hover{
-    background-color: #4ec286;
-    transition-duration: 0.5s;
-    text-decoration: none;
-}
-
-.button_send{
-    background-color: #03532b;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 12px;
-    margin: 4px 2px;
-    cursor: pointer;
-    float: center; 
-    box-shadow: 1px 1px 1px 1px rgb(103, 99, 99)
-}
-.button_send:hover{
-    background-color: #4ec286;
-    transition-duration: 0.5s;
-    text-decoration: none;
-}
-
-.contato{
-    scroll-behavior: smooth;
-}
-
-.submit{
-    background-color: #07a252;
-
-}
-
-#text_head{
-    background-image: linear-gradient(to right, #03532b, rgb(2, 70, 99));
-    min-width:0%;
-    min-height: 100%;
-    margin:0;
-    /* border: 15px solid gray; */
-    padding: 50px;
-    margin-top:50px;
-    margin-bottom: 50px;
-
-}
-
-#text_head p{
-    margin-right: 150px;
-}
-
-#texto_head{
-    width: 500px;
-    margin-top: 50px;
-    text-align: left;
-    margin-left:50px ;
-    font-size: 21px;
-    font-weight: bold ;
-    display:grid;
-}
-
-/* #texto_head p{
-    display: inline;
-} */
-
-#text_head_text{
-    font-size: 25px;
-}
-
-#hero_image{
-    width: 500px;
-    margin: auto;
-    margin-bottom: -300px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: flex-end;
-}
-
-#button_test_gratis{
-    padding: 8px;
-    cursor:pointer;
-    border: 2px solid green;
-    border-radius: 25px;
-}
-
-#button_test_gratis:hover{
-    background-color: #07a252;
-    
-
-}
-
-#formularios{
-    text-align: center;
-    margin-top: 300px;
-    margin-bottom: 150px;
-}
-
 .label{
     color: white;
-    margin-top: 50px ;
+    margin-top: 5px ;
     margin-right: 10px;
 }
 
@@ -204,60 +186,112 @@
     size:50px;
 }
 
-/* MENUS */
-
-/* Add a black background color to the top navigation */
-.topnav {
-    position: relative;
-    background-color: #333;
-    overflow: hidden;
-}
-
-  /* Style the links inside the navigation bar */
-.topnav a {
-    float: left;
-    color: #f2f2f2;
+#formularios{
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-  /* Change the color of links on hover */
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
+    margin-top: 300px;
+    margin-bottom: 150px;
 }
 
-  /* Add a color to the active/current link */
-.topnav a:hover {
+.button_send{
     background-color: #03532b;
+    border: none;
     color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    float: center; 
+    box-shadow: 3px 3px 3px 3px black
+}
+.button_send:hover{
+    background-color: #4ec286;
     transition-duration: 0.5s;
     text-decoration: none;
 }
 
-  /* Centered section inside the top navigation */
-.topnav-centered{
-    float: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+/* @media screen{
+    body{
+        background:linear-gradient(to left  ,#00195A ,#4e7aac);
+        font-family: 'Josefin Sans', sans-serif;
+        color:white
+    }
+} */
+
+@media (max-width: 966px) {
+    .img-fluid{
+        width: 700px;
+        align-items: right;
+        display: grid;
+    }
+    .text_head p {
+        font-size: 10px;
+        justify-content: center;
+        text-align: top;
+        display: grid;
+    }
+    .text_head button{
+        font-size: 10px;
+    }
 }
 
-  /* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
-@media screen and (max-width: 600px) {
-    .topnav a{
-    float: none;
-    display: block;
+@media (max-width: 866px) {
+    .button_cadastro{
+        margin-top: -30px ;
+    }
+    .header{
+        display: grid;
+        grid: 33% 33% 33%;
     }
 
-.topnav-centered a {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
+    .text_head > p {
+        font-size: 5px;
+        justify-content: center;
+        text-align: top;
+        display: grid;
     }
+
+    .text_head > button{
+        font-size: 5px;
+    }
+
+    .button_login{
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size:1rem;
+        margin: 4px 2px;
+        margin-left: 10px;
+        cursor: pointer;
+        float: right; 
+        box-shadow: 3px 3px 3px 3px black
+    }
+
+    .flip-card-front > h1 {
+        font-size: 20px;
+        text-align: center;
+        justify-content: center;
+        margin-top: 100px;
+    }
+
+    .flip-card-front > img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .flip-card-back > h2{
+        font-size: 20px;
+        text-align: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+    .flip-card-back > p{
+        font-size: 15px;
+        text-align: center;
+        justify-content: center;
+    }
+
 }
-
 
