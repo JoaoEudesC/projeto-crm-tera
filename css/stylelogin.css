@@ -1,28 +1,38 @@
 body{
-  background:linear-gradient(to left  ,#00195A ,#4e7aac);
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  font-family: 'Roboto', sans-serif;
+    background:linear-gradient(to left  ,#00195A ,#4e7aac);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
 }
 
+
+
+html{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+
 #flex{
-  display: flex;
-  justify-content: center;
-  margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
 }
 
 #home{
-  margin-left: 5px;
-  box-shadow: 3px 3px 3px 3px black;
-  background-color:#03532b ;
-  margin-top: -8px;
-  margin-left: 4px;
+    margin-left: 5px;
+    box-shadow: 3px 3px 3px 3px black;
+    background-color:#03532b ;
+    margin-top: -8px;
+    margin-left: 4px;
 
 }
 
 #casa{
-  display: flex;
-  justify-content: flex-start;
+    display: flex;
+    justify-content: flex-start;
 }
 
 
@@ -31,87 +41,93 @@ body{
 
 
 h1{
-  text-align: center;
+    text-align: center;
 
 }
 
 header{
-  color: white;
-  text-align: center;
-  margin-top: 10px;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
 }
 
 
 #exampleCheck1{
-  margin-top: 15px;
+    margin-top: 15px;
 }
 
 .form-check-label{
-  margin-top: 11px;
+    margin-top: 11px;
 }
 
 
 #img{
-  margin-top: 10px;
+    margin-top: 10px;
 
 }
 
 #senha{
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 #senha :hover{
-  text-decoration: underline;
+    text-decoration: underline;
+    color: blue;
 }
 
 a{
-  text-decoration: none;
+    text-decoration: none;
 }
 
 span :hover{
-  text-decoration: underline;
+    text-decoration: underline;
+    color: blue;
 }
 
 
 .password{
-  color:black;
-  font-weight: bolder;
+    color:black;
+    font-weight: bolder;
 }
 
 
 #entrar{
-  background-color:#03532b ;
-  border-radius: 5px 5px 5px 5px;
-  color: white;
-  padding: 15px;
-  width: 300px;
-  box-shadow: 3px 3px 3px 3px black;
-  margin-bottom: 10px;
+    background-color:#03532b ;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 3px 3px 3px 3px black;
+    margin-bottom: 10px;
 
 }
 
 
 #entrar:hover{
-  background-color: #4ec286;
-  transition-duration: 0.5s;
-  text-decoration: none;
+    background-color: #4ec286;
+    transition-duration: 0.5s;
+    text-decoration: none;
 }
 
 #home:hover{
-  background-color: #4ec286;
-  transition-duration: 0.5s;
-  text-decoration: none;
+    background-color: #4ec286;
+    transition-duration: 0.5s;
+    text-decoration: none;
 }
+
+
 
 
 #labor{
-  color:white;
+    color:white;
 }
+
 
 label{
-  color: black;
+    color: #038820;
+    font-weight: 600;
 }
-
+    
 
 
 

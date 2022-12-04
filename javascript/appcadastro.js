@@ -1,16 +1,10 @@
 
-
-
-
-
-
-
 //seleção de elementos
 
 
 let senha = document.getElementsByTagName("input")[2]
 let confirmar = document.getElementsByTagName("input")[3]
-let botao = document.getElementById("cadastrar")
+let botao = document.getElementById("cadastro")
 
 
 
@@ -85,11 +79,6 @@ cep.addEventListener("blur", (e) => {
     })
     
 }) 
-
-
-
-
-
 
 
 
