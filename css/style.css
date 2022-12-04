@@ -10,6 +10,9 @@ body{
     color:white
 }
 
+header > h1{
+    text-align: left;
+}
 
 #Logo_principal{
     width: 350px;
@@ -221,20 +224,30 @@ body{
 } */
 
 @media (max-width: 966px) {
-    .img-fluid{
+    /* .img-fluid{
+        width: 700px;
+        align-items: right;
+        display: grid;
+    } */
+
+    .Logo_principal{
         width: 700px;
         align-items: right;
         display: grid;
     }
-    .text_head p {
+    /* .text_head p {
         font-size: 10px;
         justify-content: center;
         text-align: top;
         display: grid;
-    }
+    } */
     .text_head button{
         font-size: 10px;
     }
+    .text_head > p{
+        display: grid;
+        text-align: center;
+    } 
 }
 
 @media (max-width: 866px) {
@@ -246,13 +259,17 @@ body{
         grid: 33% 33% 33%;
     }
 
-    .text_head > p {
+    /* .text_head > p {
         font-size: 5px;
         justify-content: center;
         text-align: top;
         display: grid;
-    }
+    } */
 
+    .text_head > p{
+        display: grid;
+        text-align: center;
+    } 
     .text_head > button{
         font-size: 5px;
     }
@@ -295,3 +312,36 @@ body{
 
 }
 
+/* TIRAR DUVIDA SOBRE ALINHAMENTO DO TEXTO QUANDO A IMAGEM SOME. TEXTO NÃO FICA CENTRALIZADO */
+@media (max-width: 646px){
+    .text_head > p{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+    }
+
+    .hero_img{
+        display: none;
+    }
+
+    .flip-card-front > h1 {
+        font-size: 20px;
+        text-align: center;
+        justify-content: center;
+        margin-top: 100px;
+    }
+
+
+    .flip-card-back > h2{
+        font-size: 18px;
+        text-align: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+    .flip-card-back > p{
+        font-size: 13px;
+        text-align: center;
+        justify-content: center;
+    }
+}
