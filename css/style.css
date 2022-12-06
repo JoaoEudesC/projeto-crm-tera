@@ -56,7 +56,7 @@ header > h1{
     text-decoration: none;
 }
 
-#text_head{
+.text_head{
     background-image: linear-gradient(to right, #03532b, rgb(2, 70, 99));
     min-width:0%;
     min-height: 100%;
@@ -66,9 +66,10 @@ header > h1{
     margin-bottom: 50px;
     display: grid;
     grid-template-columns: 33% 33% 33%;
+    
 }
 
-#text_head p{
+.text_head p{
     margin-right: 150px;
 }
 
@@ -88,6 +89,8 @@ header > h1{
 
 .hero_img{
     display: flex;
+    grid-template-columns: 33% 33% 33%;
+    size: 25%;
 
 }
 
@@ -314,6 +317,9 @@ header > h1{
 
 /* TIRAR DUVIDA SOBRE ALINHAMENTO DO TEXTO QUANDO A IMAGEM SOME. TEXTO NÃO FICA CENTRALIZADO */
 @media (max-width: 646px){
+    .text_head{
+        grid-template-columns: 100%;
+    }
     .text_head > p{
         display: flex;
         flex-direction: column;
@@ -332,7 +338,6 @@ header > h1{
         margin-top: 100px;
     }
 
-
     .flip-card-back > h2{
         font-size: 18px;
         text-align: center;
@@ -344,4 +349,7 @@ header > h1{
         text-align: center;
         justify-content: center;
     }
+
+
+    
 }
