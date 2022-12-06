@@ -97,7 +97,7 @@ span :hover{
     color: white;
     padding: 15px;
     width: 300px;
-    box-shadow: 3px 3px 3px 3px black;
+    box-shadow: 2px 2px 2px 2px black;
     margin-bottom: 10px;
 
 }
@@ -124,11 +124,20 @@ span :hover{
 
 
 label{
-    color: #038820;
+    color:  #038820;
     font-weight: 600;
 }
     
 
+#show_Senha{
+    cursor: pointer;
 
+}
+
+#show_Senha:hover{
+    color: #f4f8f5;
+    transform: scale(1.2);
+    transition-duration: 0.8s;
+}
 
 

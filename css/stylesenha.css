@@ -39,7 +39,7 @@ h2{
     color:white;
     padding: 10px;
     border-radius: 6px 6px 6px 6px;
-    box-shadow: 4px 4px 4px 4px black;
+    box-shadow: 2px 2px 2px 2px black;
 }
 
 #redefinir:hover{
@@ -68,7 +68,7 @@ p{
 
 
 #inlineFormInputGroupUsername{
-    box-shadow: 3px 3px 3px 3px black;
+    box-shadow: 2px 2px 2px 2px black;
 }
 
 
@@ -77,7 +77,11 @@ a{
 }
 
 label{
-    color: #03532b;
+    color:  #038820;
+}
+
+.input-group-text{
+    box-shadow: 2px 2px 2px 2px black;
 }
 
 
