@@ -92,7 +92,7 @@
             </div>
         </div>
         <div id="formularios">
-            <form action="https://formsubmit.co/rafael_sousa87@hotmail.com" method="POST">
+            <form action="https://formsubmit.co/rafael_sousa87@hotmail.com" method="POST" id="form1">
                 <div id="label_1">
                     <label class="label" for="name"> Nome </label>
                     <h1></h1>
@@ -106,7 +106,7 @@
                 <div id="label_3">
                     <label class="label" for="telefone"> Telefone </label>
                     <h1></h1>
-                    <input class="input telefone" type="text" name= "telefone" id="telefone" placeholder="Telefone" required>
+                    <input class="input telefone" type="text" name= "telefone" id="telefone" placeholder="Celular" required>
                 </div>
                 <div id="text_area">
                     <label class="label" for="texto"> Descreva suas necessidades </label>
@@ -116,7 +116,7 @@
                 <div id="infos"></div>
                 <button class="button_send" type="submit" onclick="btn()">Enviar!</button>
                 <input type="hidden" name="_next" value="https://joaoeudesc.github.io/projeto-crm-tera/">
-                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_captcha" oninput="envia()" value="false">
             </form>
         </div>
 

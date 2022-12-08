@@ -33,7 +33,10 @@ function btn(){
     if(email1 == "" || telefone1 ==""){
         return div.innerHTML = `<h4 style="color: red">Por favor, preencha os campos de e-mail, telefone e digite sua necessidade!</h4>`
     }
-
+    if(telefone1.length <=11)
+    {
+        return div.innerHTML = `<h4 style="color: red">O numero de telefone precisa ter 11 digitos contando com o DDD!</h4>`
+    }
     if(texto1===""){
         return div.innerHTML = `<h4 style="color: red">Por favor, preencha o campo de texto!</h4>`
     }
@@ -66,3 +69,5 @@ $(document).ready(function(){
         $(this).mask(maskBehavior, options);
     });
 });
+
+
