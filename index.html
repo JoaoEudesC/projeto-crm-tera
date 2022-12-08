@@ -96,12 +96,12 @@
                 <div id="label_1">
                     <label class="label" for="name"> Nome </label>
                     <h1></h1>
-                    <input class="input" type="text" id="name" placeholder="Nome" required>
+                    <input class="input" type="text" name="name" id="name" placeholder="Nome" required>
                 </div>
                 <div id="label_2">
                     <label class="label"for="email"> E-mail </label>
                     <h1></h1>
-                    <input class="input" type="email" id="email" placeholder="E-mail" required>
+                    <input class="input" type="email" name="email" id="email" placeholder="E-mail" required>
                 </div>
                 <div id="label_3">
                     <label class="label" for="telefone"> Telefone </label>
@@ -111,10 +111,12 @@
                 <div id="text_area">
                     <label class="label" for="texto"> Descreva suas necessidades </label>
                     <h1></h1>
-                    <textarea class="input" id="texto_contato" name="textocontato" rows="4" cols="30" placeholder="Digite seu texto" required></textarea>
+                    <textarea class="input" id="texto_contato" name="message" rows="4" cols="30" placeholder="Digite seu texto" required></textarea>
                 </div>
                 <div id="infos"></div>
                 <button class="button_send" type="submit" onclick="btn()">Enviar!</button>
+                <input type="hidden" name="_next" value="https://joaoeudesc.github.io/projeto-crm-tera/">
+                <input type="hidden" name="_captcha" value="false">
             </form>
         </div>
 
