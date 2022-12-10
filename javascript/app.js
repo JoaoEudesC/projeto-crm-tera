@@ -11,41 +11,56 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 function btn(){
-    let nome = document.getElementById('name')
-    let email = document.getElementById('email')
-    let telefone = document.getElementById("telefone")
-    let texto = document.getElementById("texto_contato")
-    let nome1 = nome.value
-    let email1 = email.value
-    let telefone1 = telefone.value
-    let texto1 = texto.value
-    let div = document.getElementById('infos')
-    let regex = /^[0-9]+$/;
+    $("#form1").submit(function(event){
+        event.preventDefault();
+        let nome = document.getElementById('name')
+        let email = document.getElementById('email')
+        let telefone = document.getElementById("telefone")
+        let texto = document.getElementById("texto_contato")
+        let nome1 = nome.value
+        let email1 = email.value
+        let telefone1 = telefone.value
+        let texto1 = texto.value
+        let div = document.getElementById('infos')
+        let regex = /^[0-9]+$/;
 
-    if (nome1.match(regex)){
-        return div.innerHTML = `<h4 style="color: red">Nome deve conter apenas letas, sem numeros!</h4>`
-    }
-
-    if(nome1==""){
-        return div.innerHTML = `<h4>Por favor, preencha seu nome!</h4>`
-    }
-
-    if(email1 == "" || telefone1 ==""){
-        return div.innerHTML = `<h4 style="color: red">Por favor, preencha os campos de e-mail, telefone e digite sua necessidade!</h4>`
-    }
-    if(telefone1.length <=11)
-    {
-        return div.innerHTML = `<h4 style="color: red">O numero de telefone precisa ter 11 digitos contando com o DDD!</h4>`
-    }
-    if(texto1===""){
-        return div.innerHTML = `<h4 style="color: red">Por favor, preencha o campo de texto!</h4>`
-    }
-
-    else{
-        window.alert( `Olá ${nome1}, obrigado pelo seu contato. Assim que analisarmos suas necessidades, entraremos em contato através do telefone ${telefone1} ou do endereço de e-mail ${email1}`)
+        if (nome1.match(regex)){
+            return div.innerHTML = `<h4 style="color: red">Nome deve conter apenas letas, sem numeros!</h4>`
         }
+
+        if(nome1=="" || nome1<4){
+            return div.innerHTML = `<h4 style="color: red">Por favor, preencha seu nome!</h4>`
+        }
+
+        if(email1 == "" || telefone1 ==""){
+            return div.innerHTML = `<h4 style="color: red">Por favor, preencha os campos de e-mail, telefone e digite sua necessidade!</h4>`
+        }
+        if(telefone1.length <=11)
+        {
+            return div.innerHTML = `<h4 style="color: red">O numero de telefone precisa ter 11 digitos contando com o DDD!</h4>`
+        }
+        if(texto1===""){
+            return div.innerHTML = `<h4 style="color: red">Por favor, preencha o campo de texto!</h4>`
+        }
+
+        else{
+            window.alert( `Olá ${nome1}, obrigado pelo seu contato. Assim que analisarmos suas necessidades, entraremos em contato através do telefone ${telefone1} ou do endereço de e-mail ${email1}`)
+            }
+
+    (this).submit();
+    })
 }
 
+// $("#form1").submit(function(event){
+//     event.preventDefault();
+        
+//     ('#botaoform').submit();
+// })
+
+// $("#form1").submit(function(event){
+//     event.preventDefault();
+//     console.log("Entrei mas não enviei");
+// });
 
 // Conferir configuração de caracteres do telefone
 $(document).ready(function(){
