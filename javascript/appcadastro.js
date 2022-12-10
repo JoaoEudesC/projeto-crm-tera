@@ -1,28 +1,56 @@
 
-//seleção de elementos
-
-
-let senha = document.getElementsByTagName("input")[2]
-let confirmar = document.getElementsByTagName("input")[3]
-let botao = document.getElementById("cadastro")
-
-
-
-
+//seleção de elementos  
+    
+    //botao de cadastro
+        let botao = document.getElementById("cadastro")
+    
+    //inputs
+        let senha = document.getElementsByTagName("input")[2]
+        let confirmarSenha = document.getElementsByTagName("input")[3]
+        let nome = document.getElementById('floatingInput')
+        let email = document.getElementById("email")
+        let codigopostal = document.getElementById("cep")
+        let logradouro = document.getElementById('logradouro')
+        let bairro = document.getElementById('bairro')
+        let localidade = document.getElementById('localidade')
+        let uf = document.getElementById('uf')
 
 // adição de evento ao botão de cadastro
 
+    botao.addEventListener("click", clicou )
 
 
-
-botao.addEventListener("click", clicou )
 
 function clicou(){
-    let n1 = senha.value
-    let n2 = confirmar.value
+    
+    //adição de elemntos ao local storage
+    
+    let Nome = nome.value
+    let Email = email.value
+    let Senha =senha.value
+    let ConfirmarSenha = confirmarSenha.value
+    let codigoPostal = codigopostal.value
+    let Logradouro = logradouro.value
+    let Bairro = bairro.value
+    let Localidade = localidade.value
+    let UF = uf.value
 
-    if(n1 === n2){
+    localStorage.setItem('Nome',Nome );
+    localStorage.setItem('Senha' , Senha)
+    localStorage.setItem('Confirmar senha' , ConfirmarSenha)
+    localStorage.setItem('Email' , Email);
+    localStorage.setItem('Cep' , codigoPostal);
+    localStorage.setItem('Logradouro' , Logradouro);
+    localStorage.setItem('Bairro' , Bairro);
+    localStorage.setItem('Localidade' , Localidade)
+    localStorage.setItem('UF' , UF);
+    
+
+    // conicidência de senha e confirmação de senha
+    
+    if(Senha === ConfirmarSenha){
     alert("Parabens, seu cadastro foi feito com sucesso")
+    
     }
 
 else{
@@ -75,10 +103,12 @@ cep.addEventListener("blur", (e) => {
     })
     
     .catch(e=>{ 
-        console.log("erro gravissimo " + e)
+        console.log("Falha de conexão " + e)
     })
     
 }) 
+
+
 
 
 
