@@ -35,19 +35,16 @@ function btn(){
         if(email1 == "" || telefone1 ==""){
             return div.innerHTML = `<h4 style="color: red">Por favor, preencha os campos de e-mail, telefone e digite sua necessidade!</h4>`
         }
-        if(telefone1.length <=11)
+        if(telefone1.length <= 10)
         {
             return div.innerHTML = `<h4 style="color: red">O numero de telefone precisa ter 11 digitos contando com o DDD!</h4>`
         }
-        if(texto1===""){
-            return div.innerHTML = `<h4 style="color: red">Por favor, preencha o campo de texto!</h4>`
+        if(texto1==="" || texto1.length <=5){
+            return div.innerHTML = `<h4 style="color: red">Por favor, preencha o campo de texto! Este campo deve ter no minimo 5 caracteres.</h4>`
         }
 
-        else{
-            window.alert( `Olá ${nome1}, obrigado pelo seu contato. Assim que analisarmos suas necessidades, entraremos em contato através do telefone ${telefone1} ou do endereço de e-mail ${email1}`)
-            }
-
     (this).submit();
+
     })
 }
 
@@ -86,3 +83,7 @@ $(document).ready(function(){
 });
 
 
+function alerta(){
+    window.alert( `Olá ${nome1}, obrigado pelo seu contato. Assim que analisarmos suas necessidades, entraremos em contato através do telefone ${telefone1} ou do endereço de e-mail ${email1}`)
+
+}

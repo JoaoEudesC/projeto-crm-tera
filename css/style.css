@@ -190,6 +190,7 @@ header > h1{
 .input{
     border-radius: 5px;
     size:50px;
+    padding-left: 2px ;
 }
 
 #formularios{
