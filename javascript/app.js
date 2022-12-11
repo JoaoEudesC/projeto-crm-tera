@@ -48,17 +48,6 @@ function btn(){
     })
 }
 
-// $("#form1").submit(function(event){
-//     event.preventDefault();
-        
-//     ('#botaoform').submit();
-// })
-
-// $("#form1").submit(function(event){
-//     event.preventDefault();
-//     console.log("Entrei mas não enviei");
-// });
-
 // Conferir configuração de caracteres do telefone
 $(document).ready(function(){
     $('body').on('focus', '.telefone', function(){
@@ -81,9 +70,3 @@ $(document).ready(function(){
         $(this).mask(maskBehavior, options);
     });
 });
-
-
-function alerta(){
-    window.alert( `Olá ${nome1}, obrigado pelo seu contato. Assim que analisarmos suas necessidades, entraremos em contato através do telefone ${telefone1} ou do endereço de e-mail ${email1}`)
-
-}
