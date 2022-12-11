@@ -35,7 +35,7 @@ function btn(){
         if(email1 == "" || telefone1 ==""){
             return div.innerHTML = `<h4 style="color: red">Por favor, preencha os campos de e-mail, telefone e digite sua necessidade!</h4>`
         }
-        if(telefone1.length <= 10)
+        if(telefone1.length <= 14)
         {
             return div.innerHTML = `<h4 style="color: red">O numero de telefone precisa ter 11 digitos contando com o DDD!</h4>`
         }
