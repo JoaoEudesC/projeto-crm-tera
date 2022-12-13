@@ -19,12 +19,9 @@
 
     botao.addEventListener("click", clicou )
 
-
+//adição de elementos ao local storage e fubção de click do botao cadastrar
 
 function clicou(){
-    
-    //adição de elemntos ao local storage
-    
     let Nome = nome.value
     let Email = email.value
     let Senha =senha.value
@@ -34,7 +31,7 @@ function clicou(){
     let Bairro = bairro.value
     let Localidade = localidade.value
     let UF = uf.value
-
+    
     localStorage.setItem('Nome',Nome );
     localStorage.setItem('Senha' , Senha)
     localStorage.setItem('Confirmar senha' , ConfirmarSenha)
@@ -45,23 +42,22 @@ function clicou(){
     localStorage.setItem('Localidade' , Localidade)
     localStorage.setItem('UF' , UF);
     
-
     // conicidência de senha e confirmação de senha
     
     if(Senha === ConfirmarSenha){
     alert("Parabens, seu cadastro foi feito com sucesso")
     
     }
-
-else{
+    
+    else{
     alert("As senhas nao coincidem, tente refazer o cadastro ")
     }
 
 }
 
 
-
-
+//adição de evento de submmit no form para realizar as validações , posso adicionar  a funçao do botao ja aqui dentro junto com as validações fazer validaçoes com if para que ele so passe a pagina seguinte se tudo for preenchido
+//posso colocar aqui a função do local storage tambem / minimo de caracteres e tudo mais , email reject e tudo mais
 
 
 // aplicação de api/cep
@@ -76,8 +72,6 @@ const options = {
     cache:"default"
 }
 
-
-
 const showdata = (result)=>{
     for(const campo in result){
         if(document.querySelector("#"+campo)){
@@ -85,9 +79,6 @@ const showdata = (result)=>{
         }
     }
 }
-
-
-
 
 cep.addEventListener("blur", (e) => {
     let search = cep.value.replace("-", "");
