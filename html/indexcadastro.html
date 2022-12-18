@@ -26,7 +26,7 @@
             </div>
         </header>
         <main>
-            <form>  
+            <form id="Form">  
                 <div id="flex">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="floatingInput"  placeholder="Nome completo"  required>
@@ -37,12 +37,14 @@
                         <label for="floatingPassword">Email</label>
                     </div>
                     <div class="form-floating">
-                        <input type="password" class="form-control floatingPassword"  placeholder="Senha" minlength="6" required>
+                        <input type="password" class="form-control floatingPassword"  placeholder="Senha" minlength="5" required>
                         <label for="floatingPassword">Senha</label>
+                        <p id="uperCase">CapsLock Ativado</p>
                     </div>
                     <div class="form-floating">
                         <input type="password" class="form-control floatingPassword"  placeholder="Confirmar senha" minlength="6" required>
                         <label for="floatingPassword">Confirmar senha</label>
+                        <p id="uperCaseConfirm">CapsLock Ativado</p>
                     </div>
                 </div>
                 

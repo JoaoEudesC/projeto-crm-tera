@@ -21,6 +21,13 @@ html{
     margin-top: 200px;
 }
 
+#textAlert{
+    color: black;
+    display: none;
+    text-decoration: underline;
+    font-weight: 900;
+}
+
 #home{
     margin-left: 5px;
     box-shadow: 3px 3px 3px 3px black;

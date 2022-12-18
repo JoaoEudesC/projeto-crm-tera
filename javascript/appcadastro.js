@@ -1,10 +1,12 @@
 
-//seleção de elementos  
+//Seleção de elementos  
     
-    //botao de cadastro
-        let botao = document.getElementById("cadastro")
     
-    //inputs
+    //Botao de cadastro
+        let botaoCadastro = document.getElementById("cadastro")
+    
+    
+    //Inputs
         let senha = document.getElementsByTagName("input")[2]
         let confirmarSenha = document.getElementsByTagName("input")[3]
         let nome = document.getElementById('floatingInput')
@@ -14,14 +16,21 @@
         let bairro = document.getElementById('bairro')
         let localidade = document.getElementById('localidade')
         let uf = document.getElementById('uf')
+        var emailRegex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i;
+        
+    //Formulario
+        const form = document.getElementById('Form')
+    
+    
 
-// adição de evento ao botão de cadastro
 
-    botao.addEventListener("click", clicou )
+//Adição de evento ao botão de cadastro
+    botaoCadastro.addEventListener("click", AdicionarLocalStorage )
 
-//adição de elementos ao local storage e fubção de click do botao cadastrar
 
-function clicou(){
+
+
+//Pegando os values de cada input
     let Nome = nome.value
     let Email = email.value
     let Senha =senha.value
@@ -32,72 +41,108 @@ function clicou(){
     let Localidade = localidade.value
     let UF = uf.value
     
-    localStorage.setItem('Nome',Nome );
-    localStorage.setItem('Senha' , Senha)
-    localStorage.setItem('Confirmar senha' , ConfirmarSenha)
-    localStorage.setItem('Email' , Email);
-    localStorage.setItem('Cep' , codigoPostal);
-    localStorage.setItem('Logradouro' , Logradouro);
-    localStorage.setItem('Bairro' , Bairro);
-    localStorage.setItem('Localidade' , Localidade)
-    localStorage.setItem('UF' , UF);
     
-    // conicidência de senha e confirmação de senha
     
-    if(Senha === ConfirmarSenha){
-    alert("Parabens, seu cadastro foi feito com sucesso")
     
-    }
+//Adição de elementos ao local storage e função de click do botao cadastrar
+    function AdicionarLocalStorage(){
+        localStorage.setItem('Nome',Nome );
+        localStorage.setItem('Senha' , Senha)
+        localStorage.setItem('Confirmar senha' , ConfirmarSenha)
+        localStorage.setItem('Email' , Email);
+        localStorage.setItem('Cep' , codigoPostal);
+        localStorage.setItem('Logradouro' , Logradouro);
+        localStorage.setItem('Bairro' , Bairro);
+        localStorage.setItem('Localidade' , Localidade)
+        localStorage.setItem('UF' , UF);
     
-    else{
-    alert("As senhas nao coincidem, tente refazer o cadastro ")
-    }
-
+    
 }
 
 
-//adição de evento de submmit no form para realizar as validações , posso adicionar  a funçao do botao ja aqui dentro junto com as validações fazer validaçoes com if para que ele so passe a pagina seguinte se tudo for preenchido
-//posso colocar aqui a função do local storage tambem / minimo de caracteres e tudo mais , email reject e tudo mais
+//Adição de evento de submmit no form para realizar as validações 
+    form.addEventListener('submit' , (e) =>{
+        e.preventDefault()
+        if(Senha =! ConfirmarSenha){
+            alert(' as senhas nao coincidem')
+            Senha = ''
+        
+        
+        }
+    })
+    
+
+//Mapeando a tecla enter para enviar o formulario
+    document.addEventListener('keypress' , (e)=>{
+        if(e.key === 'enter')
+        botaoCadastro.click();
+    })
+
+//Mapeando a tecla capslock para avisar ao usuario se a tecla está ativada ou não ao inserir a senha
+senha.addEventListener('keyup' , (e)=>{
+    const textoAlerta = document.getElementById('uperCase')
+    if(e.getModifierState('CapsLock')){
+        textoAlerta.style.display = 'block'
+    }
+    else{
+        textoAlerta.style.display ='none'
+    }
+})
+
+
+confirmarSenha.addEventListener('keyup' , (e)=>{
+    const uperCaseConfirm = document.getElementById('uperCaseConfirm')
+    if(e.getModifierState('CapsLock')){
+        uperCaseConfirm.style.display = 'block'
+    }
+    else{
+        uperCaseConfirm.style.display = 'none'
+    }
+})
+    
+    
+
+
+
+
+
 
 
 // aplicação de api/cep
+    const cep = document.querySelector("#cep");
 
 
-const cep = document.querySelector("#cep");
+    const options = {
+        method:"get",
+        mode: "cors",
+        cache:"default"
+    }
 
-
-const options = {
-    method:"get",
-    mode: "cors",
-    cache:"default"
-}
-
-const showdata = (result)=>{
-    for(const campo in result){
-        if(document.querySelector("#"+campo)){
-            document.querySelector("#"+campo).value =result[campo];
+    const showdata = (result)=>{
+        for(const campo in result){
+            if(document.querySelector("#"+campo)){
+                document.querySelector("#"+campo).value =result[campo];
+            }
         }
     }
-}
 
-cep.addEventListener("blur", (e) => {
-    let search = cep.value.replace("-", "");
-    console.log(search);
-
-    fetch( `https://viacep.com.br/ws/${search}/json/`,options)
-    .then(response => {
-        response.json()
-        .then(data=>{
-            console.log(data)
-            showdata(data)
+    cep.addEventListener("blur", (e) => {
+            let search = cep.value.replace("-", "");
+            console.log(search);
+            fetch( `https://viacep.com.br/ws/${search}/json/`,options)
+            .then(response => {
+            response.json()
+            .then(data=>{
+                console.log(data)
+                showdata(data)
+            })
         })
-    })
     
-    .catch(e=>{ 
-        console.log("Falha de conexão " + e)
-    })
+        .catch(e=>{ 
+            console.log("Falha de conexão " + e)
+        })
     
-}) 
+    }) 
 
 
 

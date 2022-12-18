@@ -26,13 +26,14 @@
         </header>
         <main>
             <div id="flex">
-                <form>
+                <form id="form">
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" minlength="11">
+                        <input type="email" class="form-control" id="floatingInput email" placeholder="name@example.com" minlength="11">
                         <label for="floatingInput">Email</label>
                     </div>
                     <div class="form-floating">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" minlength="6">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" minlength="4">
+                        <p id="textAlert">CapsLock ativado</p>
                         <i class="fa-sharp fa-solid fa-eye" id="show_Senha"></i> 
                         <label for="floatingPassword">Senha</label>
                     </div>
@@ -44,7 +45,7 @@
                         <label class="form-check-label" for="exampleCheck1" id="labor">Lembre-me</label>
                     </div>
                     <a href="#">
-                        <button id="entrar">Entrar</button>
+                        <button id="entrar" type="submit">Entrar</button>
                     </a> 
                 </form>
             </div>
