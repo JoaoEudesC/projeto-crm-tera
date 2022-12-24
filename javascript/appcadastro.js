@@ -65,7 +65,9 @@
         e.preventDefault()
         if(Senha =! ConfirmarSenha){
             alert(' as senhas nao coincidem')
-            Senha = ''
+            senha.value = ""
+            confirmarSenha.value=""
+            senha.focus()
         
         
         }

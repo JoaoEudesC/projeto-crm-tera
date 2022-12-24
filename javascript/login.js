@@ -54,7 +54,11 @@ form.addEventListener('submit' , (e)=>{
         window.location.replace('file://wsl.localhost/Ubuntu/home/joao/projeto-crm-tera/index.html')
     }
     else{
-        alert('usuario não reconhecido')
+        alert('Email ou senha invalidos')
+        email.value = ""
+        senha.value = ""
+        email.focus()
+
     }
 })
 
