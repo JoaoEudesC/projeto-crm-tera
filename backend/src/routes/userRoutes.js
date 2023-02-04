@@ -1,18 +1,18 @@
-//config do arquivo router
-const { Router } = require("express");
+//Config do arquivo router
 const express = require("express");
 const router = express.Router();
 
-//config do pacote npm joi
-const JoiValidation = require("../Validations/user")
-const {validate} = require("express-validation")
+//Config do pacote npm joi
+const {registerValidate} = require("../middlewares/userMiddleware")
+const errorMiddleware  = require("../middlewares/errorMiddlewares")
 
-//importação do Usercontroller e do AuthController
+//Importação do Usercontroller e do AuthController
 const userController = require("../controllers/userController")
 const authController = require("../controllers/authController");
 
 
-// 1- funções que são enviadas do controller para fazer as requisições
+
+// 1- Funções que são enviadas do controller para fazer as requisições
 
 
 //Rota de Teste(GET)
@@ -34,7 +34,7 @@ router.get("/email/:id" , userController.getUserByIdAndShowEmail)
 
 //Rota que irá adicionar usuários no banco (POST)
 
-router.post("/", validate(JoiValidation.createOrUpadateUserValidator) ,userController.createUser)
+router.post("/create", registerValidate ,userController.createUser)
 
 //Rota que irá atualizar um usuário existente no banco de dados(UPDATE - PUT)
 
@@ -45,7 +45,11 @@ router.put("/:id" , userController.updateUserById)
 
 router.delete("/:id" , userController.deleteUserById)
 
-//Rota de Validação do usuário através do jwt onde mostrará o token criado (POST)
+//Rota que irá resetar o banco de dados , ou seja , delatar todos os usuários de uma só vez (DELETE)
+
+router.delete("/deleteAll" , userController.deleteAllUsers)
+
+//Rota de Validação do usuário através do jwt onde mostrará o token criado (POST) onde você pegará o token e passará na RotaAutenticada
 
 router.post("/login" , authController.login)
 
@@ -54,7 +58,12 @@ router.post("/login" , authController.login)
 router.post("/RotaAutenticada" , authController.tokenVerification , userController.rotaAutenticada )
 
 
-//exportação do modulo router
+//Importação do midlleware de error com o joi para pegar os erros que acontecer na rota de post de usuários
+
+router.use(errorMiddleware)
+
+
+//Exportação do modulo router
 
 module.exports = router
 

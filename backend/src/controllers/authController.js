@@ -1,30 +1,30 @@
-//importação dos modulos
+//Importação dos modulos
 const userSchema = require("../models/userSchema")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
-//confin do dotenv
+//Confing do dotenv 
 require("dotenv").config();
 
 
 
-//transformando o authController em um objeto vázio , para depois exportalo como modulo e utilizar no router
+//Transformando o authController em um objeto vázio , para depois exportalo como modulo e utilizar no router
 const authController = {}
 
 
 
 
 
-//Utilização do dotenv para guardar o secret ou seja, o nosso token de forma segura
+//Utilização do dotenv para guardar o secret que será usado para hashear o nosso token
 
 const SECRET = process.env.SECRET
 
 
-//fazendo o login
+//Fazendo o login
 authController.login =  ( req , res) =>{
     try{
         //Validação de email
-        userSchema.findOne({Email:req.body.Email},   (error , usuario) =>{
+        userSchema.findOne({email:req.body.email},   (error , usuario) =>{
 
 
             if(!usuario){
@@ -32,13 +32,13 @@ authController.login =  ( req , res) =>{
                     statusCode:401,
                     message:"Usuário não encontrado",
                     data:{
-                        Email:req.body.Email
+                        email:req.body.email
                     }
                 })
             }
             //Validação de Senha
 
-            const ValidationPassword =  bcrypt.compare(req.body.Password , usuario.Password)
+            const ValidationPassword =  bcrypt.compare(req.body.senha , usuario.senha)
             
             if(!ValidationPassword){
                 return res.status(401).json({
@@ -49,7 +49,7 @@ authController.login =  ( req , res) =>{
             
             //Criação de token
             
-            const token = jwt.sign({NomeCompleto:usuario.NomeCompleto} , SECRET)
+            const token = jwt.sign({nome:usuario.nome} , SECRET)
             res.status(200).json({
                 statusCode:200,
                 message:"Login realizado com sucesso!",
@@ -84,15 +84,7 @@ authController.login =  ( req , res) =>{
                 message:"Não autorizado"
             })
         }
-
         
-        /*else{
-            res.status(200).json({
-                statusCode:200,
-                message:"Rota autenticada"
-            })
-        }*/
-
         try{
             jwt.verify(token , SECRET)
             next()
@@ -116,11 +108,11 @@ authController.login =  ( req , res) =>{
 module.exports = authController
 
 
-//Podemos utilizar estas duas maneiras de exportação , a ultima é a mais recente , tbm utilizada no react
+//Podemos utilizar estas duas maneiras de exportação , a ultima é a mais recente , tbm utilizada no react tem que estar com o type:esmodule
 
 /*export default  {
     authController
 }*/
 
 
-//Tenho que importar este arquivo no authController e criar uma rota para esta função com o metodo post , que é para onde eu enviarei os dados
+//Tenho que importar este arquivo no userController e criar uma rota para esta função com o metodo post , que é para onde eu enviarei os dados

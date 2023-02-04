@@ -1,65 +1,63 @@
+//Criação do esquema de cadastro de usuários , ou seja , os campos que serão criados
+
 const mongoose = require ("mongoose")
 const bcrypt = require("bcrypt")
 
-const joi = require("joi")
+
 
 
 const userSchema = new mongoose.Schema(
     {
         id:mongoose.Schema.Types.ObjectId,
-        NomeCompleto:{
+        nome:{
             type:String,
             required:true
         },
 
-        Email:{
+        email:{
             type:String,
             required: true, 
             
         },
-        Password:{
+        senha:{
             type:String,
             required:true
             
         },
 
-        Cep:{
+        cep:{
             type:String ,
             required:true
         },
 
-        Logradouro:{
+        logradouro:{
             type:String,
             required:true
         },
 
-        Bairro:{
+        bairro:{
             type:String,
             required:true
         },
-        Localidade:{
+        localidade:{
             type:String,
             required:true
         },
-        UF:{
+        uf:{
             type:String,
             required:true
         }
 
     },
-    //o timestamps, serve para que venha com a data de criação no momento de inserção do dado
+    //O timestamps, serve para que venha com a data de criação no momento de inserção do dado
     {timestamps:true}
 )
-
-
-//Utilização do joi para validação de usuário
-
 
 
 
 //Utilização do bcrypt para hashear a senha do usuário no banco de dados(Portando há duas maneiras de se utilizar o bcrypt)
 userSchema.pre('save' , async function(next){
-    this.Password = await bcrypt.hash(this.Password , 10);
+    this.senha = await bcrypt.hash(this.senha , 10);
     next();
 })
 

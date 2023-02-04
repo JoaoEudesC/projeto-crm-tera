@@ -9,7 +9,7 @@
     //Inputs
         let senha = document.getElementsByTagName("input")[2]
         let confirmarSenha = document.getElementsByTagName("input")[3]
-        let nome = document.getElementById('floatingInput')
+        let nome = document.getElementById('NomeCompleto')
         let email = document.getElementById("email")
         let codigopostal = document.getElementById("cep")
         let logradouro = document.getElementById('logradouro')
@@ -24,8 +24,6 @@
     
 
 
-//Adição de evento ao botão de cadastro
-    botaoCadastro.addEventListener("click", AdicionarLocalStorage )
 
 
 
@@ -42,19 +40,22 @@
     let UF = uf.value
     
     
+//Adição de evento ao botão de cadastro
+    botaoCadastro.addEventListener("click", AdicionarLocalStorage )
+
     
     
 //Adição de elementos ao local storage e função de click do botao cadastrar
     function AdicionarLocalStorage(){
-        localStorage.setItem('Nome',Nome );
-        localStorage.setItem('Senha' , Senha)
-        localStorage.setItem('Confirmar senha' , ConfirmarSenha)
-        localStorage.setItem('Email' , Email);
+        localStorage.setItem('Nome',nome );
+        localStorage.setItem('Senha' , senha)
+        localStorage.setItem('Confirmar senha' , confirmarSenha)
+        localStorage.setItem('Email' , email);
         localStorage.setItem('Cep' , codigoPostal);
-        localStorage.setItem('Logradouro' , Logradouro);
-        localStorage.setItem('Bairro' , Bairro);
-        localStorage.setItem('Localidade' , Localidade)
-        localStorage.setItem('UF' , UF);
+        localStorage.setItem('Logradouro' , logradouro);
+        localStorage.setItem('Bairro' , bairro);
+        localStorage.setItem('Localidade' , localidade)
+        localStorage.setItem('UF' , uf);
     
     
 }
@@ -147,7 +148,7 @@ confirmarSenha.addEventListener('keyup' , (e)=>{
     }) 
 
 
-
+console.log(Nome)
 
 
 
