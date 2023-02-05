@@ -5,9 +5,10 @@ const Joi = require("joi")
 //Esquema Criado com o joi para impor as condições e passar para userMiddleware para ser validado e apanhado o erro caso exista algum para após passar por esse middleware , ser exportado e utilizado na rota de post para agregra estas condições
 
 const registerSchema = Joi.object({
+    
             nome: Joi.string().required(),
             email: Joi.string().email().required(),
-            senha: Joi.string().min(3).max(10).required(),
+            senha: Joi.string().min(3).max(20).required(),
             cep:Joi.string().required(),
             logradouro:Joi.string().required(),
             bairro:Joi.string().required(),

@@ -45,10 +45,6 @@ router.put("/:id" , userController.updateUserById)
 
 router.delete("/:id" , userController.deleteUserById)
 
-//Rota que irá resetar o banco de dados , ou seja , delatar todos os usuários de uma só vez (DELETE)
-
-router.delete("/deleteAll" , userController.deleteAllUsers)
-
 //Rota de Validação do usuário através do jwt onde mostrará o token criado (POST) onde você pegará o token e passará na RotaAutenticada
 
 router.post("/login" , authController.login)

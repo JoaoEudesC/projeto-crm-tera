@@ -3,6 +3,7 @@ const userController = {}
 
 //Importando modulos
 const Bcrypt = require("bcrypt")
+const userSchema = require("../models/userSchema")
 const UserSchema = require("../models/userSchema")
 
 
@@ -117,24 +118,6 @@ userController.deleteUserById = async(req, res)=>{
         });
     }
 };
-
-
-
-//Rota que irá resetar o bando de dados , irá deletar todos os usuários de uma única vez (DELETE)
-
-
-userController.deleteAllUsers =  (req ,res) =>{
-    UserSchema.deleteMany(function(err , users){
-        if(err){
-            res.status(500).send({message: err.message})
-        }
-        res.status(200).json({
-            statusCode:200,
-            message:"Banco de dados resetado",
-            UsuáriosDeletados:users
-        })
-    })
-}
 
 
 
