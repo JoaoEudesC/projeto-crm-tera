@@ -186,3 +186,11 @@ label{
             margin-left: 15px;
         }
     }
+
+
+    @media(max-width:549px){
+        .SuperiorImputs{
+            width: 200px;
+            text-align: center;
+        }
+    }
