@@ -38,7 +38,7 @@ authController.login =  ( req , res) =>{
             }
             //Validação de Senha
 
-            const ValidationPassword =  bcrypt.compare(req.body.senha , usuario.senha)
+            const ValidationPassword =  bcrypt.compareSync(req.body.senha , usuario.senha)
             
             if(!ValidationPassword){
                 return res.status(401).json({

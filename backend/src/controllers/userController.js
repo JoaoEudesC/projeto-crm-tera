@@ -58,8 +58,9 @@ userController.getUserByIdAndShowEmail = async(req , res) =>{
 
 userController.createUser = async (req , res)=>{
 
-    const hashedPassword =   Bcrypt.hashSync(req.body.senha, 10);
+    /*const hashedPassword =   Bcrypt.hashSync(req.body.senha, 10);
     req.body.senha = hashedPassword
+    */ // => uma outra maneira de utilizar o bcrypt para hashear a senha
 
     try{
 
