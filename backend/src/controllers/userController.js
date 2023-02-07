@@ -3,7 +3,6 @@ const userController = {}
 
 //Importando modulos
 const Bcrypt = require("bcrypt")
-const userSchema = require("../models/userSchema")
 const UserSchema = require("../models/userSchema")
 
 
