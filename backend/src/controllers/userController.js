@@ -2,7 +2,6 @@
 const userController = {}
 
 //Importando modulos
-const Bcrypt = require("bcrypt")
 const UserSchema = require("../models/userSchema")
 
 
@@ -26,7 +25,7 @@ userController.getUserById = async(req , res) =>{
 
         res.status(200).json({
             statusCode: 200,
-            message: "User Localizado com sucesso",
+            message: "Usuário Localizado com sucesso",
             data:{
                 user,
             },
@@ -45,7 +44,7 @@ userController.getUserByIdAndShowEmail = async(req , res) =>{
 
         res.status(200).json({
             statusCode: 200,
-            message: "User Localizado com sucesso",
+            message: "Usuário Localizado com sucesso",
             usuario: user.email
         });
     }catch(err){
@@ -69,7 +68,7 @@ userController.createUser = async (req , res)=>{
 
         res.status(201).json({
             statusCode:201,
-            message:"User adicionado com sucesso",
+            message:"Usuário adicionado com sucesso",
             data:{
                 savedUser
             }
@@ -90,7 +89,7 @@ userController.updateUserById = async(req , res) =>{
         const user = await UserSchema.findByIdAndUpdate(req.params.id , req.body);
         res.status(200).json({
             statusCode: 200,
-            message: "User atualizada com sucesso",
+            message: "Usuário atualizado com sucesso",
             data:{
                 user,
             },
@@ -109,7 +108,7 @@ userController.deleteUserById = async(req, res)=>{
 
         res.status(200).json({
             statusCode:200,
-            mensagem: "User deletada com sucesso",
+            mensagem: "Usuário deletado com sucesso",
         });
     }catch(err){
         res.status(400).json({
