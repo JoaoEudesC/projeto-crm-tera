@@ -61,4 +61,4 @@ userSchema.pre('save' , async function(next){
 })
 
 
-module.exports = mongoose.model("crmLobster" , userSchema)
+module.exports = mongoose.model("crmlobster" , userSchema)

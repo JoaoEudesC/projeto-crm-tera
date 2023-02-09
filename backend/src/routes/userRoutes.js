@@ -2,8 +2,9 @@
 const express = require("express");
 const router = express.Router();
 
-//Config do pacote npm joi
+//Importação dos middlewares de validação de login , error e cadastro
 const {registerValidate} = require("../middlewares/userMiddleware")
+const {loginValidate} = require("../middlewares/userMiddleware")
 const errorMiddleware  = require("../middlewares/errorMiddlewares")
 
 //Importação do Usercontroller e do AuthController
@@ -47,7 +48,7 @@ router.delete("/:id" , userController.deleteUserById)
 
 //Rota de Validação do usuário através do jwt onde mostrará o token criado (POST) onde você pegará o token e passará na RotaAutenticada
 
-router.post("/login" , authController.login)
+router.post("/login" , loginValidate  ,authController.login)
 
 //Rota de validação do token ja criado , para certificar se ele realmente existe ou não (POST)
 

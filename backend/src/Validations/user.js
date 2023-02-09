@@ -18,7 +18,17 @@ const registerSchema = Joi.object({
     })
 
 
+    //Esquema de validação de login com o joi
+
+
+    const loginSchema = Joi.object({
+        email:Joi.string().email().required(),
+        senha: Joi.string().min(3).max(20).required()
+    })
+
+
     module.exports = {
-        registerSchema
+        registerSchema,
+        loginSchema
     }
 
