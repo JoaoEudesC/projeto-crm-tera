@@ -20,10 +20,9 @@ const authController = require("../controllers/authController");
 
 router.get("/teste" , userController.Teste)
 
-
 //Rota que mostra todos os usuários cadastrados no banco (GET -ALL)
 
-router.get("/all" , userController.getAll)
+router.get("/" , userController.getAll)
 
 //Rota que irá pegar os usuarios pelo Id (GET - READ-ID)
 
@@ -41,7 +40,6 @@ router.post("/create", registerValidate ,userController.createUser)
 
 router.put("/:id" , userController.updateUserById)
 
-
 //Rota que irá deletar o usuário do banco de dados (DELETE)
 
 router.delete("/:id" , userController.deleteUserById)
@@ -58,7 +56,6 @@ router.post("/RotaAutenticada" , authController.tokenVerification , userControll
 //Importação do midlleware de error com o joi para pegar os erros que acontecer na rota de post de usuários
 
 router.use(errorMiddleware)
-
 
 //Exportação do modulo router
 
