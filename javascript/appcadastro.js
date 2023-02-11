@@ -57,11 +57,7 @@
         localStorage.setItem('Localidade' , Localidade)
         localStorage.setItem('UF' , UF);
         
-    console.log(UF)
-    console.log(Localidade)
-    
-    
-}
+   }
 
 
 //Adição de evento de submmit no form para realizar as validações 
