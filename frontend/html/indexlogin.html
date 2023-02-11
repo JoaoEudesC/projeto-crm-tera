@@ -15,16 +15,19 @@
     </head>
     <body>
         <header>
-            <a href="../index.html">  
-                <h1> <img src="../Imagens/image-removebg-preview.png" alt="logo do nosso crm" class="img-fluid"></h1>
+            <a href="file://wsl.localhost/Ubuntu/home/joao/projeto-crm-tera/index.html">  
+                <h1><img src="../Imagens/image-removebg-preview.png" alt="logo do nosso crm" class="img-fluid"></h1>
             </a>
             <p>Nao possui uma conta?
                 <span>
-                    <a href="indexcadastro.html" class="password"> Inscreva-se</a>
+                    <a href="../html/indexcadastro.html" class="password"> Inscreva-se</a>
                 </span>
             </p>
         </header>
         <main>
+            <div class="alert alert-danger" role="alert" id="MessageAlert">
+                Usuário não autorizado
+            </div>
             <div id="flex">
                 <form id="form">
                     <div class="form-floating mb-3">
@@ -39,7 +42,7 @@
                     </div>
                     <div class="mb-3 form-check">
                         <p id="senha">
-                            <a href="indexsenha.html" class="password">Esqueci Minha Senha</a>
+                            <a href="../html/indexsenha.html" class="password">Esqueci Minha Senha</a>
                         </p>
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1" id="labor">Lembre-me</label>
@@ -48,7 +51,6 @@
                         <button id="entrar" type="submit">Entrar</button>
                     </a> 
                 </form>
-                <button id="teste">Teste Api</button>
             </div>
         </main>
         <script src="../javascript/login.js"></script>

@@ -1,0 +1,15 @@
+body{
+    background:linear-gradient(to left  ,#00195A ,#4e7aac);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+
+
+html{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}

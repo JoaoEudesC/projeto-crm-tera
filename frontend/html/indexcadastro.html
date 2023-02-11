@@ -17,32 +17,35 @@
             <h1><img src="../Imagens/image-removebg-preview.png" alt="Logo do crm" class="img-fluid"></h1>
             <h2>Cria sua conta gratuita</h2>
             <div id="mover">
-                <a href="../index.html">
+                <a href="file://wsl.localhost/Ubuntu/home/joao/projeto-crm-tera/index.html">
                     <button class="botao_principal">Home</button>
                 </a>
-                <a href="./indexpreço.html" >  
+                <a href="../html/indexpreço.html" >  
                     <button class="botao_principal">Preços</button>
                 </a>
             </div>
         </header>
         <main>
             <form id="Form" action="/users/create" method="POST">  
+                <div class="alert alert-danger" role="alert" id="MessageError">
+                    As senhas não coincidem
+                </div>
                 <div id="flex">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="NomeCompleto"  placeholder="Nome completo"  required>
                         <label for="floatingInput">Nome completo</label>
                     </div>
                     <div class="form-floating">
-                        <input type="email" class="form-control floatingPassword" id="email"  placeholder="Email" minlength="11" required>
+                        <input type="email" class="form-control floatingPassword" id="email"  placeholder="Email" required>
                         <label for="floatingPassword">Email</label>
                     </div>
                     <div class="form-floating">
-                        <input type="password" class="form-control floatingPassword" id="senha" placeholder="Senha" minlength="5" required>
+                        <input type="password" class="form-control floatingPassword" id="senha" placeholder="Senha" minlength="6" maxlength="20" required>
                         <label for="floatingPassword">Senha</label>
                         <p id="uperCase">CapsLock Ativado</p>
                     </div>
                     <div class="form-floating">
-                        <input type="password" class="form-control floatingPassword" id="confirmarSenha" placeholder="Confirmar senha" minlength="6" required>
+                        <input type="password" class="form-control floatingPassword" id="confirmarSenha" placeholder="Confirmar senha" minlength="6" maxlength="20" required>
                         <label for="floatingPassword">Confirmar senha</label>
                         <p id="uperCaseConfirm">CapsLock Ativado</p>
                     </div>
@@ -65,18 +68,15 @@
                     <label for="localidade">Localidade</label>
                 </div>
                 <div class="form-group form-floating"> 
-                    <input type="text" class="form-control SuperiorImputs" id="localidade" placeholder="Localidade">
+                    <input type="text" class="form-control SuperiorImputs" id="uf" placeholder="Localidade">
                     <label for="localidade">UF</label>
                 </div>
                 <div id="cadastro">
-                    <a href="indexlogin.html">
+                    <a href="../html/indexlogin.html">
                     <button type="submit" id="cadastro">Cadastrar</button>
                     </a>
                 </div>
             </form> 
-            <button id="Clicar">Clicar</button>
-            <button id="Clicou">storageTeste</button>
-            
         </main>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
         <script src="../javascript/appcadastro.js"></script>

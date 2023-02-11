@@ -44,8 +44,15 @@ html{
 
 
 
-
-
+#MessageAlert{
+    text-align: center;
+    margin-top: 50px;
+    box-shadow: 1px 1px 1px 1px black;
+    font-weight: 900;
+    background-color: rgb(209, 107, 107);
+    color: rgb(167, 1, 1);
+    display: none;
+}
 
 h1{
     text-align: center;

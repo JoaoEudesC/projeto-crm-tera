@@ -165,6 +165,16 @@ label{
 
 
 
+#MessageError{
+    margin-top: 33px;
+    text-align: center;
+    box-shadow: 1px 1px 1px 1px black;
+    display: none;
+    font-weight: bold;
+    background-color: rgb(209, 107, 107);
+    color: rgb(167, 1, 1);
+}
+
 
 @media(min-width:401px),(max-width:1200px){
 
