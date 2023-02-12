@@ -159,7 +159,7 @@ const submitForm = async (e) =>{
         credentials: "same-origin"
     }
     
-    const requisition = await fetch(url, Fetch) 
+     await fetch(url, Fetch) 
     .then((response)=>{
         if(response.status === 201){
             return window.location.href = "indexlogin.html"
