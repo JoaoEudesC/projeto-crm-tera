@@ -1,36 +1,14 @@
 
-//Seleção de elementos  
-    
-    
-    
-    
-    
-    //Inputs
-        let senha = document.getElementsByTagName("input")[2]
-        let confirmarSenha = document.getElementsByTagName("input")[3]
+//Inputs
+    let senha = document.getElementsByTagName("input")[2]
+    let confirmarSenha = document.getElementsByTagName("input")[3]
         
         
         
-    //Formulario
-        const form = document.getElementById('Form')
+//Formulario
+    const form = document.getElementById('Form')
     
     
-    //Adição de elementos ao localStorage
-
-
-
-
-
-
-
-    
-
-    
-    
-
-
-
-
 
 //Mapeando a tecla enter para enviar o formulario
     document.addEventListener('keypress' , (e)=>{
@@ -60,11 +38,6 @@
     })
     
     
-
-
-
-
-
 
 
 // aplicação de api/cep
@@ -128,6 +101,7 @@ const init = ()=>{
 const submitForm = async (e) =>{
     
     e.preventDefault();
+//Validação de senha e confirmar a senha , ter certeza que elas coiciden 
     let senha = document.getElementById("senha")
     let confirm = document.getElementById("confirmarSenha").value
     let valueSenha = senha.value
@@ -139,16 +113,19 @@ const submitForm = async (e) =>{
         senha.focus()
         return MessageError.style.display ="block"
     }
-    
+//Config dos dados a serem passados no fetch  e realização do fetcg api
     const data = accessData()
-    const url = "http://localhost:3000/users/create"
+    const url = "http://localhost:8080/users/create"
     if(!data){
         return console.log("Dados nao estão corretos")
     }
     
-    // credentials => "same-origin" é usada no contexto de requisições HTTP com o Fetch API e indica que as credenciais (cookies e headers de autenticação) devem ser incluídas na requisição se o URL da requisição for da mesma origem do aplicativo cliente. Em outras palavras, isso permite que a requisição acesse recursos protegidos que dependem de autenticação da mesma origem. Se o URL da requisição for de uma origem diferente, as credenciais não serão incluídas na requisição.
+// credentials => "same-origin" é usada no contexto de requisições HTTP com o Fetch API e indica que as credenciais (cookies e headers de autenticação) devem ser incluídas na requisição se o URL da requisição for da mesma origem do aplicativo cliente. Em outras palavras, isso permite que a requisição acesse recursos protegidos que dependem de autenticação da mesma origem. Se o URL da requisição for de uma origem diferente, as credenciais não serão incluídas na requisição.
     
-    //criação do metodo de requisição para submeter os dados do formulário de forma correta
+//Mensagem de erro caso o email cadastrado já exista no banco de dados
+    const existingEmailMessage = document.getElementById("MessageEmailExist")
+
+//criação do metodo de requisição para submeter os dados do formulário de forma correta
     const Fetch = {
         method:"POST",
         body:JSON.stringify(data),
@@ -159,11 +136,13 @@ const submitForm = async (e) =>{
         credentials: "same-origin"
     }
     
-     await fetch(url, Fetch) 
+    await fetch(url, Fetch) 
     .then((response)=>{
-        if(response.status === 201){
+        if(response.status == 201){
             return window.location.href = "indexlogin.html"
-
+        }
+        else if(response.status == 422){
+            return existingEmailMessage.style.display = "block"
         }
         else{
             return alert("Usuário não cadastrado , tente novamente")
@@ -216,8 +195,7 @@ accessData();
 
 
 
-    
-        
+
 
 
 

@@ -11,6 +11,8 @@ const errorMiddleware  = require("../middlewares/errorMiddlewares")
 const userController = require("../controllers/userController")
 const authController = require("../controllers/authController");
 
+//Impotação de middleware de checagem se o email criado já é cadastrado no banco de dados
+    const {checkExistingEmail} = require("../middlewares/repetionMiddleware")
 
 
 // 1- Funções que são enviadas do controller para fazer as requisições
@@ -34,7 +36,7 @@ router.get("/email/:id" , userController.getUserByIdAndShowEmail)
 
 //Rota que irá adicionar usuários no banco (POST)
 
-router.post("/create", registerValidate ,userController.createUser)
+router.post("/create", registerValidate, checkExistingEmail, userController.createUser)
 
 //Rota que irá atualizar um usuário existente no banco de dados(UPDATE - PUT)
 

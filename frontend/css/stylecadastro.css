@@ -175,6 +175,17 @@ label{
     color: rgb(167, 1, 1);
 }
 
+#MessageEmailExist{
+    text-align: center;
+    margin-top: 33px;
+    box-shadow: 1px 1px 1px 1px black;
+    font-weight: bold;
+    display: none;
+    background-color: rgb(209, 107, 107);
+    color: rgb(167, 1, 1);
+
+}
+
 
 @media(min-width:401px),(max-width:1200px){
 

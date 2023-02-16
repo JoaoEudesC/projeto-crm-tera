@@ -42,6 +42,13 @@
         }
     })
 
+//Função que adicionará os valores dos inputs no localStorage(esta função será chamada dentro da função de enviar o formulário)
+    const AddLocalStorage = () =>{
+        const password = document.getElementById("password").value
+        const mail = document.getElementById("email").value
+        localStorage.setItem("Senha" , password)
+        localStorage.setItem("Email" , mail)
+    }
 
 
 
@@ -50,8 +57,11 @@
     const init = () => form.addEventListener('submit' , async (e)=>{
         e.preventDefault();
         const data = accessData(); 
-        const url = "http://localhost:3000/users/login"
+        const url = "http://localhost:8080/users/login"
         const MessageError = document.getElementById("MessageAlert")
+
+        //Função que adiciona os elementos ao localStorage
+        AddLocalStorage()
         
         if(!data){
             return console.log("Dados errados ")
