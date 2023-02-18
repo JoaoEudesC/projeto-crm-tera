@@ -1,27 +1,16 @@
-//Seleção de Elementos
-    let eye = document.getElementById('show_Senha')
-    const Senha = document.getElementsByTagName('input')[1]
-    const email = document.getElementsByTagName('input')[0].value
-    const botaoLogin = document.getElementById('entrar')
-    const form = document.getElementById('form')
-
 
     
-    //pegando value do input de senha 
-    const senha = Senha.value
-
-
-
-
 //Mapeando o enter para o envio de formulário atravês do keypress
+const form = document.getElementById('form')
     document.addEventListener('keypress' , (e)=>{
         if(e.key === 'enter')
-        botaoLogin.click();
+        form.onsubmit();
     })
 
 
 
 //Mapeando a tecla capslock para avisar ao usuario se a tecla está ativada ou não ao inserir a senha
+const Senha = document.getElementsByTagName('input')[1]
     Senha.addEventListener('keyup' , (e)=>{
         const textAlert = document.getElementById('textAlert')
         if(e.getModifierState('CapsLock')){
@@ -33,6 +22,7 @@
     })
 
 //Icone do olho que esconde  e mostra a senha
+let eye = document.getElementById('show_Senha')
     eye.addEventListener("click" , ()=>{
         if(Senha.type == "password"){
             Senha.type = 'text'
@@ -42,26 +32,44 @@
         }
     })
 
-//Função que adicionará os valores dos inputs no localStorage(esta função será chamada dentro da função de enviar o formulário)
-    const AddLocalStorage = () =>{
-        const password = document.getElementById("password").value
-        const mail = document.getElementById("email").value
-        localStorage.setItem("Senha" , password)
-        localStorage.setItem("Email" , mail)
-    }
+//Função que ativará o input checkBox para que o usário possa salvar o valor do seu email e sua senha
+    //Verificação quando a página é carregada se há dados do usuário salvos no localstorage, podemos fazer isso através do DOMContentLoaded(com essa função if eu estou dizendo basicamente que se tiver um password e um email no localStorage eu vou pegar os valores dos inputs e passar lá, como o checkBox marcado true) => primeira validação
+    document.addEventListener("DOMContentLoaded" , () =>{
+        if(localStorage.getItem("email") && localStorage.getItem("password")){
+            document.getElementsByTagName("input")[0].value = localStorage.getItem("email");
+            document.getElementsByTagName("input")[1].value = localStorage.getItem("password")
+            document.getElementById("Check1").checked = true;
+        }
+    });
+
+//Adicionando evento de change no input checkBox para verificar se ele ta marcado ou não( se ele estiver marcado salvo os valores do email e senha no localstorage se não estiver eu removo os valores do localstorage)
+    let checkBox = document.getElementById("Check1")
+    let inputEmail = document.getElementById("email")
+    let inputSenha = document.getElementById("password")
+
+    checkBox.addEventListener("change" , () =>{
+        if(checkBox.checked){
+            localStorage.setItem("email" , inputEmail)
+            localStorage.setItem("password" , inputSenha)
+        }
+        else{
+            localStorage.removeItem("email")
+            localStorage.removeItem("password")
+        }
+    })
 
 
 
 
 //Autenticaçao e login => Ligação da nossa aplicação com o backend , a parte de login , da rota login, autenticação e login
+
     const init = () => form.addEventListener('submit' , async (e)=>{
         e.preventDefault();
         const data = accessData(); 
         const url = "http://localhost:8080/users/login"
         const MessageError = document.getElementById("MessageAlert")
 
-        //Função que adiciona os elementos ao localStorage
-        AddLocalStorage()
+        
         
         if(!data){
             return console.log("Dados errados ")

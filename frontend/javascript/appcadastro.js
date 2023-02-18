@@ -1,10 +1,3 @@
-
-//Inputs
-    let senha = document.getElementsByTagName("input")[2]
-    let confirmarSenha = document.getElementsByTagName("input")[3]
-        
-        
-        
 //Formulario
     const form = document.getElementById('Form')
     
@@ -17,6 +10,7 @@
     })
 
 //Mapeando a tecla capslock para avisar ao usuario se a tecla está ativada ou não ao inserir a senha
+let senha = document.getElementsByTagName("input")[2]
     senha.addEventListener('keyup' , (e)=>{
         const textoAlerta = document.getElementById('uperCase')
         if(e.getModifierState('CapsLock')){
@@ -27,6 +21,7 @@
         }
     })
     
+let confirmarSenha = document.getElementsByTagName("input")[3]
     confirmarSenha.addEventListener('keyup' , (e)=>{
         const uperCaseConfirm = document.getElementById('uperCaseConfirm')
         if(e.getModifierState('CapsLock')){
