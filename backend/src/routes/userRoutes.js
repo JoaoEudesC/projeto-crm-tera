@@ -40,7 +40,7 @@ router.post("/create", registerValidate, checkExistingEmail, userController.crea
 
 //Rota que irá atualizar um usuário existente no banco de dados(UPDATE - PUT)
 
-router.put("/:id" , userController.updateUserById)
+router.put("/:id" ,  registerValidate  ,userController.updateUserById)
 
 //Rota que irá deletar o usuário do banco de dados (DELETE)
 
