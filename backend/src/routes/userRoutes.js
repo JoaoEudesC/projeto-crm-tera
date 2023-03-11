@@ -24,7 +24,7 @@ router.get("/teste" , userController.Teste)
 
 //Rota que mostra todos os usuários cadastrados no banco (GET -ALL)
 
-router.get("/" , userController.getAll)
+router.get("/all" , userController.getAll)
 
 //Rota que irá pegar os usuarios pelo Id (GET - READ-ID)
 
@@ -53,6 +53,11 @@ router.post("/login" , loginValidate  ,authController.login)
 //Rota de validação do token ja criado , para certificar se ele realmente existe ou não (POST)
 
 router.post("/RotaAutenticada" , authController.tokenVerification , userController.rotaAutenticada )
+
+//Rota de reset de password do usuário
+router.post("/resetPassword", authController.forgotPassword)
+
+
 
 
 //Importação do midlleware de error com o joi para pegar os erros que acontecer na rota de post de usuários

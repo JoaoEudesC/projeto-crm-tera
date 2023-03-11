@@ -1,8 +1,8 @@
- # 1 - A diferença entre utilizar o mongodb atlas e o mongodbComapass comum  se deve ao fato de que a gente pode compartilhar o banco de dados para cada um poder usar da sua mnaquina , e o banco de dados nao ficar restringindo ao seu localhost , ser compartilhado
+# 1 - A diferença entre utilizar o mongodb atlas e o mongodbComapass comum se deve ao fato de que a gente pode compartilhar o banco de dados para cada um poder usar da sua mnaquina , e o banco de dados nao ficar restringindo ao seu localhost , ser compartilhado
 
-# 2 -  Prestar atenção na utilização do dotenv que serve justamente para a segurança , para nao subir url com senha por exemplo para aplicação no push , como é o caso do mongodb atlas que a senha do banco é passado na url junto com o username
- 
- # 3 - para utilizar o dotenv , temos que instalar ele através do npm (npm i dotenv) e em seguida vou configurar ele com o comando (require("dotenv").config()); no arquivo que inicializa , geralmente no index.js
+# 2 - Prestar atenção na utilização do dotenv que serve justamente para a segurança , para nao subir url com senha por exemplo para aplicação no push , como é o caso do mongodb atlas que a senha do banco é passado na url junto com o username
+
+# 3 - para utilizar o dotenv , temos que instalar ele através do npm (npm i dotenv) e em seguida vou configurar ele com o comando (require("dotenv").config()); no arquivo que inicializa , geralmente no index.js
 
 # 4 - em seguida criamos o arquivo .env e é la que vamos passar os arquivos que nao serão subidos para o projeto (const MONGODB_URI = process.env.MONGODB_URI;) => a utilização é feita assim , utilizando o nome da variável que vode definiu no .env
 
@@ -24,7 +24,7 @@
 
 # 13 - Portanto há duas maneiras de se utilizar o bcrypt (Apliquei duas maneiras neste projeto)
 
-# 14 - Desenvolver o costume de no res.send, enviar mensagens bem completas com os codigos de requisição e tudo mais , data ,  e o atributo (message) para enviar uma mensagem, antes do atributo message tem que ser passado um atributo res.status.json , o metodo send é substituido pelo metodo json
+# 14 - Desenvolver o costume de no res.send, enviar mensagens bem completas com os codigos de requisição e tudo mais , data , e o atributo (message) para enviar uma mensagem, antes do atributo message tem que ser passado um atributo res.status.json , o metodo send é substituido pelo metodo json
 
 # 15 - o mongoose possui uma função interessante que se chama , findbyIdAndUpdate que facilita isso()
 
@@ -40,7 +40,7 @@
 
 # 21 - para eu retornar na somente dados que eu desejo , eu devo utilizar o funçao "FILTER" onde eu passo o userSchema
 
-# 22 - para importar o dotenv como eu fiz no auth , eu tenho que usar o * porque eu estou importando ele da pasta raiz , porém , eu também poderia utilizar através do metodo require
+# 22 - para importar o dotenv como eu fiz no auth , eu tenho que usar o \* porque eu estou importando ele da pasta raiz , porém , eu também poderia utilizar através do metodo require
 
 # 23 - no authController é onde eu faço a validação do usuário através do jwt , e coloco o meu secret atraves do dotenv para que o meu token fique seguro na subida da aplicação e fique mais dificil alguem copiar ou roubar
 
@@ -50,7 +50,7 @@
 
 # 26 - Eu uso o bcrypt importado no auth para fazer uma comparação sincrona entre as hashes para fazer a validação da senha do usuário
 
-# 27 - na validção da senha não é preciso passar o data no if, pois se o usuário nao está autorizado , é sinal de que o email está certo , então a boa prática é retornar statusCode  e mensagem
+# 27 - na validção da senha não é preciso passar o data no if, pois se o usuário nao está autorizado , é sinal de que o email está certo , então a boa prática é retornar statusCode e mensagem
 
 # 28 - Na Criação do token, nos utilizamos o jwt que foi baixado pelo npm, , com o jwt.sign ( dentro do parenteses nos passamos dois parametros , que será atraves daquele parametro que será feita a localização do usuario) ( o segundo parametro será o nosso secret , que é o salt que nos colocamos no .env parafazer o salt junto com o token e crialo hasheando o que a gente passou com o secret)
 
@@ -58,9 +58,9 @@
 
 # 30 - Tenho que importar o arquivo authCotroller no arquivo router , para criar uma rota para ele , atraves do metodo post , que é para onde eu irei enviar os dados
 
-# 31 - Para eu conseguir utilizar a sintaxe do node modules no nodeJs ou seja (export default and import express from "express") ou seja , a sintaxe que já é utilizada no react por conta do babel  eu preciso e no arquivo package json e adicionar o comando "type":module,
+# 31 - Para eu conseguir utilizar a sintaxe do node modules no nodeJs ou seja (export default and import express from "express") ou seja , a sintaxe que já é utilizada no react por conta do babel eu preciso e no arquivo package json e adicionar o comando "type":module,
 
-# 32 - A forma que eu acho mais fácil para a criação de um controller => é criar ele como um objeto vázio no controller e em  seguida passa-lo exporta-lo como module exports , para usar ele como modulo no router e eu poder , escrever qualquer função nele e passar para o router de forma simplificada
+# 32 - A forma que eu acho mais fácil para a criação de um controller => é criar ele como um objeto vázio no controller e em seguida passa-lo exporta-lo como module exports , para usar ele como modulo no router e eu poder , escrever qualquer função nele e passar para o router de forma simplificada
 
 # 33 - Passo a passo da criação da api ( 1 - fazer o crud , com as especificações que você deseja , 2 - separar dois arquivos de controller , um para autenticação jwt e outro para passar as funções do crud , 3- montar a arquitetura mvc)
 
@@ -90,16 +90,20 @@
 
 # 46 - Testando a rota autenticada no postman => se eu colocar nada na requisição e colcar para fazer um post , irá dar usuario não autorizado , pois eu nao passei nenhum token. Entretanto,
 
+# 47 - Para eu testar o token na rota autenticada , eu tenho que ir em authentication e marcar a opção token bearer e copiar e colar o token la e manda-lo como se fosse na rotaAutenticada com o metodo post => se o token estiver correto , ele irá me exibir a rota , com a função rota autenticada , e o status code daquela rota
 
-# 47 - Para eu testar o token na rota autenticada , eu tenho que ir em authentication e marcar a opção token bearer e copiar e colar o token la e manda-lo como se fosse na rotaAutenticada com o metodo post  => se o token estiver correto , ele irá me exibir a rota , com a função rota autenticada , e o status code daquela rota
-
-# 48 - Utilização do joi validation => Criar uma pasta validation , onde eu irei utilizar o pacote joi, montarei um objeto com as validações que eu preciso fazer tipos e estilos de valores que eu quero, passando as requisições para o body, após isso eu devo importalo no meu documento de rotas e baoxar o pacote npm express validation e utilizar a propriedade validate deles assim (const {validate} = require("express-validation") )=> na rota que eu estou passando a função de post eu devo utilizar este atributo validate para aplicar o joy => router.post("/", validate(JoiValidation.createOrUpadateUserValidator) ,userController.createUser), passando a minha função obejto que eu criei na pasta Validations. 
+# 48 - Utilização do joi validation => Criar uma pasta validation , onde eu irei utilizar o pacote joi, montarei um objeto com as validações que eu preciso fazer tipos e estilos de valores que eu quero, passando as requisições para o body, após isso eu devo importalo no meu documento de rotas e baoxar o pacote npm express validation e utilizar a propriedade validate deles assim (const {validate} = require("express-validation") )=> na rota que eu estou passando a função de post eu devo utilizar este atributo validate para aplicar o joy => router.post("/", validate(JoiValidation.createOrUpadateUserValidator) ,userController.createUser), passando a minha função obejto que eu criei na pasta Validations.
 
 # 49 - no get dos usuarios by id , eu posso substituir o params por query , e quando eu for testar a api no postman , eu poderei passar ele como um value no params e ele resultará, passo um key e um value
 
-# 50 - Quando exportar um elemento como chave , importa ele como chave tbm 
+# 50 - Quando exportar um elemento como chave , importa ele como chave tbm
 
 # 51 - O try catch serve para pegar erros , todo o código da função é passado dentro do try , o catch server somente para pegar o erro , caso o que esteja dentro do try nao funcione
 
-# 52 - há duas formas de se utilizar o joi 0 => 
+# 52 - há duas formas de se utilizar o joi 0 =>
 
+## ****\*\*\*\*****\*\*****\*\*\*\***** Recuperação de senha , final , o que fazer com o token gerado?
+
+## 1 - a gente precisa da um jeito de enviar este token via email para o usuário para que ele consiga alterar esta senha
+
+## 2 - tenho que criar a pagina resources, dentro dela uma pasta chamda mail , dentro de mail uma pagina chamada auth e dentro de auth um forgotPassword.html ( é onde o meu template vai estar para ser enviado ao usuário aquela mensagem em paragrafo por exemplo)

@@ -130,12 +130,6 @@ userController.rotaAutenticada =  (req , res) =>{
 }
 
 
-
-
-
-
-
-
 //Rota de teste
 userController.Teste =  (req , res) =>{
     res.send("Working teste")

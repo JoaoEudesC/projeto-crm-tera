@@ -32,25 +32,30 @@ let eye = document.getElementById('show_Senha')
         }
     })
 
+
+
+    //Variaveis utilizadas para passar o valor dos inputs
+    let checkBox = document.getElementById("Check1")
+    let inputEmail = document.querySelector("input")
+    let inputSenha = document.getElementsByTagName("input")[1]
+
+
 //Função que ativará o input checkBox para que o usário possa salvar o valor do seu email e sua senha
     //Verificação quando a página é carregada se há dados do usuário salvos no localstorage, podemos fazer isso através do DOMContentLoaded(com essa função if eu estou dizendo basicamente que se tiver um password e um email no localStorage eu vou pegar os valores dos inputs e passar lá, como o checkBox marcado true) => primeira validação
     document.addEventListener("DOMContentLoaded" , () =>{
         if(localStorage.getItem("email") && localStorage.getItem("password")){
-            document.getElementsByTagName("input")[0].value = localStorage.getItem("email");
-            document.getElementsByTagName("input")[1].value = localStorage.getItem("password")
+            inputEmail.value = localStorage.getItem("email");
+            inputSenha.value = localStorage.getItem("password");
             document.getElementById("Check1").checked = true;
         }
     });
 
 //Adicionando evento de change no input checkBox para verificar se ele ta marcado ou não( se ele estiver marcado salvo os valores do email e senha no localstorage se não estiver eu removo os valores do localstorage)
-    let checkBox = document.getElementById("Check1")
-    let inputEmail = document.getElementById("email")
-    let inputSenha = document.getElementById("password")
-
+    
     checkBox.addEventListener("change" , () =>{
         if(checkBox.checked){
-            localStorage.setItem("email" , inputEmail)
-            localStorage.setItem("password" , inputSenha)
+            localStorage.setItem("email" , inputEmail.value)
+            localStorage.setItem("password", inputSenha.value )
         }
         else{
             localStorage.removeItem("email")

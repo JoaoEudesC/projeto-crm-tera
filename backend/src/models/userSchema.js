@@ -21,9 +21,19 @@ const userSchema = new mongoose.Schema(
         },
         senha:{
             type:String,
-            required:true
+            required:true,
+            
             
         },
+        passwordResetToken:{
+            type:String,
+            select:false
+        },
+        passwordExpireToken:{
+            type:Date,
+            select:false
+        },
+        
         cep:{
             type:String ,
             required:true
