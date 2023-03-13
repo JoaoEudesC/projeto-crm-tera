@@ -1,39 +1,41 @@
-require("dotenv").config()
+const dotenv = require("dotenv")
+dotenv.config()
 const nodemailer = require("nodemailer")
 
-const user = process.env.user
-const pass = process.env.pass
 
-//Esta configuração é somente pra quem quer utilizar as versoes de email hotmail ou outlook , se for para utilizar gmail é preciso => entrar no smtp do gmail igual a gente entrou no smtp do hotmail pra pegar as mesmas informções, mas é preciso fazer um passinho a mais(Tomar cuidado com o nodemon, se não ele vai ficar enviando vários emails quando você utilizar o refresh na página)
+//Utilização do dotEnv para esconder dados sensiveis
+const userHotmail = process.env.userHotmail
+const passHotmail = process.env.passHotmail
+const userGmail = process.env.userGmail
+const passGmail = process.env.passGmail
 
-//Passos a mais para enviar no gamail => o google ele é mais seguro, sendo assim , como voce está tentando acessar uma senha por terceiros , um app, a senha não é do seu gmail, sendo assim você vai ter que criar uma senha especifica para esse app para utilizar
-//1 - entrar em segurança na sua conta google
-//2 - selecionar palavra passe de app e criar e ele vai gerar esta senha que eu utilizei ali
-const  transporter = nodemailer.createTransport({
-    host:'smtp.office365.com',
+
+//Transporter para o email do gmail
+const  transporterGmail = nodemailer.createTransport({
+    host:'smtp.gmail.com',
     port: 465,
     secure:true,  // o secure ela é true para a porta 465 , false para as outras
     auth: {
-      user: 'joaoeudes91135538@gmail.com',
-      pass: 'ewckfrrownsvzpcc'
+      user: "joaoeudes25012000@gmail.com",
+      pass: "ewckfrrownsvzpcc"
+    }
+  });
+
+
+//Transporter para o email do hotmail
+const  transporterHotmail = nodemailer.createTransport({
+    host:'smtp.office365.com',
+    port: '587',
+    secure:false,  // o secure ela é true para a porta 465 , false para as outras
+    auth: {
+      user: "joaoeudes91135538@hotmail.com",
+      pass: "Hadassa2609"
     }
   });
 
 
   
 
-  
-  transporter.sendMail({
-    from:`joaoeudes91135538@hotmail.com`,
-    to:'joaoeudes25012000@hotmail.com',
-    subject:'Enviando email com Nodemailer',
-    html:'<h1> Olá , dev! </h1> <p>Este email foi enviado utilizando o nodemailler</p>',
-    text:'Olá esse é o texto Alternativo'            //Posso passar uma lista de emails se eu quiser, separados por virgula, mas vou passar só um
-  })
 
-  .then(() => console.log('Email enviado com sucesso'))
-  .catch(err => console.log("erro ao enviar email "+ err))
-
-  
-  
-  module.exports = {transporter}
+  //A configuração do email e do gmail é so voltada para a permissão para enviar email através do app, ou seja , eu configuro para ter um email raiz para enviar emails, mas eu posso enviar do hotmail para o gmail e do gmail para o hotmail(Neste caso eu optei pelo hotmail)
+module.exports = {transporterGmail , transporterHotmail }

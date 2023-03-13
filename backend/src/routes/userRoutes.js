@@ -4,15 +4,15 @@ const router = express.Router();
 
 //Importação dos middlewares de validação de login , error e cadastro
 const {registerValidate} = require("../middlewares/userMiddleware")
-const {loginValidate} = require("../middlewares/userMiddleware")
 const errorMiddleware  = require("../middlewares/errorMiddlewares")
+const {updatePssword} = require("../middlewares/userMiddleware")
 
 //Importação do Usercontroller e do AuthController
 const userController = require("../controllers/userController")
 const authController = require("../controllers/authController");
 
 //Impotação de middleware de checagem se o email criado já é cadastrado no banco de dados
-    const {checkExistingEmail} = require("../middlewares/repetionMiddleware")
+const {checkExistingEmail} = require("../middlewares/repetionMiddleware")
 
 
 // 1- Funções que são enviadas do controller para fazer as requisições
@@ -48,14 +48,17 @@ router.delete("/:id" , userController.deleteUserById)
 
 //Rota de Validação do usuário através do jwt onde mostrará o token criado (POST) onde você pegará o token e passará na RotaAutenticada
 
-router.post("/login" , loginValidate  ,authController.login)
+router.post("/login" ,authController.login)
 
 //Rota de validação do token ja criado , para certificar se ele realmente existe ou não (POST)
 
 router.post("/RotaAutenticada" , authController.tokenVerification , userController.rotaAutenticada )
 
-//Rota de reset de password do usuário
-router.post("/resetPassword", authController.forgotPassword)
+//Rota que vai enviar o email para o usuário com o token para recuperação de senha
+router.post("/forgotPassword", authController.forgotPassword)
+
+//Rota que vai resetar o password, onde eu vou passar o email cadastrado, o token e a senha nova update
+router.post("/resetPassword" , updatePssword, authController.resetPassword )
 
 
 

@@ -1,4 +1,4 @@
-//Middleware que impede que sejam criados usuários com o mesmo o email e mesma senha
+//Middleware que impede que sejam criados usuários com o mesmo o email e mesma senha, checa se já existe o email no banco de dados, para não deixar cadastrar dois emails
 
 const userSchema = require("../models/userSchema")
 

@@ -1,5 +1,4 @@
 //Criação do esquema de cadastro de usuários , ou seja , os campos que serão criados
-
 const mongoose = require ("mongoose")
 const bcrypt = require("bcrypt")
 
@@ -25,15 +24,6 @@ const userSchema = new mongoose.Schema(
             
             
         },
-        passwordResetToken:{
-            type:String,
-            select:false
-        },
-        passwordExpireToken:{
-            type:Date,
-            select:false
-        },
-        
         cep:{
             type:String ,
             required:true
@@ -55,11 +45,20 @@ const userSchema = new mongoose.Schema(
         uf:{
             type:String,
             required:true
-        }
-
+        },
+        passwordResetToken:{
+            type:String,
+            select:false
+        },
+        passwordResetExpires:{
+            type:Date,
+            select:false
+        },
     },
     //O timestamps, serve para que venha com a data de criação no momento de inserção do dado
     {timestamps:true}
+    
+    
 )
 
 

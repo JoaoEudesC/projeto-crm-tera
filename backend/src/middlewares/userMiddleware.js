@@ -2,9 +2,8 @@
 //Posso montar outro schema para a validação de login e passar aqui como outro midleware e passa-lo para o errorMidleware , é necessario um esquema para cadastro e outro para login
 
 
-// Middleware de validação de cadastros
-
-const {registerSchema} = require("../Validations/user")
+//Middleware de validação de cadastros, este schema esta vindo do validations user.js
+const {registerSchema , updateForgotPassword} = require("../Validations/user")
 
 
 const registerValidate = (req , res , next)=>{
@@ -16,16 +15,16 @@ const registerValidate = (req , res , next)=>{
     
 }
 
+//Middleware de validação de senha para realizar o upadate na validação de senha
+const updatePssword = (req , res , next) =>{
+    const {error} = updateForgotPassword.validate(req.body)
+    if(error) throw error
+    next()
+}
 
-//Middleware de validação de login
-    const {loginSchema} = require("../Validations/user")
 
-    const loginValidate = (req , res , next) =>{
-        const {error} = loginSchema.validate(req.body)
-        if(error) throw error
 
-        next()
-    }
+
 
     
 
@@ -33,7 +32,8 @@ const registerValidate = (req , res , next)=>{
 
 module.exports = {
     registerValidate,
-    loginValidate
+    updatePssword
+    
 }
 
 

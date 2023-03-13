@@ -18,17 +18,19 @@ const registerSchema = Joi.object({
     })
 
 
-    //Esquema de validação de login com o joi
+//Schema de validação da senha para a utilização do update na recuperação de senha com o token
+
+const updateForgotPassword = Joi.object({
+    senha:Joi.string().min(3).max(20).required(),
+    email: Joi.string().email().required(),
+    token: Joi.string().max(50)
+})
 
 
-    const loginSchema = Joi.object({
-        email:Joi.string().email().required(),
-        senha: Joi.string().min(3).max(20).required()
-    })
-
-
+    
     module.exports = {
         registerSchema,
-        loginSchema
+        updateForgotPassword
+        
     }
 
