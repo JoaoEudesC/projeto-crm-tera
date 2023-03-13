@@ -34,6 +34,7 @@ html{
     background-color:#03532b ;
     margin-top: -8px;
     margin-left: 4px;
+    transition: 2s;
 
 }
 
@@ -82,9 +83,10 @@ header{
 
 #senha{
     margin-top: 10px;
+    transition: 2s;
 }
 
-#senha :hover{
+#senha:hover{
     text-decoration: underline;
     color: blue;
 }
@@ -93,7 +95,7 @@ a{
     text-decoration: none;
 }
 
-span :hover{
+span:hover{
     text-decoration: underline;
     color: blue;
 }
@@ -113,6 +115,7 @@ span :hover{
     width: 300px;
     box-shadow: 2px 2px 2px 2px black;
     margin-bottom: 10px;
+    transition: 2s;
 
 }
 
@@ -134,18 +137,19 @@ span :hover{
 
 #labor{
     color:white;
+    display: flex;
 }
 
 
 label{
-    color:  #038820;
+    color: #038820;
     font-weight: 600;
 }
     
 
 #show_Senha{
     cursor: pointer;
-
+    transition: 0.5s;
 }
 
 #show_Senha:hover{

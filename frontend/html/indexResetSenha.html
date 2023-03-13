@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/resetPassword.css">
+    <link rel="shortcut icon" href="../Imagens/Logo-ohne.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Recuperação de senha</title>
+</head>
+<body>
+    <header>
+        <a href="file://wsl.localhost/Ubuntu/home/joao/projeto-crm-tera/index.html"><img src="../Imagens/image-removebg-preview.png" alt="Logo do crm"></a>
+        <h5 id="RedefinirSenhaText">Redefina a sua senha</h5>
+    </header>
+    <main>
+        <form>
+            <div class="form-floating">
+                <input type="email" name="Email" class="form-control" id="floatingInput Email" placeholder="Email" >
+                <label for="floatingInput">Email</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" name="Token" class="form-control"  id="floatingToken Token" placeholder="Token de Ativação">
+                <label for="floatingToken">Token de Ativação</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" name="NewPassword" class="form-control"  id="floatingPassword NewPassword" placeholder="Nova senha">
+                <p id="TextAlert">CapsLock ativado</p>
+                <i class="fa-sharp fa-solid fa-eye" id="show_Senha"></i> 
+                <label for="floatingPassword">Nova senha</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" name="ConfirmPassword"  class="form-control"  id="floatingConfirm ConfirmPassword" placeholder="Confirmar Senha">
+                <p id="textAlert">CapsLock ativado</p>
+                <label for="floatingConfirm">Confirmar senha</label>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+    <script src="../javascript/ResetPassword.js"></script>
+</body>
+</html>

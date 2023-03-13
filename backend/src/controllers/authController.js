@@ -145,7 +145,7 @@ authController.login =  ( req , res) =>{
           .then(() => res.send("Email enviado com sucesso, cheque a caixa de email"))
           .catch(err => res.send("Erro ao enviar o email, por favor cheque o seu código " + err))
         } catch (error) {
-            res.status(400).send({error: 'Erro on forgot password, try again'});
+            res.status(400).send({error: 'Erro on forgot password, try again'});0
         }
     }
 
