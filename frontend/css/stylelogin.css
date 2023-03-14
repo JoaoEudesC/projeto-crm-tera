@@ -150,12 +150,18 @@ label{
 #show_Senha{
     cursor: pointer;
     transition: 0.5s;
+    color: black;
+    position: absolute;
+    top: 1.3rem;
+    right:0.5rem;
+    transition: 0.5s;
+    
 }
 
 #show_Senha:hover{
-    color: #f4f8f5;
-    transform: scale(1.2);
-    transition-duration: 0.8s;
+    transform: scale(1.1);
 }
+
+
 
 

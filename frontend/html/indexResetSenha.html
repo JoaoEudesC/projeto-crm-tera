@@ -16,10 +16,13 @@
 <body>
     <header>
         <a href="file://wsl.localhost/Ubuntu/home/joao/projeto-crm-tera/index.html"><img src="../Imagens/image-removebg-preview.png" alt="Logo do crm"></a>
-        <h5 id="RedefinirSenhaText">Redefina a sua senha</h5>
+        <h3 id="RedefinirSenhaText">Redefinir senha</h3>
     </header>
     <main>
-        <form>
+        <div class="alerta">
+            <p>As senhas não coincidem</p>
+        </div>
+        <form id="form">
             <div class="form-floating">
                 <input type="email" name="Email" class="form-control" id="floatingInput Email" placeholder="Email" >
                 <label for="floatingInput">Email</label>

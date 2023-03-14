@@ -1,8 +1,4 @@
 
-    
-
-
-
     function botaoClicado(){
         console.log("Clicou")
         const input = document.getElementById("Input").value

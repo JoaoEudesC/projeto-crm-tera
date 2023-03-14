@@ -5,6 +5,7 @@ const form = document.getElementById('form')
     document.addEventListener('keypress' , (e)=>{
         if(e.key === 'enter')
         form.onsubmit();
+        
     })
 
 
@@ -19,16 +20,19 @@ const Senha = document.getElementsByTagName('input')[1]
         else{
             textAlert.style.display = 'none'
         }
+        
     })
 
 //Icone do olho que esconde  e mostra a senha
-let eye = document.getElementById('show_Senha')
-    eye.addEventListener("click" , ()=>{
+let eye = document.getElementById("show_Senha")
+    eye.addEventListener("click", ()=>{
         if(Senha.type == "password"){
             Senha.type = 'text'
+            eye.style.textDecoration = "line-through"
         }
         else{
             Senha.type = 'password'
+            eye.style.textDecoration = "none"
         }
     })
 

@@ -139,7 +139,7 @@ authController.login =  ( req , res) =>{
             from:"joaoeudes91135538@hotmail.com",
             to:email,
             subject:'Recuperação de senha',
-            html:`<p>Esqueceu a senha?, não tem problema entre no link enviado abaixo e utilize o token enviado para a redefinição de senha, o token expira dentro de 1 hora.</p>  <br></br>  <a href="../../../frontend/html/indexResetSenha.html">Redefinir Senha</a>    <br></br> <p>token: ${token}</p>`,
+            html:`<p>Esqueceu a senha?, não tem problema entre no link enviado abaixo e utilize o token enviado para a redefinição de senha, o token expira dentro de 1 hora.</p>  <br></br> <a href="file:///home/joao/projeto-crm-tera/frontend/html/indexResetSenha.html">Redefinir</a>  <br></br> <p>token: ${token}</p>`,
             text:'Olá esse é o texto Alternativo'
         })
           .then(() => res.send("Email enviado com sucesso, cheque a caixa de email"))
