@@ -3,7 +3,7 @@ const userSchema = require("../models/userSchema")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const crypto = require("crypto")
-const {transporterHotmail} = require("../mail/mailler")
+const {transporterHotmail, transporterGmail} = require("../mail/mailler")
 
 
 
@@ -83,8 +83,7 @@ authController.login =  ( req , res) =>{
 
     authController.tokenVerification = (req , res , next)=>{
         const tokenHeader = req.headers["authorization"]
-        const token = tokenHeader && tokenHeader.split(" ")[1];
-
+        const token = tokenHeader && tokenHeader.split("  ")[1]; //no metodo split , quando eu quero quebrar uma string em varios caracteres em um array , eu utilizo o metodo split , sem definir um separador nas aspas, como seria uma virgula, entao ele divide a string em varios caracteres , que é o que fiz com o token e quando utilizo o espaçamento nas aspas , ele transforma em um array com a string completa como o unico elemento do array, assim depois pego a string de indice 1 do array e esse será o meu token
 
         if(!token){
             return res.status(401).json({
@@ -135,15 +134,20 @@ authController.login =  ( req , res) =>{
           await user.save();
           
           //Envio do token de recuperação de senha por email para o usuário
-          transporterHotmail.sendMail({
-            from:"joaoeudes91135538@hotmail.com",
+          transporterGmail.sendMail({
+            from:"joaoeudes25012000@gmail.com",
             to:email,
             subject:'Recuperação de senha',
-            html:`<p>Esqueceu a senha?, não tem problema entre no link enviado abaixo e utilize o token enviado para a redefinição de senha, o token expira dentro de 1 hora.</p>  <br></br> <a href="file:///home/joao/projeto-crm-tera/frontend/html/indexResetSenha.html">Redefinir</a>  <br></br> <p>token: ${token}</p>`,
+            html:`<p>Esqueceu a senha?, não tem problema entre no link enviado abaixo e utilize o token enviado para a redefinição de senha, o token expira dentro de 1 hora.</p>  <br></br> <p>token: ${token}</p>`,
             text:'Olá esse é o texto Alternativo'
         })
-          .then(() => res.send("Email enviado com sucesso, cheque a caixa de email"))
-          .catch(err => res.send("Erro ao enviar o email, por favor cheque o seu código " + err))
+          .then(() => {console.log("Email enviado com sucesso")})
+          .catch(err => console.log(err))
+          
+          res.status(200).json({
+            statusCode:200,
+            message:"Resultado alcançado com sucesso, cheque sua caixa de email"
+          })
         } catch (error) {
             res.status(400).send({error: 'Erro on forgot password, try again'});0
         }
@@ -154,7 +158,7 @@ authController.login =  ( req , res) =>{
     //Função de reset de password onde o usuário vai enviar o token, email e senha na requisição( A senha a ser enviada será a senha nova que o usuário quer enviar)
 
     authController.resetPassword = async(req , res) =>{
-        const {email , token , senha} = req.body; //o que eu vou receber na minha requisição, que no caso é o meu token, senha e email
+        const {email , passwordResetToken , senha} = req.body; //o que eu vou receber na minha requisição, que no caso é o meu token, senha e email
 
         try {
             //Preciso verificar se este usuário existe, buscando o usuário primeiro
@@ -166,14 +170,14 @@ authController.login =  ( req , res) =>{
                 return res.status(400).send({error: 'User not found'})
             }
             //Se ele existe eu vou verificar se o token existe
-            if(token !== user.passwordResetToken){
-                return res.status(400).send({error: 'Token invalid'})
+            if(passwordResetToken !== user.passwordResetToken){
+                return res.status(400).send({message: 'Token invalid'})
             }  //Estou verificando se o token que está sendo enviado na requisição e o token gerado enviado no email são iguais(estou vendo se um é diferente do outro)
 
             //Se o token existe e bate com o enviado ao usuário, eu preciso ter certeza se ele ainda não está expirado por uma hora
             const now = new Date();
             if(now > user.passwordResetExpires){
-                return res.status(400).send({error: 'Token expired, generate a new one'}) //se  a data atual for maior do que a hora de expiração do token, vai gerar um erro
+                return res.status(400).send({message: 'Token expired, generate a new one'}) //se  a data atual for maior do que a hora de expiração do token, vai gerar um erro
             }
 
             //Depois de passar por todas as verificações, se der tudo certo, eu tenho que atualizar a senha do usuário
@@ -182,11 +186,14 @@ authController.login =  ( req , res) =>{
             await user.save()
 
             //Resposta , se der tudo certo se passar por todas as verificações
-            res.send()
+            res.status(200).json({
+                message:"Senha atualizada com sucesso",
+                statusCode:200
+            })
 
 
         } catch (error) {
-            res.status(400).send({error: 'Cannot reset password, try again'})
+            res.status(400).send({error: 'Cannot reset password, try again' + error})
         }
     };
 

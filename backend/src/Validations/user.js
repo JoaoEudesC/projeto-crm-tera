@@ -23,7 +23,7 @@ const registerSchema = Joi.object({
 const updateForgotPassword = Joi.object({
     senha:Joi.string().min(3).max(20).required(),
     email: Joi.string().email().required(),
-    token: Joi.string().max(50)
+    passwordResetToken: Joi.string().max(50)
 })
 
 
