@@ -18,7 +18,7 @@ html{
 #flex{
     display: flex;
     justify-content: center;
-    margin-top: 200px;
+    margin-top: 120px;
 }
 
 #textAlert{
@@ -46,13 +46,15 @@ html{
 
 
 #MessageAlert{
+    background-color: rgba(252, 144, 144, 0.753);
+    color: black;
     text-align: center;
+    width: 40rem;
+    margin: auto;
     margin-top: 50px;
-    box-shadow: 1px 1px 1px 1px black;
-    font-weight: 900;
-    background-color: rgb(209, 107, 107);
-    color: rgb(167, 1, 1);
     display: none;
+    
+    
 }
 
 h1{

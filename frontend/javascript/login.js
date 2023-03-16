@@ -1,10 +1,10 @@
 
     
 //Mapeando o enter para o envio de formulário atravês do keypress
-const form = document.getElementById('form')
-    document.addEventListener('keypress' , (e)=>{
+const botao = document.getElementById("entrar")
+document.addEventListener('keypress' , (e)=>{
         if(e.key === 'enter')
-        form.onsubmit();
+        botao.click();
         
     })
 
@@ -71,7 +71,7 @@ let eye = document.getElementById("show_Senha")
 
 
 //Autenticaçao e login => Ligação da nossa aplicação com o backend , a parte de login , da rota login, autenticação e login
-
+    const form = document.getElementById('form')
     const init = () => form.addEventListener('submit' , async (e)=>{
         e.preventDefault();
         const data = accessData(); 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,9 +17,16 @@
     <header>
         <a href="file://wsl.localhost/Ubuntu/home/joao/projeto-crm-tera/index.html"><img src="../Imagens/image-removebg-preview.png" alt="Logo do crm"></a>
         <h3 id="RedefinirSenhaText">Redefinir senha</h3>
+        <p>Utilize o token enviado para o seu email para redefinir a sua senha</p>
     </header>
     <main>
-        <div class="alerta">
+        <div class="alerta" id="messageErrorTokenInvalid">
+            <p>Token invalido</p>
+        </div>
+        <div class="alerta" id="messageErrorTokenExpired">
+            <p>Token Expirado</p>
+        </div>
+        <div class="alerta" id="MessageError">
             <p>As senhas não coincidem</p>
         </div>
         <form id="form">
@@ -31,18 +38,18 @@
                 <input type="text" name="Token" class="form-control"  id="floatingToken Token" placeholder="Token de Ativação">
                 <label for="floatingToken">Token de Ativação</label>
             </div>
-            <div class="form-floating">
+            <div class="form-floating CapsLock" >
                 <input type="password" name="NewPassword" class="form-control"  id="floatingPassword NewPassword" placeholder="Nova senha">
                 <p id="TextAlert">CapsLock ativado</p>
                 <i class="fa-sharp fa-solid fa-eye" id="show_Senha"></i> 
                 <label for="floatingPassword">Nova senha</label>
             </div>
-            <div class="form-floating">
-                <input type="password" name="ConfirmPassword"  class="form-control"  id="floatingConfirm ConfirmPassword" placeholder="Confirmar Senha">
+            <div class="form-floating CapsLock">
+                <input type="password" name="ConfirmPassword"  class="form-control confirm"  id="floatingConfirm ConfirmPassword" placeholder="Confirmar Senha">
                 <p id="textAlert">CapsLock ativado</p>
                 <label for="floatingConfirm">Confirmar senha</label>
             </div>
-            <button type="submit">Enviar</button>
+            <button type="submit" id="cadastro">Enviar</button>
         </form>
     </main>
     <script src="../javascript/ResetPassword.js"></script>

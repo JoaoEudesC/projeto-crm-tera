@@ -1,9 +1,11 @@
-//Formulario
-    const form = document.getElementById('Form')
+
+    
+    
     
     
 
 //Mapeando a tecla enter para enviar o formulario
+const botaoCadastro = document.getElementById("cadastro")
     document.addEventListener('keypress' , (e)=>{
         if(e.key === 'enter')
         botaoCadastro.click();
@@ -83,14 +85,14 @@ let confirmarSenha = document.getElementsByTagName("input")[3]
 
 
 
-    // => Ligação da nossa api do banco de dados com o nosso frontend
+    // => Ligação da nossa api do banco de dados com o nosso frontend para realizar o cadastro dos usuários
 
 
 //criação da função de submeter o formulário para o backend
 
 const init = ()=>{
-    const botao =  document.getElementById("cadastro")
-    botao.addEventListener("click" , submitForm)
+    const form = document.getElementById('Form')
+    form.addEventListener("submit" , submitForm)
 };
 
 const submitForm = async (e) =>{
@@ -134,6 +136,7 @@ const submitForm = async (e) =>{
     await fetch(url, Fetch) 
     .then((response)=>{
         if(response.status == 201){
+            alert("Cadastro realizado com sucesso")
             return window.location.href = "indexlogin.html"
         }
         else if(response.status == 422){

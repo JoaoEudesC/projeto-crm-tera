@@ -73,9 +73,25 @@ p{
 }
 
 
-a{
+.Links{
     text-decoration: none;
+    color: black;
+    font-weight: 900;
 }
+
+#AlertMessage{
+    background-color: rgba(252, 144, 144, 0.753);
+    color: black;
+    width: 40rem;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+    display: none;
+    
+}
+
+
+
 
 input::placeholder{
     font-weight: 900;

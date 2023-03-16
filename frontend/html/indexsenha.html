@@ -17,11 +17,15 @@
         <header>
             <h1><img src="../Imagens/image-removebg-preview.png" alt="logo do nosso crm" class="img-fluid"></h1>
             <h2>Redefinir senha</h2>
-            <p>Insira o endereço de email cadastrado para que possa ser enviado as informações necessárias para a redefinição de senha.</p>
+            <p>Insira o endereço de email cadastrado para que possa ser enviado o token necessário para a redefinição de senha.</p>
+            <p>Já possui o token de ativação? <a href="../html/indexResetSenha.html" class="Links">Clique aqui</a></p>
         </header>
         <main>
+            <div class="alert alert-warning" role="alert" id="AlertMessage">
+                Email não reconhecido tente novamente
+            </div>
             <div id="flex">
-                <form class="row row-cols-lg-auto g-3 align-items-center">
+                <form class="row row-cols-lg-auto g-3 align-items-center" id="form">
                     <div class="col-12">
                         <label class="visually-hidden" for="inlineFormInputGroupUsername">Endereço de email</label>
                         <div class="input-group ">
@@ -35,7 +39,7 @@
                 </form>
             </div>
             <p>
-                Voltar para <a href="../html/indexlogin.html" id="senha">Lobster/Login</a>
+                Voltar para <a href="../html/indexlogin.html" class="Links">Lobster/Login</a>
             </p>
         </main>
         <script src="../javascript/appsenha.js"></script>
