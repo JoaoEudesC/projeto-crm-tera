@@ -63,7 +63,7 @@ main{
 #Form{
     display: grid;
     gap: 0.8rem;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: repeat(3 , 1fr) /*Aqui é a unidade de medida fr, que é a mesma coisa que 1fr = 33%, , era a mesma coisa de eu colocar 1fr 1fr 1fr , ou 33%, 33%, 33%, então aqui eu estou utilizando o repeat, ou seja, repetir 3* 1fr    */
 }
 
 #spanBotaoCadastro{
