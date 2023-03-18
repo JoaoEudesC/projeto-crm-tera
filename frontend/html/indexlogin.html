@@ -26,19 +26,21 @@
         </header>
         <main>
             <div class="alert alert-danger" role="alert" id="MessageAlert">
-                Email ou senha inválidos
+                Email ou senha inválidos <i class="fa-solid fa-triangle-exclamation fa-2x"></i>
             </div>
             <div id="flex">
                 <form id="form">
                     <div class="form-floating mb-3">
                         <input type="email" class="form-control" id="floatingInput email" placeholder="name@example.com" minlength="11">
-                        <label for="floatingInput">Email</label>
+                        <label for="floatingInput" class="LabelInputs">Email</label>
+                        <i class="fa-solid fa-envelope iconeInputLeft"></i>
                     </div>
                     <div class="form-floating">
                         <input type="password" class="form-control" id="floatingPassword password" placeholder="Password" minlength="4">
-                        <p id="textAlert">CapsLock ativado</p>
+                        <label for="floatingPassword" class="LabelInputs">Senha</label>
+                        <i class="fa-solid fa-lock iconeInputLeft"></i>
                         <i class="fa-sharp fa-solid fa-eye" id="show_Senha"></i> 
-                        <label for="floatingPassword">Senha</label>
+                        <p id="textAlert">CapsLock ativado</p>
                     </div>
                     <div class="mb-3 form-check">
                         <p id="senha">

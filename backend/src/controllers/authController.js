@@ -120,7 +120,7 @@ authController.login =  ( req , res) =>{
         try {
           const user = await userSchema.findOne({email});
           if (!user) {
-            return res.status(400).send({error: 'User not found'});
+            return res.status(400).json({error: 'User not found'});
           }
           
           //Criação do token com tempo de expiração de 1hora
@@ -135,7 +135,7 @@ authController.login =  ( req , res) =>{
           
           //Envio do token de recuperação de senha por email para o usuário
           transporterGmail.sendMail({
-            from:"joaoeudes25012000@gmail.com",
+            from:"joaoeudes91135538@gmail.com",
             to:email,
             subject:'Recuperação de senha',
             html:`<p>Esqueceu a senha?, não tem problema entre no link enviado abaixo e utilize o token enviado para a redefinição de senha, o token expira dentro de 1 hora.</p>  <br></br> <p>token: ${token}</p>`,
@@ -149,7 +149,7 @@ authController.login =  ( req , res) =>{
             message:"Resultado alcançado com sucesso, cheque sua caixa de email"
           })
         } catch (error) {
-            res.status(400).send({error: 'Erro on forgot password, try again'});0
+            res.status(400).json({error: 'Erro on forgot password, try again'});0
         }
     }
 
@@ -167,17 +167,17 @@ authController.login =  ( req , res) =>{
             .select('+passwordResetToken passwordResetExpires')
             //Verificar se o usuário não existe
             if(!user){
-                return res.status(400).send({error: 'User not found'})
+                return res.status(400).json({error:'User not found'})
             }
             //Se ele existe eu vou verificar se o token existe
             if(passwordResetToken !== user.passwordResetToken){
-                return res.status(400).send({message: 'Token invalid'})
+                return res.status(400).json({error: 'Token invalid'})
             }  //Estou verificando se o token que está sendo enviado na requisição e o token gerado enviado no email são iguais(estou vendo se um é diferente do outro)
 
             //Se o token existe e bate com o enviado ao usuário, eu preciso ter certeza se ele ainda não está expirado por uma hora
             const now = new Date();
             if(now > user.passwordResetExpires){
-                return res.status(400).send({message: 'Token expired, generate a new one'}) //se  a data atual for maior do que a hora de expiração do token, vai gerar um erro
+                return res.status(400).json({error: 'Token expired, generate a new one'}) //se  a data atual for maior do que a hora de expiração do token, vai gerar um erro
             }
 
             //Depois de passar por todas as verificações, se der tudo certo, eu tenho que atualizar a senha do usuário

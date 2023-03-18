@@ -40,7 +40,9 @@ const init = () => form.addEventListener('submit' , async(e) => {
         console.log(response.status);
         if(response.status === 200){
             console.log("Requisição bem feita")
-            alert(`Enviamos um email com o token de ativação para o email: ${emailValue}`)
+            let mail = document.querySelector("input")
+            mail.value = ""
+            alert(`email enviado para: ${emailValue}`)
             return window.location.href = "indexResetSenha.html"
         }
         else{

@@ -33,7 +33,7 @@ button{
     width: 300px;
     text-align: center;
     margin-right: 25px;
-    box-shadow: 2px 2px 2px 2px black;
+    box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem black;
     transition: 2s;
 }
 

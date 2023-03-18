@@ -18,7 +18,7 @@ html{
 #flex{
     display: flex;
     justify-content: center;
-    margin-top: 120px;
+    margin-top: 7.5rem;
 }
 
 #textAlert{
@@ -28,9 +28,11 @@ html{
     font-weight: 900;
 }
 
+
+
 #home{
-    margin-left: 5px;
-    box-shadow: 3px 3px 3px 3px black;
+    margin-left: 0.3rem;
+    box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem black;
     background-color:#03532b ;
     margin-top: -8px;
     margin-left: 4px;
@@ -54,7 +56,9 @@ html{
     margin-top: 50px;
     display: none;
     
-    
+}
+.fa-triangle-exclamation{
+    color: red;
 }
 
 h1{
@@ -65,43 +69,37 @@ h1{
 header{
     color: white;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 0.6rem;
 }
 
 
 #exampleCheck1{
-    margin-top: 15px;
+    margin-top: 1rem;
 }
 
 .form-check-label{
-    margin-top: 11px;
+    margin-top: 0.8rem;
 }
 
 
 #img{
-    margin-top: 10px;
+    margin-top: 0.6rem;
 
 }
 
 #senha{
-    margin-top: 10px;
+    margin-top: 0.6rem;
     transition: 2s;
-}
-
-#senha:hover{
-    text-decoration: underline;
-    color: blue;
 }
 
 a{
     text-decoration: none;
+    transition: 0.2s;
 }
-
-span:hover{
+a:hover{
     text-decoration: underline;
     color: blue;
 }
-
 
 .password{
     color:black;
@@ -113,14 +111,13 @@ span:hover{
     background-color:#03532b ;
     border-radius: 5px 5px 5px 5px;
     color: white;
-    padding: 15px;
-    width: 300px;
-    box-shadow: 2px 2px 2px 2px black;
-    margin-bottom: 10px;
+    padding: 1rem;
+    width: 20rem;
+    box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem black;
+    margin-bottom: 0.6rem;
     transition: 2s;
 
 }
-
 
 #entrar:hover{
     background-color: #4ec286;
@@ -128,30 +125,34 @@ span:hover{
     text-decoration: none;
 }
 
-#home:hover{
-    background-color: #4ec286;
-    transition-duration: 0.5s;
-    text-decoration: none;
+
+.iconeInputLeft{
+    position: absolute;
+    top: 1.3rem;
+    left: 0.5rem;
+    color: black;
+    
 }
-
-
-
 
 #labor{
     color:white;
     display: flex;
 }
 
+.LabelInputs{
+    margin-left: 1.5rem;
+}
 
 label{
     color: #038820;
     font-weight: 600;
 }
-    
+input{
+    text-indent: 1.5rem;
+}
 
 #show_Senha{
     cursor: pointer;
-    transition: 0.5s;
     color: black;
     position: absolute;
     top: 1.3rem;
@@ -162,6 +163,24 @@ label{
 
 #show_Senha:hover{
     transform: scale(1.1);
+}
+
+
+
+
+
+@media(max-width:720px){
+    #MessageAlert{
+        width: 32rem;
+    }
+}
+
+
+
+@media(max-width:540px){
+    #MessageAlert{
+        width: 18rem;
+    }
 }
 
 

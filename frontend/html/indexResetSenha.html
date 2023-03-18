@@ -15,39 +15,46 @@
 </head>
 <body>
     <header>
-        <a href="file://wsl.localhost/Ubuntu/home/joao/projeto-crm-tera/index.html"><img src="../Imagens/image-removebg-preview.png" alt="Logo do crm"></a>
+        <a href="file://wsl.localhost/Ubuntu/home/joao/projeto-crm-tera/index.html"><img src="../Imagens/image-removebg-preview.png" alt="Logo do crm" class="img-fluid"></a>
         <h3 id="RedefinirSenhaText">Redefinir senha</h3>
         <p>Utilize o token enviado para o seu email para redefinir a sua senha</p>
     </header>
     <main>
-        <div class="alerta" id="messageErrorTokenInvalid">
-            <p>Token invalido</p>
+        <div class="alert alert-danger" id="messageErrorUserNotFound" role="alert">
+            Usuário não encontrado <i class="fa-solid fa-triangle-exclamation fa-2x"></i>
         </div>
-        <div class="alerta" id="messageErrorTokenExpired">
-            <p>Token Expirado</p>
+        <div class="alert alert-danger" id="messageErrorTokenInvalid" role="alert">
+            Token invalido <i class="fa-solid fa-triangle-exclamation fa-2x"></i>
         </div>
-        <div class="alerta" id="MessageError">
-            <p>As senhas não coincidem</p>
+        <div class="alert alert-danger" id="messageErrorTokenExpired" role="alert">
+            Token Expirado <i class="fa-solid fa-triangle-exclamation fa-2x"></i>
+        </div>
+        <div class="alert alert-danger" id="MessageError" role="alert">
+            As senhas não coincidem <i class="fa-solid fa-triangle-exclamation fa-2x"></i>
         </div>
         <form id="form">
             <div class="form-floating">
-                <input type="email" name="Email" class="form-control" id="floatingInput Email" placeholder="Email" >
+                <input type="email" name="Email" class="form-control" id="floatingInput Email" placeholder="Email" style="width: 20rem;">
                 <label for="floatingInput">Email</label>
+                <i class="fa-solid fa-envelope IconeInput iconeLeft"></i>
             </div>
             <div class="form-floating">
-                <input type="text" name="Token" class="form-control"  id="floatingToken Token" placeholder="Token de Ativação">
+                <input type="text" name="Token" class="form-control"  id="floatingToken Token" placeholder="Token de Ativação" style="width: 20rem;">
                 <label for="floatingToken">Token de Ativação</label>
+                <i class="fa-solid fa-circle-info iconeLeft"></i>
             </div>
             <div class="form-floating CapsLock" >
-                <input type="password" name="NewPassword" class="form-control"  id="floatingPassword NewPassword" placeholder="Nova senha">
+                <input type="password" name="NewPassword" class="form-control"  id="floatingPassword NewPassword" placeholder="Nova senha" style="width: 20rem;">
+                <label for="floatingPassword">Nova senha</label>
                 <p id="TextAlert">CapsLock ativado</p>
                 <i class="fa-sharp fa-solid fa-eye" id="show_Senha"></i> 
-                <label for="floatingPassword">Nova senha</label>
+                <i class="fa-solid fa-lock IconeInput iconeLeft"></i>
             </div>
             <div class="form-floating CapsLock">
-                <input type="password" name="ConfirmPassword"  class="form-control confirm"  id="floatingConfirm ConfirmPassword" placeholder="Confirmar Senha">
-                <p id="textAlert">CapsLock ativado</p>
+                <input type="password" name="ConfirmPassword"  class="form-control confirm"  id="floatingConfirm ConfirmPassword" placeholder="Confirmar Senha" style="width: 20rem;">
                 <label for="floatingConfirm">Confirmar senha</label>
+                <p id="textAlert">CapsLock ativado</p>
+                <i class="fa-solid fa-lock IconeInput iconeLeft"></i>
             </div>
             <button type="submit" id="cadastro">Enviar</button>
         </form>

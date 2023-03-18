@@ -10,6 +10,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>Cadastro</title>
     </head>
     <body>
@@ -25,53 +26,68 @@
                 </a>
             </div>
         </header>
+        <section id="ErrorSection">
+            <div class="alert alert-danger MessageValidations" role="alert" id="MessageError">
+                As senhas não coincidem <i class="fa-solid fa-triangle-exclamation fa-2x"></i>
+            </div>
+            <div class="alert alert-danger MessageValidations" role="alert" id="MessageEmailExist">
+                Este email já existe <i class="fa-solid fa-triangle-exclamation fa-2x"></i>
+            </div>
+        </section>
         <main>
             <form>
-                <div class="alert alert-danger" role="alert" id="MessageError">
-                    As senhas não coincidem
+                <div id="Form">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="NomeCompleto" placeholder="Nome completo" style="width: 20rem;" required">
+                        <label for="NomeCompleto">Nome completo</label>
+                        <i class="fa-sharp fa-solid fa-file-signature iconeInsideInput"></i>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password"  class="form-control" id="floatingInput email" placeholder="Email" style="width: 20rem;" required>
+                        <label for="email">Email</label>
+                        <i class="fa-solid fa-envelope iconeInsideInput"></i>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control floatingPssword" id="senha" placeholder="Senha" minlength="6" maxlength="20" style="width: 20rem;" required>
+                        <label for="floatingPssword">Senha</label>
+                        <i class="fa-solid fa-lock iconeInsideInput"></i>
+                        <p id="capsLock">CapsLock Ativado</p>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control floatingPassword" id="confirmarSenha" placeholder="Confirmar senha" minlength="6" maxlength="20" style="width: 20rem;" required>
+                        <label for="floatingPassword">Confirmar senha</label>
+                        <i class="fa-solid fa-lock iconeInsideInput"></i>
+                        <p id="capsLockConfirm">CapsLock Ativado</p>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control SuperiorImputs" id="cep" placeholder="CEP" style="width: 20rem;" required>
+                        <label for="cep">CEP</label>
+                        <i class="fa-solid fa-house iconeInsideInput"></i>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control SuperiorImputs" id="logradouro" placeholder="Logradouro" style="width: 20rem;" required>
+                        <label for="logradouro">Logradouro</label>
+                        <i class="fa-solid fa-house iconeInsideInput"></i>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control SuperiorImputs" id="bairro" placeholder="Bairro" style="width: 20rem;" required>
+                        <label for="bairro">Bairro</label> 
+                        <i class="fa-solid fa-house iconeInsideInput"></i>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control SuperiorImputs" id="localidade" placeholder="Localidade" style="width: 20rem;"  required>
+                        <label for="localidade">Localidade</label>
+                        <i class="fa-solid fa-house iconeInsideInput"></i>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control SuperiorImputs" id="uf" placeholder="Localidade" style="width: 20rem;"  required>
+                        <label for="localidade">UF</label>
+                        <i class="fa-solid fa-house iconeInsideInput"></i>
+                    </div>
                 </div>
-                <div class="alert alert-danger" role="alert" id="MessageEmailExist">
-                    Este email já existe
-                </div>
-                <div class="form-floating">
-                    <input type="email" name="Email" class="form-control form-control-xl" id="floatingInput Email" placeholder="Email" style="width: 38rem;">
-                    <label for="floatingInput">Email</label>
-                </div>
-                <div class="form-floating">
-                    <input type="email" name="Email" class="form-control form-control-xl" id="floatingInput Email" placeholder="Email" style="width: 38rem;">
-                    <label for="floatingInput">Email</label>
-                </div>
-                <div class="form-floating">
-                    <input type="email" name="Email" class="form-control form-control-xl" id="floatingInput Email" placeholder="Email" style="width: 38rem;">
-                    <label for="floatingInput">Email</label>
-                </div>
-                <div class="form-floating">
-                    <input type="email" name="Email" class="form-control form-control-xl" id="floatingInput Email" placeholder="Email" style="width: 38rem;">
-                    <label for="floatingInput">Email</label>
-                </div>
-                <div class="form-floating">
-                    <input type="email" name="Email" class="form-control form-control-xl" id="floatingInput Email" placeholder="Email" style="width: 38rem;">
-                    <label for="floatingInput">Email</label>
-                </div>
-                <div class="form-floating">
-                    <input type="email" name="Email" class="form-control form-control-xl" id="floatingInput Email" placeholder="Email" style="width: 38rem;">
-                    <label for="floatingInput">Email</label>
-                </div>
-                <div class="form-floating">
-                    <input type="email" name="Email" class="form-control form-control-xl" id="floatingInput Email" placeholder="Email" style="width: 38rem;">
-                    <label for="floatingInput">Email</label>
-                </div>
-                <div class="form-floating">
-                    <input type="email" name="Email" class="form-control form-control-xl" id="floatingInput Email" placeholder="Email" style="width: 38rem;">
-                    <label for="floatingInput">Email</label>
-                </div>
-                <div class="form-floating">
-                    <input type="email" name="Email" class="form-control form-control-xl" id="floatingInput Email" placeholder="Email" style="width: 38rem;">
-                    <label for="floatingInput">Email</label>
-                </div>
-                
-                
-                <button type="submit" id="cadastro">Cadastrar</button>
+                <span id="spanBotaoCadastro">
+                    <button type="submit" id="cadastro">Cadastrar</button>
+                </span>
             </form>
         </main>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

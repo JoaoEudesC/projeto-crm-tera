@@ -28,11 +28,15 @@ let eye = document.getElementById("show_Senha")
     eye.addEventListener("click", ()=>{
         if(Senha.type == "password"){
             Senha.type = 'text'
-            eye.style.textDecoration = "line-through"
+            eye.classList.remove("fa-eye")
+            eye.classList.add("fa-eye-slash")
+            
         }
         else{
             Senha.type = 'password'
-            eye.style.textDecoration = "none"
+            eye.classList.remove("fa-eye-slash")
+            eye.classList.add("fa-eye")
+
         }
     })
 

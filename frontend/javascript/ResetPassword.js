@@ -1,17 +1,19 @@
 //Função para mostrar a senha sem hash ao clicar no icone do olho
-
-
 const inputSenha = document.getElementsByTagName("input")[2]
 const eye = document.getElementById("show_Senha")
 
 eye.addEventListener("click", () =>{
     if(inputSenha.type == "password" ){
         inputSenha.type = "text"
-        eye.style.textDecoration ="line-through"
+        eye.classList.remove("fa-eye")
+        eye.classList.add("fa-eye-slash")
+        
     }
     else{
         inputSenha.type = "password"
-        eye.style.textDecoration ="none"
+        eye.classList.remove("fa-eye-slash")
+        eye.classList.add("fa-eye")
+        
     }
 })
 
@@ -61,7 +63,7 @@ ConfirmSenha.addEventListener('keyup' , (e) =>{
         //Validação de senha e confirmar a senha , ter certeza que elas coiciden
         let senha = document.getElementsByTagName("input")[2]
         let confirm = document.getElementsByTagName("input")[3].value
-        const valueSenha = senha.value
+        let valueSenha = senha.value
         let MessageError = document.getElementById("MessageError")
 
         if(valueSenha != confirm){
@@ -79,7 +81,7 @@ ConfirmSenha.addEventListener('keyup' , (e) =>{
         //Mensagens de erro relacionado a validação de token do usuário
         const messageErrorTokenExpired = document.getElementById("messageErrorTokenExpired")
         const messageErrorTokenInvalid = document.getElementById("messageErrorTokenInvalid")
-        
+        const messageErrorUserNotFound = document.getElementById("messageErrorUserNotFound")
         const Fetch = {
             method:"POST",
             body:JSON.stringify(data),
@@ -91,19 +93,28 @@ ConfirmSenha.addEventListener('keyup' , (e) =>{
         }
         
         await fetch(url, Fetch)
+        
         .then(response => {
-          console.log(response.status);
-            return response;
+            console.log(response);
+            return response.json();
         })
         .then(data => {
-          console.log(data);
-          return data.json();
-        })
-        .then(json => {
-          console.log(json.message);
+            if(data.statusCode === 200 ){
+                alert("Senha atualizada com sucesso")
+                return window.location.href = "indexlogin.html"
+            }
+            else if(data.error === "User not found"){
+                return messageErrorUserNotFound.style.display="block"
+            }
+            else if(data.error === "Token invalid"){
+                return messageErrorTokenInvalid.style.display ="block"  //Repare que dessa forma, utilizando o data, eu posso manipular os dados enviados do back para fazer as validações, se eu fizer somente através do response, eu tenho acesso através do statusCode, por isso o ideal seria, retornar o response em json e manipular os dados no data
+            }
+            else if(data.error === 'Token expired, generate a new one'){
+                return messageErrorTokenExpired.style.display ="block"
+            }
         })
         .catch(error => {
-          console.log("Erro na requisição " + error + error.status);
+            console.log("Erro na requisição " + error + error.status);
         });
     };
 

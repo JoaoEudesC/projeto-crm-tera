@@ -1,9 +1,3 @@
-
-    
-    
-    
-    
-
 //Mapeando a tecla enter para enviar o formulario
 const botaoCadastro = document.getElementById("cadastro")
     document.addEventListener('keypress' , (e)=>{
@@ -11,10 +5,11 @@ const botaoCadastro = document.getElementById("cadastro")
         botaoCadastro.click();
     })
 
-//Mapeando a tecla capslock para avisar ao usuario se a tecla está ativada ou não ao inserir a senha
+
+    //Mapeando a tecla capslock para avisar ao usuario se a tecla está ativada ou não ao inserir a senha
 let senha = document.getElementsByTagName("input")[2]
     senha.addEventListener('keyup' , (e)=>{
-        const textoAlerta = document.getElementById('uperCase')
+        const textoAlerta = document.getElementById('capsLock')
         if(e.getModifierState('CapsLock')){
             textoAlerta.style.display = 'block'
         }
@@ -25,7 +20,7 @@ let senha = document.getElementsByTagName("input")[2]
     
 let confirmarSenha = document.getElementsByTagName("input")[3]
     confirmarSenha.addEventListener('keyup' , (e)=>{
-        const uperCaseConfirm = document.getElementById('uperCaseConfirm')
+        const uperCaseConfirm = document.getElementById('capsLockConfirm')
         if(e.getModifierState('CapsLock')){
             uperCaseConfirm.style.display = 'block'
         }
