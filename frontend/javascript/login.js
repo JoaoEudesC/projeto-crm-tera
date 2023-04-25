@@ -79,8 +79,8 @@ let eye = document.getElementById("show_Senha")
     const init = () => form.addEventListener('submit' , async (e)=>{
         e.preventDefault();
         const data = accessData(); 
-        const url = "http://localhost:8080/users/login"
-        const MessageError = document.getElementById("MessageAlert")
+        const url = "http://localhost:3333/users/login"
+        const MessageErrorUserNotAuthorized = document.getElementById("MessageAlert")
 
         
         
@@ -99,23 +99,27 @@ let eye = document.getElementById("show_Senha")
         
         await fetch(url , Fetch)
         
-        .then((response)=>{
-            if(response.status === 200){
-                window.location.href = "UsuárioCadastrado.html"
+        .then(response => {
+            console.log(response)
+            return response.json()
+        })
+        .then(data =>{
+            if(data.statusCode === 401){
+            return MessageErrorUserNotAuthorized.style.display = 'block'
+            }
+            else if(data.statusCode === 200){
+                alert("Login realizado com sucesso")
+                return window.location.href = "UsuárioCadastrado.html"
             }
             else{
-                return MessageError.style.display = "block"
+                alert("Erro no servidor local tente novamente mais tarde")
             }
-            
         })
-        .then((data)=>{
-            console.log(data)
-            
+
+        .catch(error =>{
+            return console.log("Erro na sua requisição " + error)
         })
-    
-        .catch((error)=>{
-            return console.log("erro na requisição" + error)
-        })
+        
 
         
 

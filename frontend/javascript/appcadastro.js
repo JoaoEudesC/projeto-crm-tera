@@ -90,7 +90,7 @@ const init = ()=>{
     form.addEventListener("submit" , submitForm)
 };
 
-const submitForm = async (e) =>{
+async function submitForm(){
     
     e.preventDefault();
 //Validação de senha e confirmar a senha , ter certeza que elas coiciden 
@@ -107,9 +107,9 @@ const submitForm = async (e) =>{
     }
 //Config dos dados a serem passados no fetch  e realização do fetcg api
     const data = accessData()
-    const url = "http://localhost:8080/users/create"
+    const url = "http://localhost:3333/users/create"
     if(!data){
-        return console.log("Dados nao estão corretos")
+        return console.log("Dados não estão corretos")
     }
     
 // credentials => "same-origin" é usada no contexto de requisições HTTP com o Fetch API e indica que as credenciais (cookies e headers de autenticação) devem ser incluídas na requisição se o URL da requisição for da mesma origem do aplicativo cliente. Em outras palavras, isso permite que a requisição acesse recursos protegidos que dependem de autenticação da mesma origem. Se o URL da requisição for de uma origem diferente, as credenciais não serão incluídas na requisição.
@@ -129,24 +129,20 @@ const submitForm = async (e) =>{
     }
     
     await fetch(url, Fetch) 
-    .then((response)=>{
-        if(response.status == 201){
-            alert("Cadastro realizado com sucesso")
-            return window.location.href = "indexlogin.html"
-        }
-        else if(response.status == 422){
-            return existingEmailMessage.style.display = "block"
+    .then(response => {
+        console.log(response)
+        return response.json()
+    })
+    .then(data =>{
+        if(data.statusCode !== 201){
+            return existingEmailMessage.style.display = "Block"
         }
         else{
-            return alert("Usuário não cadastrado , tente novamente")
+            return window.location.href = "indexlogin.html"
         }
     })
-    .then((data)=>{
-        console.log(data)
-    
-    })
-    .catch((error)=>{
-        return console.log("erro na requisição" + error)
+    .catch(error =>{
+        console.log("Erro na sua requisição " + error)
     })
 
     
@@ -157,7 +153,7 @@ const submitForm = async (e) =>{
     const accessData = ()=>{
         return{
                 nome:document.getElementById("NomeCompleto").value,
-                email:document.getElementById("email").value,
+                email:document.getElementsByTagName("input")[1].value,
                 senha:document.getElementById("senha").value,
                 cep:document.getElementById("cep").value,
                 logradouro:document.getElementById("logradouro").value,

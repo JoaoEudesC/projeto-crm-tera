@@ -1,8 +1,12 @@
+const { error } = require("console");
 
 //Mapeando a tecla enter para enviar o formulario
+const botaoRedefinirSenha = document.getElementById("redefinir")
 document.addEventListener('keypress' , (e)=>{
-    if(e.key === 'enter')
-    botaoRedefinirSenha.click();
+    if(e.key === 'enter'){
+        botaoRedefinirSenha.click();
+    }
+    
 })
 
 
@@ -15,8 +19,8 @@ const form = document.getElementById("form")
 const init = () => form.addEventListener('submit' , async(e) => {
     e.preventDefault();
     const data = accessData();
-    const url = "http://localhost:8080/users/forgotPassword"
-    const MessageAlert = document.getElementById("AlertMessage")
+    const url = "http://localhost:3333/users/forgotPassword"
+    const AlertMessageUserNotFound = document.getElementById("AlertMessageUserNotFound")
     const emailValue = document.querySelector("input").value
 
 
@@ -35,24 +39,25 @@ const init = () => form.addEventListener('submit' , async(e) => {
         
     }
 
-    const fectch = await fetch(url , Fetch)
-    .then(response =>{
-        console.log(response.status);
-        if(response.status === 200){
-            console.log("Requisição bem feita")
-            let mail = document.querySelector("input")
-            mail.value = ""
-            alert(`email enviado para: ${emailValue}`)
+    await fetch(url , Fetch)
+    .then(response => {
+        console.log(response)
+        return response.json()
+    })
+    .then(data=>{
+        if(data.error == 'User not found'){
+            return AlertMessageUserNotFound.style.display = "block"
+        }
+        else if(data.statusCode === 200){
+            alert(`Enviamos um email com o token para ${emailValue}`)
             return window.location.href = "indexResetSenha.html"
         }
         else{
-            MessageAlert.style.display = "block"
+            alert("Erro no servidor local tente novamente mais tarde")
         }
-    } ) 
-    .then(data => console.log(data))
-    
-    .catch((error) =>{
-        return console.log("Erro na requisição " + error )
+    })
+    .catch(error =>{
+        console.log("Erro na sua requisição " + error)
     })
 
 });

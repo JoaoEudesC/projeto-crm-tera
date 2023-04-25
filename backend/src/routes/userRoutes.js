@@ -3,16 +3,16 @@ const express = require("express");
 const router = express.Router();
 
 //Importação dos middlewares de validação de login , error e cadastro
-const {registerValidate} = require("../middlewares/userMiddleware")
+const {registerValidate , updateForgotPssword , updateUser} = require("../middlewares/userMiddleware")
 const errorMiddleware  = require("../middlewares/errorMiddlewares")
-const {updatePssword} = require("../middlewares/userMiddleware")
+
 
 //Importação do Usercontroller e do AuthController
 const userController = require("../controllers/userController")
 const authController = require("../controllers/authController");
 
 //Impotação de middleware de checagem se o email criado já é cadastrado no banco de dados
-const {checkExistingEmail} = require("../middlewares/repetionMiddleware")
+const {checkExistingEmail} = require("../middlewares/repetionEmailMiddleware")
 
 
 // 1- Funções que são enviadas do controller para fazer as requisições
@@ -40,7 +40,7 @@ router.post("/create", registerValidate, checkExistingEmail, userController.crea
 
 //Rota que irá atualizar um usuário existente no banco de dados(UPDATE - PUT)
 
-router.put("/:id" ,  registerValidate  ,userController.updateUserById)
+router.put("/:id" ,  updateUser ,userController.updateUserById)
 
 //Rota que irá deletar o usuário do banco de dados (DELETE)
 
@@ -58,7 +58,7 @@ router.post("/RotaAutenticada" , authController.tokenVerification , userControll
 router.post("/forgotPassword", authController.forgotPassword)
 
 //Rota que vai resetar o password, onde eu vou passar o email cadastrado, o token e a senha nova update
-router.post("/resetPassword" , updatePssword, authController.resetPassword )
+router.post("/resetPassword" , updateForgotPssword, authController.resetPassword )
 
 
 

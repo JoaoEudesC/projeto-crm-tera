@@ -3,21 +3,26 @@
 
 
 //Middleware de validação de cadastros, este schema esta vindo do validations user.js
-const {registerSchema , updateForgotPassword} = require("../Validations/user")
+const {registerSchema , updateForgotPassword, UpdateSchema} = require("../Validations/user")
 
 
 const registerValidate = (req , res , next)=>{
     const {error} = registerSchema.validate(req.body)
     if(error) throw error
-
     next()
         
     
 }
 
 //Middleware de validação de senha para realizar o upadate na validação de senha
-const updatePssword = (req , res , next) =>{
+const updateForgotPssword = (req , res , next) =>{
     const {error} = updateForgotPassword.validate(req.body)
+    if(error) throw error
+    next()
+}
+
+const updateUser = (req , res , next) =>{
+    const {error} = UpdateSchema.validate(req.body)
     if(error) throw error
     next()
 }
@@ -32,7 +37,8 @@ const updatePssword = (req , res , next) =>{
 
 module.exports = {
     registerValidate,
-    updatePssword
+    updateForgotPssword,
+    updateUser
     
 }
 

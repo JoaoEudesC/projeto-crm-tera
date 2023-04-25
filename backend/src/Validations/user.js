@@ -23,14 +23,22 @@ const registerSchema = Joi.object({
 const updateForgotPassword = Joi.object({
     senha:Joi.string().min(3).max(20).required(),
     email: Joi.string().email().required(),
-    passwordResetToken: Joi.string().max(50)
+    passwordResetToken: Joi.string().max(50).required()
+})
+
+//Schema para a rota de update
+const UpdateSchema = Joi.object({
+    name: Joi.string(),
+    email:Joi.string().email(),
+    password:Joi.string().min(3).max(20)
 })
 
 
     
     module.exports = {
         registerSchema,
-        updateForgotPassword
+        updateForgotPassword,
+        UpdateSchema
         
     }
 

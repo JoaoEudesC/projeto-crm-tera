@@ -6,7 +6,7 @@
   "module": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":" node ../"
+    "lobster":"nodemon src/index.js"
   },
   "repository": {
     "type": "git module",

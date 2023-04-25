@@ -60,7 +60,7 @@ ConfirmSenha.addEventListener('keyup' , (e) =>{
 
     const submitForm = async (e) => {
         e.preventDefault()
-        //Validação de senha e confirmar a senha , ter certeza que elas coiciden
+        //Validação de senha e confirmar a senha , ter certeza que elas coicidem
         let senha = document.getElementsByTagName("input")[2]
         let confirm = document.getElementsByTagName("input")[3].value
         let valueSenha = senha.value
@@ -73,7 +73,7 @@ ConfirmSenha.addEventListener('keyup' , (e) =>{
             return MessageError.style.display = "block"
         }
         const data = accessData()
-        const url = "http://localhost:8080/users/resetPassword"
+        const url = "http://localhost:3333/users/resetPassword"
         if(!data){
             return console.log("Dados incorretos")
         }
@@ -82,6 +82,7 @@ ConfirmSenha.addEventListener('keyup' , (e) =>{
         const messageErrorTokenExpired = document.getElementById("messageErrorTokenExpired")
         const messageErrorTokenInvalid = document.getElementById("messageErrorTokenInvalid")
         const messageErrorUserNotFound = document.getElementById("messageErrorUserNotFound")
+        
         const Fetch = {
             method:"POST",
             body:JSON.stringify(data),

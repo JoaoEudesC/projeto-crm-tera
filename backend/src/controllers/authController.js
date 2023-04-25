@@ -5,22 +5,12 @@ const jwt = require("jsonwebtoken")
 const crypto = require("crypto")
 const {transporterHotmail, transporterGmail} = require("../mail/mailler")
 
-
-
-
-
-
-
-
 //Confing do dotenv 
 require("dotenv").config();
 
 
 //Transformando o authController em um objeto vázio , para depois exportalo como modulo e utilizar no router
 const authController = {}
-
-
-
 
 
 //Utilização do dotenv para guardar o secret que será usado para hashear o nosso token
@@ -37,7 +27,7 @@ authController.login =  ( req , res) =>{
             if(!usuário){
                 return res.status(401).json({
                     statusCode:401,
-                    message:"Usuário não encontrado",
+                    message:"Usuário não autorizado",
                     data:{
                         email:req.body.email
                     }
@@ -45,7 +35,6 @@ authController.login =  ( req , res) =>{
             }
             console.log(usuário)
             //Validação de Senha
-
             const ValidationPassword =  bcrypt.compareSync(req.body.senha , usuário.senha)
             
             if(!ValidationPassword){
@@ -56,8 +45,7 @@ authController.login =  ( req , res) =>{
             }
             
             //Criação de token
-            
-            const token = jwt.sign({nome:usuário.nome} , SECRET)
+            const token = jwt.sign({nome:usuário.nome} , SECRET , {expiresIn:"1d"})
             res.status(200).json({
                 statusCode:200,
                 message:"Login realizado com sucesso!",
@@ -65,9 +53,6 @@ authController.login =  ( req , res) =>{
                     token
                 }
             })
-            
-            
-
         })
 
     } catch(error){
@@ -79,11 +64,18 @@ authController.login =  ( req , res) =>{
     }
 };
 
-//Função de verificação do token , é um midleware => você vai passar a função por ela antes de ir para a função inicial , ou seja , antes de ele passar pela função de criar usuário , ele vai passar pela função de verificar token
-
+//Função de verificação do token , é um midleware => você vai passar a função por ela antes de ir para a função inicial , ou seja , antes de ele passar pela função de criar usuário , ele vai passar pela função de verificar token(Ou seja , eu poderia ter criado essa função, na pasta de middlewares)
     authController.tokenVerification = (req , res , next)=>{
         const tokenHeader = req.headers["authorization"]
-        const token = tokenHeader && tokenHeader.split("  ")[1]; //no metodo split , quando eu quero quebrar uma string em varios caracteres em um array , eu utilizo o metodo split , sem definir um separador nas aspas, como seria uma virgula, entao ele divide a string em varios caracteres , que é o que fiz com o token e quando utilizo o espaçamento nas aspas , ele transforma em um array com a string completa como o unico elemento do array, assim depois pego a string de indice 1 do array e esse será o meu token
+        const token = tokenHeader && tokenHeader.split("  ")[1]; 
+
+        if(!tokenHeader){
+            return res.status(400).json({
+                statusCode:400,
+                message:"Token missing" 
+            })
+        }
+
 
         if(!token){
             return res.status(401).json({
@@ -95,10 +87,7 @@ authController.login =  ( req , res) =>{
         try{
             jwt.verify(token , SECRET)
             next()
-
-
-
-
+        
         }catch(error){
             console.error(error);
             res.status(500).json({
@@ -114,40 +103,39 @@ authController.login =  ( req , res) =>{
 
 
 
-    //Função de Recuperação de senha onde enviarei um email com um token ou link para que o usuário possa fazer um update na senha
+//Função de Recuperação de senha onde enviarei um email com um token ou link para que o usuário possa fazer um update na senha
     authController.forgotPassword = async(req, res) => {
         const {email} = req.body;
         try {
-          const user = await userSchema.findOne({email});
-          if (!user) {
+            const user = await userSchema.findOne({email});
+            if (!user) {
             return res.status(400).json({error: 'User not found'});
-          }
-          
-          //Criação do token com tempo de expiração de 1hora
-          const token = crypto.randomBytes(20).toString('hex');
-          const now = new Date();
-          now.setHours(now.getHours() + 1);
-      
-          // Atualiza os campos passwordResetToken e passwordResetExpires no banco de dados , eles são adicionados ao banco de dados para que eu consiga, comparar o token que eu enviei por email com o id do usuário e ver se esta chave token foi gerada no banco
-          user.passwordResetToken = token;
-          user.passwordResetExpires = now;  //Aqui eu tbm poderia utilizar o await userSchema.findByIdAndUpdate(user.id,{'$set':{passowrdResetToken: token , passwordResetExpires:now}}) que é uma forma nativa do mongoose para acessar os campos do schema em uma função, mas neste caso eu fiz direto sem precisar utilizar o update, sempre que fizer a requisição aqueles campos vão ser alterados
-          await user.save();
-          
-          //Envio do token de recuperação de senha por email para o usuário
-          transporterGmail.sendMail({
+            }
+
+
+            const token = crypto.randomBytes(20).toString('hex');
+            const now = new Date();
+            now.setHours(now.getHours() + 1);
+
+
+            user.passwordResetToken = token;
+            user.passwordResetExpires = now;  
+            await user.save();
+
+
+        transporterGmail.sendMail({
             from:"joaoeudes91135538@gmail.com",
             to:email,
             subject:'Recuperação de senha',
-            html:`<p>Esqueceu a senha?, não tem problema entre no link enviado abaixo e utilize o token enviado para a redefinição de senha, o token expira dentro de 1 hora.</p>  <br></br> <p>token: ${token}</p>`,
-            text:'Olá esse é o texto Alternativo'
+            html:`<p>Esqueceu a senha?, não tem problema utilize o token enviado para redefinir a senha, o token expira dentro de 1 hora.</p>  <br></br> <p>token: ${token}</p>`,
+            text:`Esqueceu a senha?, não tem problema utilize o token enviado para redefinir a senha. o token expira dentro de 1 hora. ${token}`
         })
-          .then(() => {console.log("Email enviado com sucesso")})
-          .catch(err => console.log(err))
-          
-          res.status(200).json({
+        .then(() => {console.log("Email enviado com sucesso")})
+        .catch(err => console.log(err))
+            res.status(200).json({
             statusCode:200,
-            message:"Resultado alcançado com sucesso, cheque sua caixa de email"
-          })
+            message:"Token enviado com sucesso, cheque sua caixa de email"
+        })
         } catch (error) {
             res.status(400).json({error: 'Erro on forgot password, try again'});0
         }
@@ -155,37 +143,33 @@ authController.login =  ( req , res) =>{
 
 
 
-    //Função de reset de password onde o usuário vai enviar o token, email e senha na requisição( A senha a ser enviada será a senha nova que o usuário quer enviar)
-
+//Função de reset de password onde o usuário vai enviar o token, email e senha na requisição( A senha a ser enviada será a senha nova que o usuário quer enviar)
     authController.resetPassword = async(req , res) =>{
         const {email , passwordResetToken , senha} = req.body; //o que eu vou receber na minha requisição, que no caso é o meu token, senha e email
 
         try {
-            //Preciso verificar se este usuário existe, buscando o usuário primeiro
+
             const user = await userSchema.findOne({email})
-            //Preciso pegar os campos que estão no select, porque por padrão ele não vem no corpo da requisição(Essa é uma configuração própria do mongoose mesmo)
+            
             .select('+passwordResetToken passwordResetExpires')
-            //Verificar se o usuário não existe
+            
             if(!user){
                 return res.status(400).json({error:'User not found'})
             }
-            //Se ele existe eu vou verificar se o token existe
+            
             if(passwordResetToken !== user.passwordResetToken){
                 return res.status(400).json({error: 'Token invalid'})
-            }  //Estou verificando se o token que está sendo enviado na requisição e o token gerado enviado no email são iguais(estou vendo se um é diferente do outro)
+            }  
 
-            //Se o token existe e bate com o enviado ao usuário, eu preciso ter certeza se ele ainda não está expirado por uma hora
+            
             const now = new Date();
             if(now > user.passwordResetExpires){
-                return res.status(400).json({error: 'Token expired, generate a new one'}) //se  a data atual for maior do que a hora de expiração do token, vai gerar um erro
+                return res.status(400).json({error: 'Token expired, generate a new one'}) 
             }
 
-            //Depois de passar por todas as verificações, se der tudo certo, eu tenho que atualizar a senha do usuário
-            //Como neste caso eu utilizo o hash do bcrypt através de um middleware la no meu model para hashear a senha antes de salvar, eu não preciso, hashear a senha denovo, a não ser que eu utilizasse diretamante na função de post
             user.senha = senha;
             await user.save()
 
-            //Resposta , se der tudo certo se passar por todas as verificações
             res.status(200).json({
                 message:"Senha atualizada com sucesso",
                 statusCode:200
