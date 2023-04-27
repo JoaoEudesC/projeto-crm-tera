@@ -4,16 +4,12 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const crypto = require("crypto")
 const {transporterHotmail, transporterGmail} = require("../mail/mailler")
-
-//Confing do dotenv 
 require("dotenv").config();
 
 
-//Transformando o authController em um objeto vázio , para depois exportalo como modulo e utilizar no router
 const authController = {}
 
 
-//Utilização do dotenv para guardar o secret que será usado para hashear o nosso token
 const SECRET = process.env.SECRET
 
 
@@ -64,10 +60,12 @@ authController.login =  ( req , res) =>{
     }
 };
 
-//Função de verificação do token , é um midleware => você vai passar a função por ela antes de ir para a função inicial , ou seja , antes de ele passar pela função de criar usuário , ele vai passar pela função de verificar token(Ou seja , eu poderia ter criado essa função, na pasta de middlewares)
-    authController.tokenVerification = (req , res , next)=>{
+
+//Midleware de validação do token, optei por deixar aqui e não na pasta de middlewares
+
+authController.tokenVerification = (req , res , next)=>{
         const tokenHeader = req.headers["authorization"]
-        const token = tokenHeader && tokenHeader.split("  ")[1]; 
+        const token = tokenHeader && tokenHeader.split(" ")[1]; 
 
         if(!tokenHeader){
             return res.status(400).json({

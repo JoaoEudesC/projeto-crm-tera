@@ -125,7 +125,7 @@ ConfirmSenha.addEventListener('keyup' , (e) =>{
             passwordResetToken: document.getElementsByTagName("input")[1].value,
             senha: document.getElementsByTagName("input")[2].value
         }
-             
+    
             
     }
 

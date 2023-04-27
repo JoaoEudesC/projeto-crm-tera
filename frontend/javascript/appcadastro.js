@@ -1,3 +1,5 @@
+
+
 //Mapeando a tecla enter para enviar o formulario
 const botaoCadastro = document.getElementById("cadastro")
     document.addEventListener('keypress' , (e)=>{
@@ -6,7 +8,7 @@ const botaoCadastro = document.getElementById("cadastro")
     })
 
 
-    //Mapeando a tecla capslock para avisar ao usuario se a tecla está ativada ou não ao inserir a senha
+//Mapeando a tecla capslock para avisar ao usuario se a tecla está ativada ou não ao inserir a senha
 let senha = document.getElementsByTagName("input")[2]
     senha.addEventListener('keyup' , (e)=>{
         const textoAlerta = document.getElementById('capsLock')
@@ -80,57 +82,45 @@ let confirmarSenha = document.getElementsByTagName("input")[3]
 
 
 
-    // => Ligação da nossa api do banco de dados com o nosso frontend para realizar o cadastro dos usuários
 
 
 //criação da função de submeter o formulário para o backend
 
-const init = ()=>{
-    const form = document.getElementById('Form')
-    form.addEventListener("submit" , submitForm)
-};
-
-async function submitForm(){
-    
-    e.preventDefault();
-//Validação de senha e confirmar a senha , ter certeza que elas coiciden 
+const form = document.getElementById('form')
+const init = () => form.addEventListener('submit' , async (e) =>{
+    e.preventDefault()
     let senha = document.getElementById("senha")
     let confirm = document.getElementById("confirmarSenha").value
     let valueSenha = senha.value
     let MessageError = document.getElementById("MessageError")
-    
-    if(valueSenha != confirm  ){
+
+    if(valueSenha != confirm){
         valueSenha = ""
         confirm = ""
         senha.focus()
-        return MessageError.style.display ="block"
+        return MessageError.style.display = "block"
     }
-//Config dos dados a serem passados no fetch  e realização do fetcg api
-    const data = accessData()
+    
+    const data = accessData();
     const url = "http://localhost:3333/users/create"
     if(!data){
         return console.log("Dados não estão corretos")
     }
-    
-// credentials => "same-origin" é usada no contexto de requisições HTTP com o Fetch API e indica que as credenciais (cookies e headers de autenticação) devem ser incluídas na requisição se o URL da requisição for da mesma origem do aplicativo cliente. Em outras palavras, isso permite que a requisição acesse recursos protegidos que dependem de autenticação da mesma origem. Se o URL da requisição for de uma origem diferente, as credenciais não serão incluídas na requisição.
-    
-//Mensagem de erro caso o email cadastrado já exista no banco de dados
+
     const existingEmailMessage = document.getElementById("MessageEmailExist")
 
-//criação do metodo de requisição para submeter os dados do formulário de forma correta
     const Fetch = {
         method:"POST",
         body:JSON.stringify(data),
         headers:{
-            "content-Type": "application/json",
-            
+            "content-Type": "application/json"
         },
         credentials: "same-origin"
     }
-    
-    await fetch(url, Fetch) 
-    .then(response => {
-        console.log(response)
+
+
+    await fetch(url , Fetch)
+    .then(response =>{
         return response.json()
     })
     .then(data =>{
@@ -138,19 +128,21 @@ async function submitForm(){
             return existingEmailMessage.style.display = "Block"
         }
         else{
+            const email = document.getElementsByTagName("input")[1].value
+            alert(`Usuário cadastrado com sucesso, Enviamos um email para ${email}`)
             return window.location.href = "indexlogin.html"
         }
     })
-    .catch(error =>{
+    .catch(error => {
         console.log("Erro na sua requisição " + error)
     })
-
     
-};
+
+})
 
 
-//Função para acessar os valores enviados através dos inputs e retorna-los a variavel associada ao data, para ser enviada ao back a partir do fetch
-    const accessData = ()=>{
+
+const accessData = ()=>{
         return{
                 nome:document.getElementById("NomeCompleto").value,
                 email:document.getElementsByTagName("input")[1].value,
@@ -164,19 +156,17 @@ async function submitForm(){
     }
 
 
-//Função que diz respeito ao envio do formulário com o evento submmit
+
+
+
+accessData();
+
 init();
 
 
-//Função que diz respeito a pegar todos os valores dos inputs e retorna-los dentro da variável data para que possa ser enviado ao backend(Atenção que a chamada dos valores dos inputs tem que condizer com o schema montando no backend)
-accessData();
 
 
 
-
-
-//Observação importante => colocar a função que o fetch está sempre como se fosse uma função assicrona e se utilizar o if lembrar de sempre colocar um return no uso de validação , tudo que for antes do return não será executado , ou seja, o return sempre por ultimo
-//como é o caso que vemos na requisição de login e aqui na validação da senha e confirmar a senha
 
 
 

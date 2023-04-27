@@ -1,4 +1,4 @@
-const { error } = require("console");
+
 
 //Mapeando a tecla enter para enviar o formulario
 const botaoRedefinirSenha = document.getElementById("redefinir")
@@ -11,7 +11,7 @@ document.addEventListener('keypress' , (e)=>{
 
 
 
-//Ligação da nossa api com o frontEnd para enviar as instruções de recuperação de senha para o usuário
+//Função de envio de formulário para recuperar senha
 const form = document.getElementById("form")
 
 
@@ -31,7 +31,7 @@ const init = () => form.addEventListener('submit' , async(e) => {
 
     const Fetch = {
         method: "POST",
-        body:JSON.stringify(data), //Estou passando os dados do meu input para json, para ser enviado o valor do input do front-end para o back-end em formato json
+        body:JSON.stringify(data), 
         headers:{
             "Content-Type":"application/json"
         },

@@ -1,4 +1,3 @@
-//Importação do pacote npm joi, usado para padronizar os campos da nossa api, protegemos a nossa api para que não seja aceite qualquer tipo de dados(Impomos condições)
 const Joi = require("joi")
 
 

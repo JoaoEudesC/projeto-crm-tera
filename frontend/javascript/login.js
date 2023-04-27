@@ -41,15 +41,12 @@ let eye = document.getElementById("show_Senha")
     })
 
 
-
-    //Variaveis utilizadas para passar o valor dos inputs
+//Função do checkBox lembre-me
     let checkBox = document.getElementById("Check1")
     let inputEmail = document.querySelector("input")
     let inputSenha = document.getElementsByTagName("input")[1]
 
 
-//Função que ativará o input checkBox para que o usário possa salvar o valor do seu email e sua senha
-    //Verificação quando a página é carregada se há dados do usuário salvos no localstorage, podemos fazer isso através do DOMContentLoaded(com essa função if eu estou dizendo basicamente que se tiver um password e um email no localStorage eu vou pegar os valores dos inputs e passar lá, como o checkBox marcado true) => primeira validação
     document.addEventListener("DOMContentLoaded" , () =>{
         if(localStorage.getItem("email") && localStorage.getItem("password")){
             inputEmail.value = localStorage.getItem("email");
@@ -58,7 +55,6 @@ let eye = document.getElementById("show_Senha")
         }
     });
 
-//Adicionando evento de change no input checkBox para verificar se ele ta marcado ou não( se ele estiver marcado salvo os valores do email e senha no localstorage se não estiver eu removo os valores do localstorage)
     
     checkBox.addEventListener("change" , () =>{
         if(checkBox.checked){
@@ -74,7 +70,7 @@ let eye = document.getElementById("show_Senha")
 
 
 
-//Autenticaçao e login => Ligação da nossa aplicação com o backend , a parte de login , da rota login, autenticação e login
+//Função de encio de formulário de login
     const form = document.getElementById('form')
     const init = () => form.addEventListener('submit' , async (e)=>{
         e.preventDefault();
@@ -134,34 +130,9 @@ const accessData = ()=>{
     };
 };
 
-//Chamada da função que diz respeito ao envio dos valores do inut para a variavel data que vai ser enviada ao backend através do post ( atenção os valores dos inputs tem que está associados ao schema criado no backend)
 accessData();
 
-//Chamada da função que diz respeito ao envio do formulário
 init();
-
-
-
-
-
-
-//Observação importante => O que vier depois de um return não será executado , por isso em uma função if coloque o return por ultimo e as funções a serem executadas primeiro , como vimos no caso do primeiro .then e na validação de confirmação de senha do cadastro
-//Repare que utilizamos uma função if dentro do then , para fazer a validação do usuário baseado no statusCode, podemos fazer isso no cadastro tbm 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

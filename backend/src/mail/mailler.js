@@ -10,7 +10,7 @@ const  transporterGmail = nodemailer.createTransport({
     secure:true,  // o secure ela é true para a porta 465 , false para as outras
     auth: {
       user: "joaoeudes91135538@gmail.com",
-      pass: "kidsmdmfkioilubc"
+      pass: "jtwvydwkaiyesrxh"
     }
   });
 
@@ -30,5 +30,4 @@ const  transporterHotmail = nodemailer.createTransport({
   
 
 
-  //A configuração do email e do gmail é so voltada para a permissão para enviar email através do app, ou seja , eu configuro para ter um email raiz para enviar emails, mas eu posso enviar do hotmail para o gmail e do gmail para o hotmail(Neste caso eu optei pelo hotmail)
 module.exports = {transporterGmail , transporterHotmail }

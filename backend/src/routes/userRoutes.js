@@ -15,13 +15,6 @@ const authController = require("../controllers/authController");
 const {checkExistingEmail} = require("../middlewares/repetionEmailMiddleware")
 
 
-// 1- Funções que são enviadas do controller para fazer as requisições
-
-
-//Rota de Teste(GET)
-
-router.get("/teste" , userController.Teste)
-
 //Rota que mostra todos os usuários cadastrados no banco (GET -ALL)
 
 router.get("/all" , userController.getAll)
@@ -55,19 +48,19 @@ router.post("/login" ,authController.login)
 router.post("/RotaAutenticada" , authController.tokenVerification , userController.rotaAutenticada )
 
 //Rota que vai enviar o email para o usuário com o token para recuperação de senha
+
 router.post("/forgotPassword", authController.forgotPassword)
 
 //Rota que vai resetar o password, onde eu vou passar o email cadastrado, o token e a senha nova update
+
 router.post("/resetPassword" , updateForgotPssword, authController.resetPassword )
 
 
 
 
 //Importação do midlleware de error com o joi para pegar os erros que acontecer na rota de post de usuários
-
 router.use(errorMiddleware)
 
-//Exportação do modulo router
 
 module.exports = router
 

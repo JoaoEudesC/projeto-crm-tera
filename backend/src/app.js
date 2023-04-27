@@ -1,4 +1,3 @@
-// Configuraçaão dos modulos do pacote express e cors
 const express = require("express")
 const app = express()
 const cors = require("cors")
