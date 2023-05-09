@@ -120,11 +120,12 @@ footer {
 	color: #fff;
 	height: 50px;
 	line-height: 50px;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
-	width: 100%;
+	width: 100vw;
 	text-align: center;
-}
+	padding: 10px 0;
+	}
 
 footer p {
 	margin: 0;
