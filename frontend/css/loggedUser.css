@@ -1,0 +1,168 @@
+/* Reset de estilos */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Fonte */
+body {
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+/* Navbar */
+nav {
+	background-color: #333;
+	color: #fff;
+}
+
+.navbar-brand {
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.navbar-nav {
+	flex-direction: column;
+}
+
+.nav-item {
+	position: relative;
+	
+}
+.nav-item:hover{
+    background-color: #4ec286;
+    transition-duration: 0.5s;
+    text-decoration: none;
+}
+
+.nav-link {
+	padding: 10px 20px;
+}
+
+.dropdown-menu {
+	background-color: #555;
+	min-width: 200px;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	display: none;
+}
+
+.dropdown-menu.show {
+	display: block;
+}
+
+.dropdown-item {
+	padding: 10px;
+	color: #fff;
+}
+
+/* Botão de hamburguer */
+.navbar-toggler {
+	color: #fff;
+	border: none;
+}
+
+.navbar-toggler-icon {
+	background-color: #fff;
+	display: block;
+	width: 20px;
+	height: 2px;
+	margin: 4px;
+	transition: all 0.2s ease-in-out;
+}
+
+.navbar-toggler:hover .navbar-toggler-icon {
+	background-color: #ccc;
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon {
+	transform: rotate(0deg);
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+	transform: rotate(90deg);
+}
+
+/* Mensagem de boas-vindas */
+.welcome-message {
+	margin: 50px auto;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	}
+
+.welcome-message h1 {
+	font-size: 36px;
+	margin-bottom: 20px;
+}
+
+.welcome-message p {
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.chart {
+	width: 100%;
+	height: 200px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+/* Footer */
+footer {
+	background-color: #333;
+	color: #fff;
+	height: 50px;
+	line-height: 50px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}
+
+footer p {
+	margin: 0;
+}
+/* Tamanho e layout para dispositivos móveis */
+@media (max-width: 767px) {
+	.navbar-nav {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.nav-item {
+		position: static;
+	}
+	.dropdown-menu {
+		position: static;
+		display: none;
+	}
+	.dropdown-menu.show {
+		display: block;
+		background-color: #333;
+		padding: 10px;
+	}
+	.dropdown-menu.show .dropdown-item {
+		color: #ccc;
+	}
+	.navbar-toggler {
+		display: block;
+	}
+	.navbar-collapse {
+		display: none;
+	}
+	.navbar-collapse.show {
+		display: block;
+	}
+	.nav-link {
+		padding: 10px;
+	}
+	.chart {
+		margin: 50px 0;
+	}
+}
