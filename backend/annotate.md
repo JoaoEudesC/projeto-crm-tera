@@ -102,8 +102,22 @@
 
 # 52 - há duas formas de se utilizar o joi 0 =>
 
-## ****\*\*\*\*****\*\*****\*\*\*\***** Recuperação de senha , final , o que fazer com o token gerado?
+## \***\*\*\*\*\*\*\***\*\*\***\*\*\*\*\*\*\*** Recuperação de senha , final , o que fazer com o token gerado?
 
 ## 1 - a gente precisa da um jeito de enviar este token via email para o usuário para que ele consiga alterar esta senha
 
 ## 2 - tenho que criar a pagina resources, dentro dela uma pasta chamda mail , dentro de mail uma pagina chamada auth e dentro de auth um forgotPassword.html ( é onde o meu template vai estar para ser enviado ao usuário aquela mensagem em paragrafo por exemplo)
+
+## +++++++++++++++++++++++++++++++++++++ Eslint
+
+## 1 - Há diferenças entre colocar o eslint para arquivos javascript, ou seja e typescript , ou seja, a configuração é diferente ao execuatr o comando "npx eslint --init", sendo assim algumas coisas mudam
+
+## 2 - escolher que o arquivo "eslint" seja do tipo.js e não json para que voce possa colocar as regras lá através do module.exports em vez de ser em formato json.
+
+## 3 - tudo que voce tem que instalar no npm é => npm install eslint eslint-plugin-import-helpers eslint-config-prettier eslint-plugin-prettier --save-dev para que voce possa usar o eslint em conformidade com prettier
+
+## 4 - abrir com o botão direito na pasta que voce quer para selcrionar a opção ".editorconfig" para configurar as quebras de linha
+
+## 5 - utilizar o .eslintignore para ignorar a pasta node_modules do seu arquivo
+
+## 6 -é um pouco diferente do typescript por isso ter atenção neste quesito.

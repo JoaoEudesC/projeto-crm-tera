@@ -1,22 +1,21 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 require("dotenv").config();
-const MONGODB_URI = process.env.MONGODB_URI;
 
-const connect = async()=>{
-    try{
-        await mongoose.connect(MONGODB_URI , {
-            useNewUrlParser:true,
-            useUnifiedTopology:true,
+const { MONGODB_URI } = process.env;
+
+const connect = async () => {
+    try {
+        await mongoose.connect(MONGODB_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
         });
-        console.log("Banco conectado")
-    }catch (error) {
-        console.log("Erro " , error.message)
+        console.log("Banco conectado");
+    } catch (error) {
+        console.log("Erro ", error.message);
     }
 };
 
-
-
-module.exports ={
+module.exports = {
     connect,
 };

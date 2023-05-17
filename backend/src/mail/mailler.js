@@ -1,33 +1,25 @@
-const nodemailer = require("nodemailer")
+const nodemailer = require("nodemailer");
 
-
-
-
-//Transporter para o email do gmail
-const  transporterGmail = nodemailer.createTransport({
-    host:'smtp.gmail.com',
+// Transporter para o email do gmail
+const transporterGmail = nodemailer.createTransport({
+    host: "smtp.gmail.com",
     port: 465,
-    secure:true,  // o secure ela é true para a porta 465 , false para as outras
+    secure: true, // o secure ela é true para a porta 465 , false para as outras
     auth: {
-      user: "joaoeudes91135538@gmail.com",
-      pass: "jtwvydwkaiyesrxh"
-    }
-  });
+        user: "joaoeudes91135538@gmail.com",
+        pass: "jtwvydwkaiyesrxh",
+    },
+});
 
-
-//Transporter para o email do hotmail
-const  transporterHotmail = nodemailer.createTransport({
-    host:'smtp.office365.com',
-    port: '587',
-    secure:false,  // o secure ela é true para a porta 465 , false para as outras
+// Transporter para o email do hotmail
+const transporterHotmail = nodemailer.createTransport({
+    host: "smtp.office365.com",
+    port: "587",
+    secure: false, // o secure ela é true para a porta 465 , false para as outras
     auth: {
-      user: "joaoeudes91135538@hotmail.com",
-      pass: "Hadassa2609"
-    }
-  });
+        user: "joaoeudes91135538@hotmail.com",
+        pass: "Hadassa2609",
+    },
+});
 
-
-  
-
-
-module.exports = {transporterGmail , transporterHotmail }
+module.exports = { transporterGmail, transporterHotmail };
