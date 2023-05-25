@@ -19,7 +19,7 @@ const form = document.getElementById("form")
 const init = () => form.addEventListener('submit' , async(e) => {
     e.preventDefault();
     const data = accessData();
-    const url = "http://localhost:3333/users/forgotPassword"
+    const url = "http://localhost:3333/forgotPassword"
     const AlertMessageUserNotFound = document.getElementById("AlertMessageUserNotFound")
     const emailValue = document.querySelector("input").value
 

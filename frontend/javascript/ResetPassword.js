@@ -73,7 +73,7 @@ ConfirmSenha.addEventListener('keyup' , (e) =>{
             return MessageError.style.display = "block"
         }
         const data = accessData()
-        const url = "http://localhost:3333/users/resetPassword"
+        const url = "http://localhost:3333/resetPassword"
         if(!data){
             return console.log("Dados incorretos")
         }

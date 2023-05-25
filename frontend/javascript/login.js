@@ -75,7 +75,7 @@ let eye = document.getElementById("show_Senha")
     const init = () => form.addEventListener('submit' , async (e)=>{
         e.preventDefault();
         const data = accessData(); 
-        const url = "http://localhost:3333/users/login"
+        const url = "http://localhost:3333/login"
         const MessageErrorUserNotAuthorized = document.getElementById("MessageAlert")
 
         
@@ -105,7 +105,7 @@ let eye = document.getElementById("show_Senha")
             }
             else if(data.statusCode === 200){
                 alert("Login realizado com sucesso")
-                return window.location.href = "UsuárioCadastrado.html"
+                return window.location.href = "loggedUser.html"
             }
             else{
                 alert("Erro no servidor local tente novamente mais tarde")

@@ -102,7 +102,7 @@ const init = () => form.addEventListener('submit' , async (e) =>{
     }
     
     const data = accessData();
-    const url = "http://localhost:3333/users/create"
+    const url = "http://localhost:3333/create"
     if(!data){
         return console.log("Dados não estão corretos")
     }
