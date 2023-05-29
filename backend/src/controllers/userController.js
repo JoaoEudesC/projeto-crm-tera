@@ -2,6 +2,10 @@
 const userController = {};
 
 // Importando modulos
+const fs = require("fs");
+const handlebars = require("handlebars");
+const path = require("path");
+
 const { transporterGmail } = require("../mail/mailler");
 const UserSchema = require("../models/userSchema");
 
@@ -49,16 +53,30 @@ userController.getUserByIdAndShowEmail = async (req, res) => {
 };
 
 // Rota que irá fazer o metodo post para a criação de um novo usuário(POST) com a utilização do bcrypt( portando há duas maneiras de se utilizar o bcryptt)
+
 userController.createUser = async (req, res) => {
     try {
         const newUser = new UserSchema(req.body);
+        const variables = {
+            nome: newUser.nome,
+        };
+
+        const templateFileContent = fs
+            .readFileSync(
+                path.join(__dirname, "../views/emails/welcomeUser.hbs")
+            )
+            .toString("utf-8");
+
+        const templateParse = handlebars.compile(templateFileContent);
+        const templateHtml = templateParse(variables);
+
         transporterGmail
             .sendMail({
                 from: "joaoeudes91135538@gmail.com",
                 to: newUser.email,
                 subject: "Bem vindo ao crm-Lobster",
-                html: `<p>Olá ${newUser.nome} agora você já pode fazer login no nosso crm.</p>`,
-                text: `Olá ${newUser.nome}, agora você já pode fazer login no nosso crm, seja bem vindo.`,
+                variables,
+                html: templateHtml,
             })
             .then(() => {
                 console.log("Email enviado com sucesso");

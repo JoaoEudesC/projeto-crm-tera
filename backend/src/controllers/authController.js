@@ -1,7 +1,10 @@
 // Importação dos modulos
 const bcrypt = require("bcrypt");
 const crypto = require("crypto");
+const fs = require("fs");
+const handlebars = require("handlebars");
 const jwt = require("jsonwebtoken");
+const path = require("path");
 
 const { transporterGmail } = require("../mail/mailler");
 const userSchema = require("../models/userSchema");
@@ -114,13 +117,27 @@ authController.forgotPassword = async (req, res) => {
         user.passwordResetExpires = now;
         await user.save();
 
+        const variables = {
+            nome: user.nome,
+            token: user.passwordResetToken,
+        };
+
+        const templateFileContent = fs
+            .readFileSync(
+                path.join(__dirname, "../views/emails/forgotPassword.hbs")
+            )
+            .toString("utf-8");
+
+        const templateParse = handlebars.compile(templateFileContent);
+        const templateHtml = templateParse(variables);
+
         transporterGmail
             .sendMail({
                 from: "joaoeudes91135538@gmail.com",
                 to: email,
                 subject: "Recuperação de senha",
-                html: `<p>Esqueceu a senha?, não tem problema utilize o token enviado para redefinir a senha, o token expira dentro de 1 hora.</p>  <br></br> <p>token: ${token}</p>`,
-                text: `Esqueceu a senha?, não tem problema utilize o token enviado para redefinir a senha. o token expira dentro de 1 hora. ${token}`,
+                variables,
+                html: templateHtml,
             })
             .then(() => {
                 console.log("Email enviado com sucesso");
