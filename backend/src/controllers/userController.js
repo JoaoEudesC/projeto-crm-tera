@@ -57,6 +57,13 @@ userController.getUserByIdAndShowEmail = async (req, res) => {
 userController.createUser = async (req, res) => {
     try {
         const newUser = new UserSchema(req.body);
+
+        if (!newUser) {
+            throw new Error(
+                "Não foi possível criar sua conta , verifique as credenciais"
+            );
+        }
+
         const variables = {
             nome: newUser.nome,
         };
