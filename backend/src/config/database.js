@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
-
 require("dotenv").config();
 
-const { MONGODB_URI } = process.env;
+let { MONGODB_URI } = process.env;
+
+if (process.env.NODE_ENV === "test") {
+    MONGODB_URI = process.env.MONGODB_URI_TEST; // Caso eu execute testes de integração ele vai utilizar essa url de ligação  que é só para testes, caso contrário será a url default.
+}
 
 const connect = async () => {
     try {
@@ -12,7 +15,7 @@ const connect = async () => {
         });
         console.log("Banco conectado");
     } catch (error) {
-        console.log("Erro ", error.message);
+        console.log("Erro", error.message);
     }
 };
 

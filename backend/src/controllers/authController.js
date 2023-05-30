@@ -21,7 +21,6 @@ authController.login = (req, res) => {
         // Validação de email
         // eslint-disable-next-line consistent-return
         userSchema.findOne({ email: req.body.email }, (error, usuário) => {
-            console.log(usuário);
             if (!usuário) {
                 return res.status(401).json({
                     statusCode: 401,
@@ -31,7 +30,6 @@ authController.login = (req, res) => {
                     },
                 });
             }
-            console.log(usuário);
             // Validação de Senha
             const ValidationPassword = bcrypt.compareSync(
                 req.body.senha,
@@ -139,10 +137,9 @@ authController.forgotPassword = async (req, res) => {
                 variables,
                 html: templateHtml,
             })
-            .then(() => {
-                console.log("Email enviado com sucesso");
-            })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                throw new Error(err);
+            });
         res.status(200).json({
             statusCode: 200,
             message: "Token enviado com sucesso, cheque sua caixa de email",

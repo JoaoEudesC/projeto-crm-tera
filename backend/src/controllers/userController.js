@@ -85,10 +85,9 @@ userController.createUser = async (req, res) => {
                 variables,
                 html: templateHtml,
             })
-            .then(() => {
-                console.log("Email enviado com sucesso");
-            })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                throw new Error(err);
+            });
         const savedUser = await newUser.save();
 
         res.status(201).json({

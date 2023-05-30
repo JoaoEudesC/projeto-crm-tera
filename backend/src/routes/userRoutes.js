@@ -14,7 +14,6 @@ const {
 const {
     registerValidate,
     updateForgotPssword,
-    updateUser,
 } = require("../middlewares/userMiddleware");
 
 router.get("/all", userController.getAll);
@@ -30,15 +29,13 @@ router.post(
     userController.createUser
 );
 
-router.put("/:id", updateUser, userController.updateUserById);
-
 router.delete("/:id", userController.deleteUserById);
 
 router.post("/login", authController.login);
 
 router.post(
     "/RotaAutenticada",
-    authController.tokenVerification,
+    authController.tokenVerification, // Middleware de verificação de token, se realmente aquele token pertence ao usuário.
     userController.rotaAutenticada
 );
 
